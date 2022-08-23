@@ -1,0 +1,12 @@
+.dashboard {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	.dashboard__item {
+		width: 50%;
+		min-height: calc(100% / 5);
+		max-height: calc(100% / 5);
+		//height: calc(100% / 5);
+	}
+}

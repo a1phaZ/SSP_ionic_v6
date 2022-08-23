@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import {AppService} from './services/app.service';
+import {Platform} from '@ionic/angular';
+import {WebApiService} from './services/web-api.service';
+import {AuthService} from './services/auth.service';
+import {LoadingService} from './services/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +11,20 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(
+    private appService: AppService,
+    private apiService: WebApiService,
+    private authService: AuthService,
+	public loadingService: LoadingService,
+    private platform: Platform
+  ) {
+    platform.ready().then(async (data) => {
+      // Получаем валидный url
+      this.apiService.getValidUrl();
+      this.authService.checkToken();
+	  this.loadingService.loading.subscribe((loading) => console.log('loading: ', loading));
+
+      console.log('platform ready', data);
+    });
+  }
 }

@@ -1,0 +1,38 @@
+.btn__wrapper {
+	height: 100%;
+	padding: 4px;
+	.dashboard__btn {
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		text-align: center;
+		height: 100%;
+		border-radius: 3px;
+
+		.dashboard__icon {
+			height: 70%;
+			width: 50%;
+			align-self: center;
+			padding: 8px;
+			display: flex;
+
+			svg {
+				height: 70%!important;
+			}
+		}
+
+		.dashboard__text {
+			color: #fff;
+			font-weight: 300;
+			font-size: 1rem;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 2;
+			line-height: 15px;
+			height: 30px;
+		}
+	}
+}

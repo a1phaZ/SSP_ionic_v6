@@ -1,0 +1,16 @@
+<ion-header *ngIf="config.header">
+  <ion-toolbar>
+    <ion-title>tabs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="{{t.tab}}" *ngFor="let t of config.tabs">
+        <ion-icon name="{{t.icon}}" *ngIf="t.icon"></ion-icon>
+        <ion-label *ngIf="t.label">{{t.label}}</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>

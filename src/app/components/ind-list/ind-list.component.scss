@@ -1,0 +1,25 @@
+.ind__list {
+	padding: 8px 8px 0 8px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+
+	&.opened {
+		padding-right: 0;
+		padding-top: 0;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.ind__list {
+		background-color: var(--bg-dark);
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	.ind__list {
+		// TODO background color
+		background-color: var(--bg-light);
+	}
+}

@@ -1,0 +1,78 @@
+<ion-content fullscreen="true" class="auth__content">
+	<main class="auth__wrapper">
+		<section class="auth__section">
+			<div class="header__wrapper">
+				<div class="header__group">
+					<div class="header__logo"></div>
+					<span class="header__text">ССП Ключавто</span>
+				</div>
+				<div class="header__group">
+					<span class="header__text strong">Добрый день</span>
+					<span class="header__text lite">Для доступа к приложению введите цифровой код доступа</span>
+				</div>
+			</div>
+
+			<!--	<div class="login-header-error" *ngIf="authErr" padding>-->
+			<!--		<div class="login-header-error-title" padding-bottom>Ошибка ввода цифрового ключа доступа</div>-->
+			<!--		<div class="login-header-error-text">Попробуйте ввести ключ снова или нажмите "Забыли ключ?"</div>-->
+			<!--	</div>-->
+
+			<div class="login-container">
+				<div class="login-pins">
+					<!--					<div class="login-pins-pins">-->
+					<div [ngClass]="(pin.length >= 1) ? 'login-pin active' : 'login-pin'"></div>
+					<div [ngClass]="(pin.length >= 2) ? 'login-pin active' : 'login-pin'"></div>
+					<div [ngClass]="(pin.length >= 3) ? 'login-pin active' : 'login-pin'"></div>
+					<div [ngClass]="(pin.length >= 4) ? 'login-pin active' : 'login-pin'"></div>
+					<div [ngClass]="(pin.length >= 5) ? 'login-pin active' : 'login-pin'"></div>
+					<!--					</div>-->
+				</div>
+
+				<div class="login-keys">
+					<ion-button fill="clear" class="login-key ion-activatable ripple-parent" (click)=codeButtonClick(1)>1
+						<ion-ripple-effect></ion-ripple-effect>
+					</ion-button>
+					<ion-button fill="clear" class="login-key ion-activatable ripple-parent" (click)=codeButtonClick(2)>2
+						<ion-ripple-effect></ion-ripple-effect>
+					</ion-button>
+					<ion-button fill="clear" class="login-key ion-activatable ripple-parent" (click)=codeButtonClick(3)>3
+						<ion-ripple-effect></ion-ripple-effect>
+					</ion-button>
+					<ion-button fill="clear" class="login-key ion-activatable ripple-parent" (click)=codeButtonClick(4)>4
+						<ion-ripple-effect></ion-ripple-effect>
+					</ion-button>
+					<ion-button fill="clear" class="login-key ion-activatable ripple-parent" (click)=codeButtonClick(5)>5
+						<ion-ripple-effect></ion-ripple-effect>
+					</ion-button>
+					<ion-button fill="clear" class="login-key ion-activatable ripple-parent" (click)=codeButtonClick(6)>6
+						<ion-ripple-effect></ion-ripple-effect>
+					</ion-button>
+					<ion-button fill="clear" class="login-key ion-activatable ripple-parent" (click)=codeButtonClick(7)>7
+						<ion-ripple-effect></ion-ripple-effect>
+					</ion-button>
+					<ion-button fill="clear" class="login-key ion-activatable ripple-parent" (click)=codeButtonClick(8)>8
+						<ion-ripple-effect></ion-ripple-effect>
+					</ion-button>
+					<ion-button fill="clear" class="login-key ion-activatable ripple-parent" (click)=codeButtonClick(9)>9
+						<ion-ripple-effect></ion-ripple-effect>
+					</ion-button>
+					<ion-button fill="clear" class="login-key invisible"></ion-button>
+					<ion-button fill="clear" class="login-key ion-activatable ripple-parent" (click)=codeButtonClick(0)>0
+						<ion-ripple-effect></ion-ripple-effect>
+					</ion-button>
+					<ion-button fill="clear" class="login-key ion-activatable ripple-parent" (click)=codeDeleteClick()><
+						<ion-ripple-effect></ion-ripple-effect>
+					</ion-button>
+				</div>
+			</div>
+			<!--ng-container *ngIf="keyFile"-->
+			<div class="login-forget" (click)="logout(true)">Забыли ключ?</div>
+		</section>
+	</main>
+
+	<!--/ng-container-->
+</ion-content>
+
+<!--<ion-content *ngIf="newVersion">-->
+<!--	<update-info></update-info>-->
+<!--</ion-content>-->

@@ -1,0 +1,36 @@
+<ion-content fullscreen="true" class="auth__content">
+  <main class="auth__wrapper">
+    <section class="auth__section">
+
+      <div class="header__wrapper">
+        <div class="header__group">
+          <div class="header__logo"></div>
+          <span class="header__text">ССП Ключавто</span>
+        </div>
+        <div class="header__group">
+          <span class="header__text strong">Добрый день</span>
+          <span class="header__text lite">Авторизуйтесь для входа в систему</span>
+        </div>
+      </div>
+
+      <div class="form__wrapper">
+        <form [formGroup]="form" (ngSubmit)="onSubmit(form)" class="phone-form" (keyup.enter)="form.valid && onSubmit(form)">
+          <div class="input__wrapper">
+            <input class="input-login no-icon" type="text" placeholder="Имя пользователя" formControlName="login"/>
+          </div>
+          <div class="input__wrapper">
+            <input class="input-password no-icon" type="password" placeholder="Пароль" formControlName="password"/>
+          </div>
+
+          <ion-button class="auth__button" type="submit" [disabled]="!form.valid">Войти</ion-button>
+          <a [href]="'https://my.keyauto.ru'">Сбросить пароль</a>
+        </form>
+      </div>
+
+      <div class="version__block">
+        Версия приложения
+      </div>
+
+    </section>
+  </main>
+</ion-content>
