@@ -1,0 +1,4 @@
+<div class="item__wrapper">
+	<span class="item__title" [ngClass]="item?.blur && 'content-blur'" [innerHtml]="item?.title | innerHtml"></span>
+	<span class="item__value" [ngClass]="item?.blur && 'content-blur'">{{item?.value}} {{item?.suffix}}</span>
+</div>

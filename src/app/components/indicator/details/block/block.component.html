@@ -1,0 +1,14 @@
+<div class="block__wrapper">
+	<div class="block__header">{{block.periodName}}</div>
+	<ng-container *ngIf="block.values as values">
+		<ng-container *ngFor="let item of values">
+			<ng-container *ngIf="item.type === 'text'; else itemBar">
+				<app-item-text [item]="item"></app-item-text>
+			</ng-container>
+			<ng-template #itemBar>
+				<app-item-bar [item]="item"></app-item-bar>
+			</ng-template>
+		</ng-container>
+
+	</ng-container>
+</div>

@@ -86,8 +86,13 @@
 	--bg-item-light: #fefefe;
 	--bg-item-test: rgb(255, 208, 54);
 
+	--color-dark: #fefefe;
+	--color-light: black;
+
 	--bs-item-dark: 0 4px 8px rgb(0 0 0 / 10%);
 	--bs-item-light: 0px 4px 8px rgb(0 0 0 / 10%);
+
+	--block-item-title: #9BE0FF;
 }
 
 @media (prefers-color-scheme: dark) {

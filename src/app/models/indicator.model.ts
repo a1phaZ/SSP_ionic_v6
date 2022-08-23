@@ -18,3 +18,45 @@ export type TIndicator = {
 	childs: TIndicator[];
 	isOpen: boolean;
 };
+
+export type TIndicatorDetails = {
+	blocks: TIndicatorDetailsBlock[];
+	comments: string;
+	formula: string;
+	formula2: string;
+	indInfo: TIndicatorDetailsIndInfo;
+};
+
+export type TIndicatorDetailsBlock = {
+	periodId: number;
+	periodName: string;
+	values: TIndicatorDetailsBlockValue[];
+};
+
+export type TIndicatorDetailsBlockValue = TIndicatorDetailsBlockValueTypeText | TIndicatorDetailsBlockValueTypeBar;
+
+export type TIndicatorDetailsBlockValueTypeText = {
+	type: 'text';
+	name: string;
+	title: string;
+	value: string | number;
+	suffix: string;
+	blur?: boolean;
+};
+
+export type TIndicatorDetailsBlockValueTypeBar = {
+	type: 'bar';
+	value: string | number;
+	min: number;
+	max: number;
+	state: 'excellent' | 'success' | 'enough' | 'danger';
+	suffix: string;
+};
+
+export type TIndicatorDetailsIndInfo = {
+	id: number;
+	id_period: number;
+	depends_count: number;
+	title: string;
+	is_marka_analytics: boolean | null;
+};

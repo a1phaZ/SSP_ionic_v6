@@ -1,0 +1,139 @@
+.item__bar {
+	display: flex;
+	align-items: center;
+	margin-top: 16px;
+	padding-bottom: 8px;
+
+	.runrate-label {
+		white-space: nowrap;
+		font-size: 1.3rem;
+		//color: var(--color-dark);
+		font-weight: 500;
+		margin-right: 5px;
+	}
+
+	&-label {
+		white-space: nowrap;
+		font-size: 1.1rem;
+	}
+
+	.progress-bar {
+		position: relative;
+		//transform: translateX();
+		width: 100%;
+		margin-left: 8px;
+		margin-right: 8px;
+		padding: 2.5px 0;
+		&__value {
+			position: absolute;
+			top: 0;
+			padding: 2px 8px;
+			box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+			border-radius: 12px;
+			font-weight: 500;
+			animation-name: opacityAnimate;
+			animation-iteration-count: 1;
+			animation-duration: 2s;
+		}
+	}
+
+	&__status-excellent {
+		#progress {
+			background: var(--status-excellent);
+		}
+		.progress-bar__value {
+			background: var(--status-excellent);
+		}
+	}
+
+	&__status-success {
+		#progress {
+			background: var(--status-success);
+		}
+		.progress-bar__value {
+			background: var(--status-success);
+		}
+	}
+
+	&__status-enough {
+		#progress {
+			background: var(--status-enough);
+		}
+		.progress-bar__value {
+			background: var(--status-enough);
+		}
+	}
+
+	&__status-danger {
+		#progress {
+			background: var(--status-danger);
+		}
+		.progress-bar__value {
+			background: var(--status-danger);
+		}
+	}
+}
+#progress {
+	height: 100%;
+	border-radius: 8px;
+
+	animation-name: progressBar;
+	animation-iteration-count: 1;
+	animation-duration: 2s;
+}
+
+#progressBar {
+	display: block;
+	border-radius: 8px;
+	width: 100%;
+	height: 16px;
+	border: none;
+	position: relative;
+
+	#placeholder {
+		position: absolute;
+		right: 0;
+		top: 0;
+		height: 100%;
+		border-top-right-radius: 7px;
+		border-bottom-right-radius: 7px;
+	}
+}
+
+@keyframes opacityAnimate {
+	0% {opacity: 0;}
+	50% {opacity: 0;}
+	100% {opacity: 1;}
+}
+
+@keyframes progressBar {
+	0% {
+		width: 10%;
+	}
+
+	100% {
+		width: 100%;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.item__bar {
+		background-color: var(--bg-item-dark);
+		color: var(--color-dark);
+
+		#placeholder {
+			background-color: var(--bg-item-dark);
+		}
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	.item__bar {
+		background-color: var(--bg-item-light);
+		color: var(--color-light);
+
+		#placeholder {
+			background-color: var(--bg-item-light);
+		}
+	}
+}

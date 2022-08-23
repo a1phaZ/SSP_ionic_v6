@@ -1,12 +1,12 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {TIndicator} from '../../models/indicator.model';
 
 @Component({
-  selector: 'app-ind-list-item',
-  templateUrl: './ind-list-item.component.html',
-  styleUrls: ['./ind-list-item.component.scss'],
+	selector: 'app-ind-list-item',
+	templateUrl: './ind-list-item.component.html',
+	styleUrls: ['./ind-list-item.component.scss'],
 })
-export class IndListItemComponent{
+export class IndListItemComponent {
 
 	@Input()
 	indicator: TIndicator;
@@ -14,9 +14,12 @@ export class IndListItemComponent{
 	@Output()
 	itemToggle: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor() { }
+	constructor() {
+	}
 
 	onItemToggle(id) {
-	  this.itemToggle.emit(id);
+		this.itemToggle.emit(id);
 	}
+
+//	TODO Добавить обработчики перехода на детальную информацию по показателю
 }

@@ -1,0 +1,18 @@
+<div class="item__bar">
+	<span class="runrate-label">Run Rate</span>
+	<span class="item__bar-label">0{{item?.suffix}}</span>
+	<div class="progress-bar" [ngClass]="'item__bar__status-'+item?.state">
+		<div id="progressBar">
+			<div id="progress" [style.width]="calcWidth(item?.value)+'%'"></div>
+			<div id="placeholder" [style.width]="(100 - calcWidth(item?.value))+'%'"></div>
+		</div>
+		<div class="progress-bar__value" [ngStyle]="{
+                            'transform': item?.value | progressValue: item?.max : 'transform',
+                            'left': item?.value | progressValue: item?.max : 'position'
+                          }">
+			{{item?.value}}{{item?.suffix}}
+		</div>
+	</div>
+	<span
+		class="item__bar-label">{{item?.max}}{{item?.suffix}}</span>
+</div>

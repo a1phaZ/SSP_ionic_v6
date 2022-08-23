@@ -8,6 +8,17 @@ import {IndListItemComponent} from './ind-list-item/ind-list-item.component';
 import {IndListComponent} from './ind-list/ind-list.component';
 import {IonicModule} from '@ionic/angular';
 import {CustomIconButtonComponent} from './custom-icon-button/custom-icon-button.component';
+import {DetailsComponent} from './indicator/details/details.component';
+import {BlockComponent} from './indicator/details/block/block.component';
+import {ItemTextComponent} from './indicator/details/block/item-text/item-text.component';
+import {ItemBarComponent} from './indicator/details/block/item-bar/item-bar.component';
+
+const indicatorComponents = [
+	DetailsComponent,
+	BlockComponent,
+	ItemTextComponent,
+	ItemBarComponent
+];
 
 @NgModule({
 	declarations: [
@@ -16,7 +27,8 @@ import {CustomIconButtonComponent} from './custom-icon-button/custom-icon-button
 		DashboardListComponent,
 		IndListItemComponent,
 		IndListComponent,
-		CustomIconButtonComponent
+		CustomIconButtonComponent,
+		indicatorComponents
 	],
 	exports: [
 		LoaderComponent,
@@ -24,7 +36,8 @@ import {CustomIconButtonComponent} from './custom-icon-button/custom-icon-button
 		DashboardListComponent,
 		IndListItemComponent,
 		IndListComponent,
-		CustomIconButtonComponent
+		CustomIconButtonComponent,
+		indicatorComponents
 	],
 	imports: [
 		CommonModule,

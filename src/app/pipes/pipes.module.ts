@@ -1,14 +1,17 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {InnerHtmlPipe} from './inner-html.pipe';
+import { ProgressValuePipe } from './progress-value.pipe';
 
 
 @NgModule({
 	declarations: [
-		InnerHtmlPipe
+		InnerHtmlPipe,
+  ProgressValuePipe
 	],
 	exports: [
-		InnerHtmlPipe
+		InnerHtmlPipe,
+		ProgressValuePipe
 	],
 	imports: [
 		CommonModule
