@@ -12,12 +12,17 @@ import {DetailsComponent} from './indicator/details/details.component';
 import {BlockComponent} from './indicator/details/block/block.component';
 import {ItemTextComponent} from './indicator/details/block/item-text/item-text.component';
 import {ItemBarComponent} from './indicator/details/block/item-bar/item-bar.component';
+import {TableComponent} from './table/table.component';
 
 const indicatorComponents = [
 	DetailsComponent,
 	BlockComponent,
 	ItemTextComponent,
 	ItemBarComponent
+];
+
+const tableComponents = [
+	TableComponent
 ];
 
 @NgModule({
@@ -28,7 +33,8 @@ const indicatorComponents = [
 		IndListItemComponent,
 		IndListComponent,
 		CustomIconButtonComponent,
-		indicatorComponents
+		indicatorComponents,
+		tableComponents
 	],
 	exports: [
 		LoaderComponent,
@@ -37,7 +43,8 @@ const indicatorComponents = [
 		IndListItemComponent,
 		IndListComponent,
 		CustomIconButtonComponent,
-		indicatorComponents
+		indicatorComponents,
+		tableComponents
 	],
 	imports: [
 		CommonModule,

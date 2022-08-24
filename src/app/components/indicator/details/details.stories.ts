@@ -1,10 +1,29 @@
-import {Meta, Story} from '@storybook/angular';
+import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {DetailsComponent} from './details.component';
 import {TIndicatorDetails} from '../../../models/indicator.model';
+import {CommonModule} from '@angular/common';
+import {BlockComponent} from './block/block.component';
+import {IonicModule} from '@ionic/angular';
+import {ItemTextComponent} from './block/item-text/item-text.component';
+import {ItemBarComponent} from './block/item-bar/item-bar.component';
+import {PipesModule} from '../../../pipes/pipes.module';
 
 export default {
 	component: DetailsComponent,
-	title: 'Indicators / Info / Details'
+	title: 'Indicators / Info / Details',
+	decorators: [
+		moduleMetadata({
+			imports: [CommonModule, IonicModule.forRoot(), PipesModule],
+			declarations: [BlockComponent, ItemTextComponent, ItemBarComponent]
+		})
+	],
+	parameters: {
+		docs: {
+			description: {
+				component: 'Компонент отображения детальной информации по показателю'
+			}
+		}
+	}
 } as Meta;
 
 const template: Story = (args: DetailsComponent) => ({

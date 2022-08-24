@@ -2,13 +2,14 @@ import {Story, Meta, moduleMetadata} from '@storybook/angular';
 import {CustomIconButtonComponent} from './custom-icon-button.component';
 import {IonicModule} from '@ionic/angular';
 import {action} from '@storybook/addon-actions';
+import {CommonModule} from '@angular/common';
 
 export default {
 	component: CustomIconButtonComponent,
 	title: 'App / Icon Button',
 	decorators: [
 		moduleMetadata({
-			imports: [IonicModule.forRoot({})]
+			imports: [CommonModule, IonicModule.forRoot()]
 		})
 	]
 } as Meta;

@@ -2,11 +2,13 @@
 	font-size: 1.4rem;
 	padding: 8px;
 	border-radius: 4px;
+	margin-bottom: 8px;
 }
 @media (prefers-color-scheme: dark) {
 	.block__wrapper {
 		background-color: var(--bg-item-dark);
 		color: var(--color-dark);
+		box-shadow: var(--bs-item-dark);
 	}
 }
 
@@ -14,5 +16,6 @@
 	.block__wrapper {
 		background-color: var(--bg-item-light);
 		color: black;
+		box-shadow: var(--bs-item-light);
 	}
 }

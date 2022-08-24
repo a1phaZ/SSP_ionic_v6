@@ -1,7 +1,7 @@
 <div class="details__wrapper">
 	<ng-container *ngIf="indicator.blocks as blocks">
 		<div class="details__block" *ngFor="let block of blocks">
-			{{block.periodName}}
+			<app-block [block]="block"></app-block>
 		</div>
 	</ng-container>
 

@@ -3,13 +3,14 @@ import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {TIndicator} from '../../models/indicator.model';
 import {IonicModule} from '@ionic/angular';
 import {CustomIconButtonComponent} from '../custom-icon-button/custom-icon-button.component';
+import {CommonModule} from '@angular/common';
 
 export default {
 	component: IndListItemComponent,
 	title: 'Indicators / List / Standard Item',
 	decorators: [
 		moduleMetadata({
-			imports: [IonicModule.forRoot()],
+			imports: [CommonModule, IonicModule.forRoot()],
 			declarations: [CustomIconButtonComponent]
 		}),
 	],

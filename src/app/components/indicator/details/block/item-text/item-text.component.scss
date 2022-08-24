@@ -11,7 +11,7 @@
 	.item__title {
 		font-size: 1.3rem;
 
-		span {
+		&>span {
 			color: var(--block-item-title);
 			font-weight: 500;
 		}

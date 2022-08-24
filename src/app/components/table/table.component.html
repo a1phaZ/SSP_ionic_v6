@@ -1,0 +1,61 @@
+<div class="indicator-details-thead-rating">
+	<table>
+		<thead>
+		<tr>
+			<th></th>
+			<th [ngClass]="(ratingSortField !== 'orgName') ? 'indiTDOrg' : ( ratingSortOrder === 'desc' ) ? 'indiTDOrg fieldSortDesc' : 'indiTDOrg fieldSortAsc'"
+				(click)='changeSortDirection("orgName")'
+			>
+				Станция
+			</th>
+			<th [ngClass]="(ratingSortField !== 'plan') ? 'indiTDtbl' : ( ratingSortOrder === 'desc' ) ? 'indiTDtbl fieldSortDesc' : 'indiTDtbl fieldSortAsc'"
+				(click)='changeSortDirection("plan")'
+			>
+				План
+			</th>
+			<th [ngClass]="(ratingSortField !== 'fakt') ? 'indiTDtbl' : ( ratingSortOrder === 'desc' ) ? 'indiTDtbl fieldSortDesc' : 'indiTDtbl fieldSortAsc'"
+				(click)='changeSortDirection("fakt")'
+			>
+				Факт
+			</th>
+			<th *ngIf="(crisisService.filter | async) === false"
+				[ngClass]="(ratingSortField !== 'pct') ? 'indiTDtbl' : ( ratingSortOrder === 'desc' ) ? 'indiTDtbl fieldSortDesc' : 'indiTDtbl fieldSortAsc'"
+				(click)='changeSortDirection("pct")'
+			>
+				%вып.<span class="end-element"></span>
+			</th>
+			<th *ngIf="crisisService.filter | async"
+				[ngClass]="(ratingSortField !== 'runrate') ? 'indiTDtbl' : ( ratingSortOrder === 'desc' ) ? 'indiTDtbl fieldSortDesc' : 'indiTDtbl fieldSortAsc'"
+				(click)='changeSortDirection("runrate")'
+			>
+				%RR<span class="end-element"></span>
+			</th>
+		</tr>
+		</thead>
+	</table>
+
+	<table class="tblIndResult">
+		<tr class="indiTR6"
+			*ngFor="let item of ratingList | sortIndRating : ratingSortOrder : ratingSortField; let idx = index"
+			[ngClass]="item?.childs && 'expanded'"
+		>
+			<ng-container *ngIf="!item.total">
+				<td class="clsIndColor{{ratingColor[item.state]}}" [ngClass]="org === item.orgId ? 'selected' : null">
+					{{idx+1}}
+				</td>
+				<td class="indiTDOrg" [ngClass]="org === item.orgId ? 'selected' : null">{{item.orgName}}</td>
+				<td class="indiTDtbl" [ngClass]="org === item.orgId ? 'selected' : null">{{replaceNBSP(item.plan.formatted)}}</td>
+				<td class="indiTDtbl" [ngClass]="org === item.orgId ? 'selected' : null">{{replaceNBSP(item.fakt.formatted)}}</td>
+				<td class="indiTDtbl indiTDtbl_padding" [ngClass]="item?.childs && 'expanded' ? 'indiTDtbl_expand' : null" [ngClass]="org === item.orgId ? 'selected' : null"><b>{{(crisisService.filter | async) ? item.runrate : item.pct}}</b></td>
+			</ng-container>
+			<ng-container *ngIf="item.total">
+				<td></td>
+				<td class="indiTDOrg"><strong>{{item.orgName}}</strong></td>
+				<td class="indiTDtbl"><strong>{{replaceNBSP(item.plan.formatted)}}</strong></td>
+				<td class="indiTDtbl"><strong>{{replaceNBSP(item.fakt.formatted)}}</strong></td>
+				<td class="indiTDtbl indiTDtbl_padding"><strong>{{item.pct}}</strong></td>
+			</ng-container>
+		</tr>
+	</table>
+</div>
+
