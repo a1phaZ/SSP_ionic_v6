@@ -8,6 +8,7 @@ export type TRating = {
 	runrate: number;
 	id_parent_group: number | null;
 	childs?: TRating[];
+	total?: boolean;
 };
 
 export type TRatingValue = {
