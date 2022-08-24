@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import {TRating} from '../models/rating.model';
 
 @Pipe({
   name: 'sortIndRating'
@@ -9,13 +10,12 @@ export class SortIndRatingPipe implements PipeTransform {
 	/**
 	 * Takes a value and makes it lowercase.
 	 */
-	transform(array: any[], ratingSortOrder: string, dc: string) {
+	transform(array: any[], ratingSortOrder: string, dc: string): TRating[] {
 		this.ratingSortOrder = ratingSortOrder;
 		return this.sortRating(dc, array);
-
 	}
 
-	sortRating(dc, array) {
+	sortRating(dc, array): TRating[] {
 		if(array.length === 0) {return [];}
 		const total = array[array.length - 1];
 		if (total.total) {
