@@ -121,28 +121,28 @@ table {
 	}
 }
 
-.clsIndColor1, .clsIndColor2, .clsIndColor3, .clsIndColor4{
+.good, .norm, .crit, .bad{
 	position: relative;
 	text-align: center;
 	width: 8%; box-sizing: border-box;
 	padding-left: 6px;
 }
-.clsIndColor1:after, .clsIndColor2:after, .clsIndColor3:after, .clsIndColor4:after{
+.good:after, .bad:after, .crit:after, .norm:after{
 	position: absolute; top: 10%; left: 0;
 	content: "";
 	display: block;
 	width: 3px; height: 80%; border-radius: 3px;
 }
-.clsIndColor1:after{
+.bad:after{
 	background:  var(--status-danger);
 }
-.clsIndColor2:after{
+.crit:after{
 	background:  var(--status-enough);
 }
-.clsIndColor3:after{
+.norm:after{
 	background: var(--status-success);
 }
-.clsIndColor4:after{
+.good:after{
 	background: var(--status-excellent);
 }
 
