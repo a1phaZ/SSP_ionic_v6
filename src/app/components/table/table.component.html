@@ -34,13 +34,13 @@
 		</thead>
 	</table>
 
-	<table class="tblIndResult">
+	<table class="tblIndResult" *ngIf="ratingList as list">
 		<tr class="indiTR6"
-			*ngFor="let item of ratingList | sortIndRating : ratingSortOrder : ratingSortField; let idx = index"
+			*ngFor="let item of list | sortIndRating : ratingSortOrder : ratingSortField; let idx = index"
 			[ngClass]="item?.childs && 'expanded'"
 		>
 			<ng-container *ngIf="!item.total">
-				<td class="clsIndColor{{ratingColor[item.state]}}" [ngClass]="org === item.orgId ? 'selected' : null">
+				<td [class]="item.state" [ngClass]="org === item.orgId ? 'selected' : null">
 					{{idx+1}}
 				</td>
 				<td class="indiTDOrg" [ngClass]="org === item.orgId ? 'selected' : null">{{item.orgName}}</td>
