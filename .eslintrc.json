@@ -21,6 +21,7 @@
 				"plugin:@angular-eslint/template/process-inline-templates"
 			],
 			"rules": {
+				"@typescript-eslint/naming-convention": "off",
 				"no-underscore-dangle": "off",
 				"@typescript-eslint/dot-notation": "off",
 				"@angular-eslint/component-class-suffix": [
