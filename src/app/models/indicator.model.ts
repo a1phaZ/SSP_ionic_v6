@@ -6,7 +6,6 @@ export type TIndicator = {
 		viewSum: string;
 		complete: number;
 		completeStatus: 'success' | 'enough' | 'danger' | 'excellent';
-	//	TODO complete status const
 	};
 	fact: {
 		sum: number;
