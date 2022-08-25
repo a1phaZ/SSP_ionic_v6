@@ -1,0 +1,127 @@
+.good, .norm, .crit, .bad{
+	position: relative;
+	text-align: center;
+	width: 8%; box-sizing: border-box;
+	padding-left: 6px;
+}
+.good:after, .bad:after, .crit:after, .norm:after{
+	position: absolute; top: 10%; left: 0;
+	content: "";
+	display: block;
+	width: 3px; height: 80%; border-radius: 3px;
+}
+.bad:after{
+	background:  var(--status-danger);
+}
+.crit:after{
+	background:  var(--status-enough);
+}
+.norm:after{
+	background: var(--status-success);
+}
+.good:after{
+	background: var(--status-excellent);
+}
+
+.table__row-item {
+	display: flex;
+	cursor: pointer;
+}
+
+td {
+	border: none !important;
+	margin: 0;
+	width: 25%;
+	//white-space: nowrap;
+	padding: 3px 0 3px 5px;
+	height: auto;
+	display: flex;
+	justify-content: start;
+	//justify-content: flex-start;
+	align-items: center;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	letter-spacing: -0.15px;
+
+	&:first-child {
+		width: 6%;
+	}
+
+	&:nth-child(2) {
+		width: 34%;
+		justify-content: start;
+	}
+
+	&:last-child {
+		width: 14%;
+		justify-content: end;
+		padding-right: 5px;
+	};
+}
+
+.inner__table {
+	width: 100%;
+	background-color: var(--bg-inner-table-dark);
+	display: none;
+
+	.good:after, .bad:after, .crit:after, .norm:after {
+		display: none;
+	}
+
+	&.isVisible {
+		display: table;
+	}
+}
+
+.selected {
+	font-weight: bold;
+}
+
+.indiTDtbl_expand{
+	position: relative;
+}
+
+.indiTDtbl_padding{
+	padding-right: 12px !important;
+}
+
+.indiTDtbl_expand:after{
+	content: "";
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: 8px;
+	mask: url('../../../../assets/icon/custom-arrow-down-fill.svg') center no-repeat;
+	mask-size: 6px auto;
+	background: var(--color-dark);
+}
+
+.table__row-item{
+	&.expanded {
+		min-height: 40px;
+	}
+	&.isOpen {
+		.indiTDtbl_expand:after {
+			mask: url('../../../../assets/icon/custom-arrow-up-fill.svg') center no-repeat;
+		}
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	//.block__wrapper {
+	//	background-color: var(--bg-inner-table-dark);
+	//	color: var(--color-dark);
+	//	box-shadow: var(--bs-item-dark);
+	//}
+}
+
+@media (prefers-color-scheme: light) {
+	.inner__table {
+		background-color: var(--bg-inner-table-light);
+	}
+
+	.indiTDtbl_expand:after {
+		background: var(--color-light);
+	}
+}

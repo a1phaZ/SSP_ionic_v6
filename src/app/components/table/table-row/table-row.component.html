@@ -1,0 +1,23 @@
+<tr class="table__row-item"
+	[ngClass]="{selected: org === item.orgId, isOpen: item.isOpen, expanded: item.childs}"
+	(click)="openItem()"
+>
+	<td [class]="item.state">
+		{{index + 1}}
+	</td>
+	<td class="indiTDOrg">{{item.orgName}}</td>
+	<td class="indiTDtbl">{{tableService.replaceNBSP(item.plan.formatted)}}</td>
+	<td class="indiTDtbl">{{tableService.replaceNBSP(item.fakt.formatted)}}</td>
+	<td class="indiTDtbl indiTDtbl_padding" [ngClass]="{'indiTDtbl_expand': item?.childs}">
+		<b>{{(crisisService.filter | async) ? item.runrate : item.pct}}</b>
+	</td>
+</tr>
+<table class="inner__table"
+	   [ngClass]="{'isVisible': item.isOpen}"
+	   *ngIf="item.isOpen && item.childs as list"
+>
+	<tr class="indiTR6" *ngFor="let childItem of list; let idx = index">
+		<app-table-row [index]="idx" [item]="childItem" [org]="org"></app-table-row>
+	</tr>
+</table>
+

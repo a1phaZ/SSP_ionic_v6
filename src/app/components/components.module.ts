@@ -13,6 +13,7 @@ import {ItemTextComponent} from './indicator/details/block/item-text/item-text.c
 import {ItemBarComponent} from './indicator/details/block/item-bar/item-bar.component';
 import {TableComponent} from './table/table.component';
 import {CustomIconButtonModule} from './custom-icon-button/custom-icon.button.module';
+import {TableRowComponent} from './table/table-row/table-row.component';
 
 const indicatorComponents = [
 	DetailsComponent,
@@ -22,7 +23,8 @@ const indicatorComponents = [
 ];
 
 const tableComponents = [
-	TableComponent
+	TableComponent,
+	TableRowComponent
 ];
 
 @NgModule({

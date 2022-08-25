@@ -9,6 +9,7 @@ export type TRating = {
 	id_parent_group: number | null;
 	childs?: TRating[];
 	total?: boolean;
+	isOpen?: boolean;
 };
 
 export type TRatingValue = {

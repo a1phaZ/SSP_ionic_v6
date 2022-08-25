@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {CrisisService} from '../../services/crisis.service';
 import {TRating} from '../../models/rating.model';
+import {TableService} from '../../services/table.service';
 
 @Component({
 	selector: 'app-table',
@@ -24,19 +25,16 @@ export class TableComponent {
 	};
 
 	constructor(
-		public crisisService: CrisisService
+		public crisisService: CrisisService,
+		public tableService: TableService
 	) {
 	}
 
 
 	changeSortDirection(sortDirection: string) {
 		if (this.ratingSortField === sortDirection) {
-			this.ratingSortOrder = this.ratingSortOrder === "desc" ? "asc" : "desc";
+			this.ratingSortOrder = this.ratingSortOrder === 'desc' ? 'asc' : 'desc';
 		}
 		this.ratingSortField = sortDirection;
-	}
-
-	replaceNBSP(str: string): string {
-		return str.replace(/&nbsp;/g, " ");
 	}
 }

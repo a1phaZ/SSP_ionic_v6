@@ -37,22 +37,15 @@
 	<table class="tblIndResult" *ngIf="ratingList as list">
 		<tr class="indiTR6"
 			*ngFor="let item of list | sortIndRating : ratingSortOrder : ratingSortField; let idx = index"
-			[ngClass]="item?.childs && 'expanded'"
 		>
 			<ng-container *ngIf="!item.total">
-				<td [class]="item.state" [ngClass]="org === item.orgId ? 'selected' : null">
-					{{idx+1}}
-				</td>
-				<td class="indiTDOrg" [ngClass]="org === item.orgId ? 'selected' : null">{{item.orgName}}</td>
-				<td class="indiTDtbl" [ngClass]="org === item.orgId ? 'selected' : null">{{replaceNBSP(item.plan.formatted)}}</td>
-				<td class="indiTDtbl" [ngClass]="org === item.orgId ? 'selected' : null">{{replaceNBSP(item.fakt.formatted)}}</td>
-				<td class="indiTDtbl indiTDtbl_padding" [ngClass]="item?.childs && 'expanded' ? 'indiTDtbl_expand' : null" [ngClass]="org === item.orgId ? 'selected' : null"><b>{{(crisisService.filter | async) ? item.runrate : item.pct}}</b></td>
+				<app-table-row class="table__row" [index]="idx" [item]="item" [org]="org" ></app-table-row>
 			</ng-container>
 			<ng-container *ngIf="item.total">
 				<td></td>
 				<td class="indiTDOrg"><strong>{{item.orgName}}</strong></td>
-				<td class="indiTDtbl"><strong>{{replaceNBSP(item.plan.formatted)}}</strong></td>
-				<td class="indiTDtbl"><strong>{{replaceNBSP(item.fakt.formatted)}}</strong></td>
+				<td class="indiTDtbl"><strong>{{tableService.replaceNBSP(item.plan.formatted)}}</strong></td>
+				<td class="indiTDtbl"><strong>{{tableService.replaceNBSP(item.fakt.formatted)}}</strong></td>
 				<td class="indiTDtbl indiTDtbl_padding"><strong>{{item.pct}}</strong></td>
 			</ng-container>
 		</tr>

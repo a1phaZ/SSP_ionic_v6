@@ -11,6 +11,13 @@ table {
 		}
 	}
 
+	.table__row {
+		//display: flex;
+		//flex-direction: row;
+		//justify-content: space-between;
+		width: 100%;
+	}
+
 	tr {
 
 		display: flex;
@@ -59,12 +66,14 @@ table {
 			}
 
 			&:nth-child(2) {
-				width: 30%;
+				width: 34%;
 				justify-content: start;
 			}
 
 			&:last-child {
 				width: 14%;
+				justify-content: end;
+				padding-right: 5px;
 			};
 		}
 	}
