@@ -7,12 +7,12 @@ import {DashboardListComponent} from './dashboard-list/dashboard-list.component'
 import {IndListItemComponent} from './ind-list-item/ind-list-item.component';
 import {IndListComponent} from './ind-list/ind-list.component';
 import {IonicModule} from '@ionic/angular';
-import {CustomIconButtonComponent} from './custom-icon-button/custom-icon-button.component';
 import {DetailsComponent} from './indicator/details/details.component';
 import {BlockComponent} from './indicator/details/block/block.component';
 import {ItemTextComponent} from './indicator/details/block/item-text/item-text.component';
 import {ItemBarComponent} from './indicator/details/block/item-bar/item-bar.component';
 import {TableComponent} from './table/table.component';
+import {CustomIconButtonModule} from './custom-icon-button/custom-icon.button.module';
 
 const indicatorComponents = [
 	DetailsComponent,
@@ -32,7 +32,6 @@ const tableComponents = [
 		DashboardListComponent,
 		IndListItemComponent,
 		IndListComponent,
-		CustomIconButtonComponent,
 		indicatorComponents,
 		tableComponents
 	],
@@ -42,14 +41,14 @@ const tableComponents = [
 		DashboardListComponent,
 		IndListItemComponent,
 		IndListComponent,
-		CustomIconButtonComponent,
 		indicatorComponents,
 		tableComponents
 	],
 	imports: [
 		CommonModule,
 		PipesModule,
-		IonicModule
+		IonicModule,
+		CustomIconButtonModule,
 	],
 	// providers: [LoaderComponent]
 })
