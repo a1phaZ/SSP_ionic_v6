@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {TIndicator} from '../../models/indicator.model';
+import {TOrgSelectItem} from '../../models/organization.model';
 
 @Component({
 	selector: 'app-list',
@@ -8,7 +9,7 @@ import {TIndicator} from '../../models/indicator.model';
 })
 export class ListComponent {
 	@Input()
-	list: TIndicator[];
+	list: Array<TIndicator | TOrgSelectItem>;
 
 	@Input()
 	isOpen = false;
