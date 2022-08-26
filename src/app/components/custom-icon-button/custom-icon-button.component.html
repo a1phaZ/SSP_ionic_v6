@@ -1,4 +1,9 @@
-<ion-button class="item__button button__wrapper" fill="clear" (click)="onClickBtn(id)" *ngIf="name">
-	<ion-icon slot="icon-only" name="custom-{{name}}"></ion-icon>
+<ion-button *ngIf="name"
+	[ngStyle]="{'min-height': height + 'px'}"
+	class="item__button button__wrapper"
+	fill="clear"
+	(click)="onClickBtn(id)"
+>
+	<ion-icon slot="icon-only" name="custom-{{name}}" [ngStyle]="{'font-size': size ? size : null}"></ion-icon>
 <!--	<ion-icon slot="icon-only" name="chevron-down-outline"></ion-icon>-->
 </ion-button>
