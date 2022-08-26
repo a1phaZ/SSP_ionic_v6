@@ -1,24 +1,24 @@
-<div class="ind-list__item" [ngClass]="indicator.mode">
+<div class="ind-list__item" [ngClass]="item.mode">
 	<div class="item__info">
-		<div class="info__title">{{indicator.title}}</div>
+		<div class="info__title">{{item.title}}</div>
 		<div class="info__details">
 			<div class="details__info">
 				<span>План:</span>
-				<span class="sum">{{indicator.plan.viewSum}}</span>
-				<span class="units">{{indicator.units}}</span>
+				<span class="sum">{{item.plan.viewSum}}</span>
+				<span class="units">{{item.units}}</span>
 			</div>
-			<div class="details__percent" [ngClass]="indicator.plan.completeStatus">
-				{{indicator.plan.complete}}%
+			<div class="details__percent" [ngClass]="item.plan.completeStatus">
+				{{item.plan.complete}}%
 			</div>
 		</div>
 	</div>
-	<div class="item__sum" [ngClass]="indicator.test ? 'test' : null">
-		<span class="sum">{{indicator.fact.viewSum}}</span>
-		<span class="units">{{indicator.units}}</span>
+	<div class="item__sum" [ngClass]="item.test ? 'test' : null">
+		<span class="sum">{{item.fact.viewSum}}</span>
+		<span class="units">{{item.units}}</span>
 	</div>
-	<app-custom-icon-button *ngIf="indicator.childs.length > 0"
-		[id]="indicator.id"
-		[name]="!indicator.isOpen ? 'arrow-down' : 'arrow-up'"
+	<app-custom-icon-button *ngIf="item.childs && item.childs.length > 0"
+		[id]="item.id"
+		[name]="!item.isOpen ? 'arrow-down' : 'arrow-up'"
 		(clickBtn)="onItemToggle($event)"
 	></app-custom-icon-button>
 </div>
