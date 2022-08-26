@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Input, OnChanges, SimpleChanges, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
 import {ItemComponent} from '../list/item/item.component';
 import {TOrgSelectItem} from '../../models/organization.model';
 import {LogoService} from '../../services/logo.service';
@@ -8,7 +8,7 @@ import {LogoService} from '../../services/logo.service';
 	templateUrl: './org-list-item.component.html',
 	styleUrls: ['./org-list-item.component.scss'],
 })
-export class OrgListItemComponent extends ItemComponent implements AfterViewInit, OnChanges {
+export class OrgListItemComponent extends ItemComponent implements AfterViewInit {
 
 	@ViewChild('itemLogo') itemLogo: ElementRef;
 
@@ -23,10 +23,6 @@ export class OrgListItemComponent extends ItemComponent implements AfterViewInit
 	}
 
 	ngAfterViewInit(): void {
-		this.setLogo();
-	}
-
-	ngOnChanges(changes: SimpleChanges): void {
 		this.setLogo();
 	}
 
