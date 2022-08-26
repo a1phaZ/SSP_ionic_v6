@@ -1,0 +1,14 @@
+.header__wrapper {
+	--min-height: 60px;
+	--background: var(--bg-dark);
+	--color: var(--color-dark);
+
+	.header__title {
+		font-weight: 400;
+		font-size: 1.6rem;
+		line-height: 1.7rem;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}

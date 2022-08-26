@@ -1,0 +1,22 @@
+<ion-header>
+
+	<ion-toolbar mode="ios" class="header__wrapper">
+		<ion-buttons slot="secondary" *ngIf="buttons && buttons.left">
+			<app-custom-icon-button
+				*ngFor="let button of buttons.left"
+				[name]="button"
+				[height]="45"
+				size="24px"
+			></app-custom-icon-button>
+		</ion-buttons>
+		<ion-buttons slot="primary" *ngIf="buttons && buttons.right">
+			<app-custom-icon-button
+				*ngFor="let button of buttons.right"
+				[name]="button"
+				[height]="45"
+				size="24px"
+			></app-custom-icon-button>
+		</ion-buttons>
+		<ion-title class="header__title">{{title}}</ion-title>
+	</ion-toolbar>
+</ion-header>
