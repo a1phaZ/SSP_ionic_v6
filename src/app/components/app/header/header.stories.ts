@@ -3,13 +3,14 @@ import {HeaderComponent} from './header.component';
 import {IonicModule} from '@ionic/angular';
 import {CustomIconButtonModule} from '../../custom-icon-button/custom-icon.button.module';
 import {Icons} from '../../../models/icons.model';
+import {HeaderModule} from './header.module';
 
 export default {
 	component: HeaderComponent,
 	title: 'App / Header',
 	decorators: [
 		moduleMetadata({
-			imports: [IonicModule.forRoot(), CustomIconButtonModule]
+			imports: [IonicModule.forRoot(), CustomIconButtonModule, HeaderModule]
 		})
 	]
 } as Meta;
