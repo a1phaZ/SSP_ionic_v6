@@ -3,6 +3,7 @@
 	<div class="item__title">{{item.title}}</div>
 	<app-custom-icon-button *ngIf="item.childs && item.childs.length > 0"
 							[id]="item.id"
+							[height]="50"
 							[name]="!item.isOpen ? 'arrow-down' : 'arrow-up'"
 							(clickBtn)="onItemToggle($event)"
 	></app-custom-icon-button>
