@@ -3,6 +3,7 @@
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	color: var(--color-dark);
 
 	.content-blur {
 		opacity: 0.6;
@@ -23,5 +24,14 @@
 		font-weight: 500;
 		min-width: 100px;
 		text-align: right;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+}
+
+@media (prefers-color-scheme: light) {
+	.item__wrapper {
+		color: var(--color-light)
 	}
 }
