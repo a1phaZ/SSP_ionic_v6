@@ -16,12 +16,11 @@ import {CustomIconButtonModule} from './custom-icon-button/custom-icon.button.mo
 import {TableRowComponent} from './table/table-row/table-row.component';
 import {ChartComponent} from './chart/chart.component';
 import {HighchartsChartModule} from 'highcharts-angular';
-import {HeaderComponent} from './app/header/header.component';
 import {ItemComponent} from './list/item/item.component';
 import {OrgListItemComponent} from './org-list-item/org-list-item.component';
+import {HeaderModule} from './app/header/header.module';
 
 const appComponents = [
-	HeaderComponent
 ];
 
 const indicatorComponents = [
@@ -68,6 +67,7 @@ const tableComponents = [
 		PipesModule,
 		IonicModule,
 		CustomIconButtonModule,
+		HeaderModule,
 		HighchartsChartModule,
 	],
 	// providers: [LoaderComponent]
