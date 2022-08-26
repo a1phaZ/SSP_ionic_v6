@@ -4,7 +4,7 @@ import { LoaderComponent } from './loader.component';
 
 export default {
 	component: LoaderComponent,
-	title: 'Loader Component',
+	title: 'App / Loader',
 	excludeStories: /.*Data$/,
 } as Meta;
 
