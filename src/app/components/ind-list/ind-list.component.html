@@ -1,8 +1,0 @@
-<div class="ind__list" [ngClass]="isOpen && 'opened'">
-	<ng-container *ngFor="let item of list">
-		<app-ind-list-item
-			[indicator]="item"
-			(itemToggle)="itemToggle($event)"></app-ind-list-item>
-		<app-ind-list *ngIf="item.isOpen && item.childs.length > 0" [list]="item.childs" [isOpen]="item.isOpen"></app-ind-list>
-	</ng-container>
-</div>

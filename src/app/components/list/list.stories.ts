@@ -1,5 +1,5 @@
 import {Story, Meta, moduleMetadata} from '@storybook/angular';
-import {IndListComponent} from './ind-list.component';
+import {ListComponent} from './list.component';
 import {CommonModule} from '@angular/common';
 import {IndListItemComponent} from '../ind-list-item/ind-list-item.component';
 import {TIndicator} from '../../models/indicator.model';
@@ -8,7 +8,7 @@ import {IonicModule} from '@ionic/angular';
 import {action} from '@storybook/addon-actions';
 
 export default {
-	component: IndListComponent,
+	component: ListComponent,
 	title: 'Indicators / List / List',
 	decorators: [
 		moduleMetadata({

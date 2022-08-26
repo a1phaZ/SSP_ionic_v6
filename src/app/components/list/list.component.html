@@ -1,0 +1,9 @@
+<script src="../ind-list-item/ind-list-item.stories.ts"></script>
+<div class="list__wrapper" [ngClass]="isOpen && 'opened'">
+	<ng-container *ngFor="let item of list">
+		<app-ind-list-item
+			[item]="item"
+			(itemToggle)="itemToggle($event)"></app-ind-list-item>
+		<app-list *ngIf="item.isOpen && item.childs.length > 0" [list]="item.childs" [isOpen]="item.isOpen"></app-list>
+	</ng-container>
+</div>

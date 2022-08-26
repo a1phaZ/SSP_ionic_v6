@@ -2,11 +2,11 @@ import {Component, Input} from '@angular/core';
 import {TIndicator} from '../../models/indicator.model';
 
 @Component({
-	selector: 'app-ind-list',
-	templateUrl: './ind-list.component.html',
-	styleUrls: ['./ind-list.component.scss'],
+	selector: 'app-list',
+	templateUrl: './list.component.html',
+	styleUrls: ['./list.component.scss'],
 })
-export class IndListComponent {
+export class ListComponent {
 	@Input()
 	list: TIndicator[];
 

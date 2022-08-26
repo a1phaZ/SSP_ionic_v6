@@ -1,4 +1,4 @@
-.ind__list {
+.list__wrapper {
 	padding: 8px 8px 0 8px;
 	height: 100%;
 	display: flex;
@@ -12,13 +12,13 @@
 }
 
 @media (prefers-color-scheme: dark) {
-	.ind__list {
+	.list__wrapper {
 		background-color: var(--bg-dark);
 	}
 }
 
 @media (prefers-color-scheme: light) {
-	.ind__list {
+	.list__wrapper {
 		background-color: var(--bg-light);
 	}
 }
