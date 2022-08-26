@@ -4,4 +4,5 @@ export type TOrgSelectItem = {
 	title: string;
 	childs?: TOrgSelectItem[];
 	isOpen?: boolean;
+	isActive?: boolean;
 };

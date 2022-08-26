@@ -19,6 +19,8 @@ import {HighchartsChartModule} from 'highcharts-angular';
 import {ItemComponent} from './list/item/item.component';
 import {OrgListItemComponent} from './org-list-item/org-list-item.component';
 import {HeaderModule} from './app/header/header.module';
+import {IndListComponent} from './ind-list/ind-list.component';
+import {OrgsListComponent} from './orgs-list/orgs-list.component';
 
 const appComponents = [
 ];
@@ -42,12 +44,14 @@ const tableComponents = [
 		DashboardItemComponent,
 		DashboardListComponent,
 		IndListItemComponent,
+		IndListComponent,
 		ListComponent,
 		ItemComponent,
 		indicatorComponents,
 		tableComponents,
 		ChartComponent,
-		OrgListItemComponent
+		OrgListItemComponent,
+		OrgsListComponent
 	],
 	exports: [
 		appComponents,
@@ -55,12 +59,14 @@ const tableComponents = [
 		DashboardItemComponent,
 		DashboardListComponent,
 		IndListItemComponent,
+		IndListComponent,
 		ListComponent,
 		ItemComponent,
 		indicatorComponents,
 		tableComponents,
 		ChartComponent,
-		OrgListItemComponent
+		OrgListItemComponent,
+		OrgsListComponent
 	],
 	imports: [
 		CommonModule,

@@ -1,0 +1,9 @@
+<div class="list__wrapper" [ngClass]="isOpen && 'opened'">
+	<ng-container *ngFor="let item of list">
+		<app-org-list-item
+			[item]="item"
+			[active]="item.isActive"
+			(itemToggle)="itemToggle($event)"></app-org-list-item>
+		<app-orgs-list *ngIf="item.isOpen && item.childs.length > 0" [list]="item.childs" [isOpen]="item.isOpen"></app-orgs-list>
+	</ng-container>
+</div>
