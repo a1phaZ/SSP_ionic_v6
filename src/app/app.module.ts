@@ -10,10 +10,18 @@ import {ServiceModule} from './services/service.module';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthInterceptor} from './interceptors/auth.interceptor';
 import {ComponentsModule} from './components/components.module';
+import {HighchartsChartModule} from 'highcharts-angular';
 
 @NgModule({
 	declarations: [AppComponent],
-	imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ServiceModule, ComponentsModule],
+	imports: [
+		BrowserModule,
+		IonicModule.forRoot(),
+		AppRoutingModule,
+		ServiceModule,
+		ComponentsModule,
+		HighchartsChartModule
+	],
 	providers: [
 		{provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
 		{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
