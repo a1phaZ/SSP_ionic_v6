@@ -14,6 +14,8 @@ import {ItemBarComponent} from './indicator/details/block/item-bar/item-bar.comp
 import {TableComponent} from './table/table.component';
 import {CustomIconButtonModule} from './custom-icon-button/custom-icon.button.module';
 import {TableRowComponent} from './table/table-row/table-row.component';
+import {ChartComponent} from './chart/chart.component';
+import {HighchartsChartModule} from 'highcharts-angular';
 
 const indicatorComponents = [
 	DetailsComponent,
@@ -35,7 +37,8 @@ const tableComponents = [
 		IndListItemComponent,
 		IndListComponent,
 		indicatorComponents,
-		tableComponents
+		tableComponents,
+		ChartComponent
 	],
 	exports: [
 		LoaderComponent,
@@ -44,13 +47,15 @@ const tableComponents = [
 		IndListItemComponent,
 		IndListComponent,
 		indicatorComponents,
-		tableComponents
+		tableComponents,
+		ChartComponent
 	],
 	imports: [
 		CommonModule,
 		PipesModule,
 		IonicModule,
 		CustomIconButtonModule,
+		HighchartsChartModule,
 	],
 	// providers: [LoaderComponent]
 })
