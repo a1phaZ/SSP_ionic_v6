@@ -24,9 +24,13 @@ import {OrgsListComponent} from './orgs-list/orgs-list.component';
 import {PickerComponent} from './picker/picker.component';
 import {CustomIconButtonWithTextComponent} from './custom-icon-button-with-text/custom-icon-button-with-text.component';
 import {ButtonsWrapperComponent} from './buttons-wrapper/buttons-wrapper.component';
+import {DirectionsBarComponent} from './directions-bar/directions-bar.component';
+import {ItemsBarComponent} from './base/items-bar/items-bar.component';
 
 const appComponents = [
-	PickerComponent
+	PickerComponent,
+	ItemsBarComponent,
+	DirectionsBarComponent,
 ];
 
 const indicatorComponents = [
