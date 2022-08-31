@@ -21,8 +21,12 @@ import {OrgListItemComponent} from './org-list-item/org-list-item.component';
 import {HeaderModule} from './app/header/header.module';
 import {IndListComponent} from './ind-list/ind-list.component';
 import {OrgsListComponent} from './orgs-list/orgs-list.component';
+import {PickerComponent} from './picker/picker.component';
+import {CustomIconButtonWithTextComponent} from './custom-icon-button-with-text/custom-icon-button-with-text.component';
+import {ButtonsWrapperComponent} from './buttons-wrapper/buttons-wrapper.component';
 
 const appComponents = [
+	PickerComponent
 ];
 
 const indicatorComponents = [
@@ -51,7 +55,9 @@ const tableComponents = [
 		tableComponents,
 		ChartComponent,
 		OrgListItemComponent,
-		OrgsListComponent
+		OrgsListComponent,
+		CustomIconButtonWithTextComponent,
+		ButtonsWrapperComponent
 	],
 	exports: [
 		appComponents,
@@ -66,7 +72,9 @@ const tableComponents = [
 		tableComponents,
 		ChartComponent,
 		OrgListItemComponent,
-		OrgsListComponent
+		OrgsListComponent,
+		CustomIconButtonWithTextComponent,
+		ButtonsWrapperComponent
 	],
 	imports: [
 		CommonModule,

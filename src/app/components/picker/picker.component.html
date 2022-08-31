@@ -1,0 +1,8 @@
+<div class="period-wrapper" >
+	<app-custom-icon-button [disabled]="disablePrev()" [height]="44" name="arrow-left" (clickBtn)="prevPeriodValue()"></app-custom-icon-button>
+	<div class="period-title__wrapper" *ngIf="buttons">
+		<ion-icon [name]="getIconName(periodId)"></ion-icon>
+		<span class="period-title" (click)="openPicker()">{{title}}</span>
+	</div>
+	<app-custom-icon-button [disabled]="disableNext()" [height]="44" name="arrow-right" (clickBtn)="nextPeriodValue()"></app-custom-icon-button>
+</div>

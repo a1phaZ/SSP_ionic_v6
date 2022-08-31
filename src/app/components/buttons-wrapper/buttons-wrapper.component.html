@@ -1,0 +1,13 @@
+<div class="buttons__wrapper">
+	<ng-container *ngIf="buttons">
+		<app-custom-icon-button-with-text
+			*ngFor="let button of buttons"
+			[id]="button.id"
+			[name]="button.name"
+			[text]="button.text"
+			[size]="null"
+			[isSelected]="button.isSelected"
+			(clickBtn)="onClick($event)"
+		></app-custom-icon-button-with-text>
+	</ng-container>
+</div>

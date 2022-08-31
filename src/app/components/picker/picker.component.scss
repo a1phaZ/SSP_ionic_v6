@@ -1,0 +1,37 @@
+.hacking-datetime {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.period-wrapper {
+	background: var(--bg-item-dark);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	color: var(--color-dark);
+	//text-transform: capitalize;
+
+	.period-title__wrapper {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		font-size: 2rem;
+		color: var(--block-item-title);
+
+		.period-title {
+			font-size: 1.2rem;
+			padding-left: 4px;
+			cursor: pointer;
+		}
+
+	}
+}
+
+
+.button__wrapper {
+	height: 100px;
+}
