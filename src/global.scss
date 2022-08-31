@@ -41,3 +41,14 @@
 		}
 	}
 }
+
+ion-picker.picker__wrapper {
+	--height: 55%!important;
+	--background: var(--bg-item-dark);
+
+	.button__wrapper {
+		height: 100px;
+	}
+}
+
+
