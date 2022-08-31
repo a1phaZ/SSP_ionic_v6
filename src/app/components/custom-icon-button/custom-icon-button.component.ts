@@ -14,7 +14,9 @@ export class CustomIconButtonComponent {
 	@Input()
 	height = 62;
 	@Input()
-	size: string;
+	size: string | null = null;
+	@Input()
+	disabled = false;
 
 	@Output()
 	clickBtn: EventEmitter<any> = new EventEmitter<any>();

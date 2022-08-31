@@ -2,6 +2,7 @@
 	[ngStyle]="{'min-height': height + 'px'}"
 	class="item__button button__wrapper"
 	fill="clear"
+			[disabled]="disabled"
 	(click)="onClickBtn(id)"
 >
 	<ion-icon slot="icon-only" name="custom-{{name}}" [ngStyle]="{'font-size': size ? size : null}"></ion-icon>
