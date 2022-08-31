@@ -4,7 +4,8 @@
 /** Ionic CSS Variables **/
 :root {
 	/** primary **/
-	--ion-color-primary: #3880ff;
+	//--ion-color-primary: #3880ff;
+	--ion-color-primary: #9BE0FF;
 	--ion-color-primary-rgb: 56, 128, 255;
 	--ion-color-primary-contrast: #ffffff;
 	--ion-color-primary-contrast-rgb: 255, 255, 255;
@@ -96,7 +97,11 @@
 	--bs-item-dark: 0 4px 8px rgb(0 0 0 / 10%);
 	--bs-item-light: 0px 4px 8px rgb(0 0 0 / 10%);
 
-	--block-item-title: #9BE0FF;
+	--block-item-title: var(--ion-color-primary);
+
+	--button-selected: var(--block-item-title);
+
+	--border-dark: 1px solid #7B838A;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -106,7 +111,8 @@
 	 */
 
 	body {
-		--ion-color-primary: #428cff;
+		//--ion-color-primary: #428cff;
+		--ion-color-primary: #9BE0FF;
 		--ion-color-primary-rgb: 66, 140, 255;
 		--ion-color-primary-contrast: #ffffff;
 		--ion-color-primary-contrast-rgb: 255, 255, 255;
