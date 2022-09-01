@@ -5,4 +5,12 @@
 	font-size: .6em;
 	--padding-start: 1em;
 	--padding-end: 1em;
+	min-height: 100%;
+	--color: var(--color-dark);
+}
+
+@media (prefers-color-scheme: light) {
+	.button__wrapper {
+		--color: var(--color-light);
+	}
 }

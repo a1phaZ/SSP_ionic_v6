@@ -12,8 +12,6 @@ export class CustomIconButtonComponent {
 	@Input()
 	name: string;
 	@Input()
-	height = 62;
-	@Input()
 	size: string | null = null;
 	@Input()
 	disabled = false;
