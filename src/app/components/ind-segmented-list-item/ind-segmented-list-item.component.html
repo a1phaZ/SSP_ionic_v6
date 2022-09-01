@@ -1,0 +1,9 @@
+<div class="segmented-list__item list__item-wrapper">
+	<div class="item__title list__item-title">{{item.title}}</div>
+	<div class="segments__wrapper">
+		<div class="segment__item" *ngFor="let value of item.values; let idx = index;">
+			<span class="segment__item-value">{{value}}</span>
+			<span class="segment__item-label">{{item.labels[idx]}}</span>
+		</div>
+	</div>
+</div>
