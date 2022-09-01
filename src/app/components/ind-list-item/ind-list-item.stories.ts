@@ -4,13 +4,14 @@ import {TIndicator} from '../../models/indicator.model';
 import {IonicModule} from '@ionic/angular';
 import {CommonModule} from '@angular/common';
 import {CustomIconButtonModule} from '../custom-icon-button/custom-icon.button.module';
+import {IndListItemModule} from './ind-list-item.module';
 
 export default {
 	component: IndListItemComponent,
-	title: 'Indicators / List / Standard Item',
+	title: 'Indicators / Items / Standard Item',
 	decorators: [
 		moduleMetadata({
-			imports: [CommonModule, IonicModule.forRoot(), CustomIconButtonModule],
+			imports: [CommonModule, IonicModule.forRoot(), CustomIconButtonModule, IndListItemModule],
 		}),
 	],
 } as Meta;

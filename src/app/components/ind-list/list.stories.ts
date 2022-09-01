@@ -1,19 +1,18 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {CommonModule} from '@angular/common';
-import {IndListItemComponent} from '../ind-list-item/ind-list-item.component';
 import {TIndicator} from '../../models/indicator.model';
-import {CustomIconButtonComponent} from '../custom-icon-button/custom-icon-button.component';
 import {IonicModule} from '@ionic/angular';
 import {action} from '@storybook/addon-actions';
 import {IndListComponent} from './ind-list.component';
+import {IndListItemModule} from '../ind-list-item/ind-list-item.module';
 
 export default {
 	component: IndListComponent,
 	title: 'Indicators / List ',
 	decorators: [
 		moduleMetadata({
-			imports: [CommonModule, IonicModule.forRoot()],
-			declarations: [IndListItemComponent, CustomIconButtonComponent]
+			imports: [CommonModule, IonicModule.forRoot(), IndListItemModule],
+			// declarations: [CustomIconButtonComponent]
 		})
 	]
 } as Meta;

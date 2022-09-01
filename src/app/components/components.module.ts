@@ -4,7 +4,6 @@ import {DashboardItemComponent} from './dashboard-item/dashboard-item.component'
 import {CommonModule} from '@angular/common';
 import {PipesModule} from '../pipes/pipes.module';
 import {DashboardListComponent} from './dashboard-list/dashboard-list.component';
-import {IndListItemComponent} from './ind-list-item/ind-list-item.component';
 import {ListComponent} from './list/list.component';
 import {IonicModule} from '@ionic/angular';
 import {DetailsComponent} from './indicator/details/details.component';
@@ -26,6 +25,9 @@ import {CustomIconButtonWithTextComponent} from './custom-icon-button-with-text/
 import {ButtonsWrapperComponent} from './buttons-wrapper/buttons-wrapper.component';
 import {DirectionsBarComponent} from './directions-bar/directions-bar.component';
 import {ItemsBarComponent} from './base/items-bar/items-bar.component';
+import {IndSegmentedListItemComponent} from './ind-segmented-list-item/ind-segmented-list-item.component';
+import {IndListItemModule} from './ind-list-item/ind-list-item.module';
+import {IndSegmentedListComponent} from './ind-segmented-list/ind-segmented-list.component';
 
 const appComponents = [
 	PickerComponent,
@@ -51,8 +53,9 @@ const tableComponents = [
 		LoaderComponent,
 		DashboardItemComponent,
 		DashboardListComponent,
-		IndListItemComponent,
+		IndSegmentedListItemComponent,
 		IndListComponent,
+		IndSegmentedListComponent,
 		ListComponent,
 		ItemComponent,
 		indicatorComponents,
@@ -68,8 +71,9 @@ const tableComponents = [
 		LoaderComponent,
 		DashboardItemComponent,
 		DashboardListComponent,
-		IndListItemComponent,
+		IndSegmentedListItemComponent,
 		IndListComponent,
+		IndSegmentedListComponent,
 		ListComponent,
 		ItemComponent,
 		indicatorComponents,
@@ -87,6 +91,7 @@ const tableComponents = [
 		CustomIconButtonModule,
 		HeaderModule,
 		HighchartsChartModule,
+		IndListItemModule
 	],
 	// providers: [LoaderComponent]
 })
