@@ -3,6 +3,7 @@ import docJson from "../documentation.json";
 setCompodocJson(docJson);
 
 export const parameters = {
+	layout: 'fullscreen',
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {
