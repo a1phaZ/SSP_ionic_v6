@@ -6,10 +6,11 @@ import {
 } from '../custom-icon-button-with-text/custom-icon-button-with-text.component';
 import {Button} from '../../models/button.model';
 import {Icons} from '../../models/icons.model';
+import {StorybookConst} from '../../shared/storybook.const';
 
 export default {
 	component: ButtonsWrapperComponent,
-	title: 'App / Buttons / Wrapper',
+	title: StorybookConst.app + ' Buttons / Wrapper',
 	decorators: [
 		moduleMetadata({
 			imports: [CommonModule],

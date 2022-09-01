@@ -1,10 +1,11 @@
 import {Story, Meta, moduleMetadata} from '@storybook/angular';
 import {CustomIconButtonWithTextComponent} from './custom-icon-button-with-text.component';
 import {IonicModule} from '@ionic/angular';
+import {StorybookConst} from '../../shared/storybook.const';
 
 export default {
 	component: CustomIconButtonWithTextComponent,
-	title: 'App / Icon Button With Text',
+	title: StorybookConst.app + ' Icon Button With Text',
 	decorators: [
 		moduleMetadata({
 			imports: [IonicModule.forRoot()]

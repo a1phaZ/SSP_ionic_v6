@@ -4,10 +4,11 @@ import {IonicModule} from '@ionic/angular';
 import {CustomIconButtonModule} from '../../custom-icon-button/custom-icon.button.module';
 import {Icons} from '../../../models/icons.model';
 import {HeaderModule} from './header.module';
+import {StorybookConst} from '../../../shared/storybook.const';
 
 export default {
 	component: HeaderComponent,
-	title: 'App / Header',
+	title: StorybookConst.app + ' Header',
 	decorators: [
 		moduleMetadata({
 			imports: [IonicModule.forRoot(), CustomIconButtonModule, HeaderModule]

@@ -8,10 +8,11 @@ import {
 } from '../custom-icon-button-with-text/custom-icon-button-with-text.component';
 import {ButtonsWrapperComponent} from '../buttons-wrapper/buttons-wrapper.component';
 import {Icons} from '../../models/icons.model';
+import {StorybookConst} from '../../shared/storybook.const';
 
 export default {
 	component: PickerComponent,
-	title: 'App / Picker',
+	title: StorybookConst.app + ' Picker',
 	decorators: [
 		moduleMetadata({
 			imports: [CommonModule, IonicModule.forRoot(), CustomIconButtonModule],

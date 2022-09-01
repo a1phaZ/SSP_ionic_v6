@@ -1,10 +1,11 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import { DirectionsBarComponent } from './directions-bar.component';
 import { CommonModule } from '@angular/common';
+import {StorybookConst} from '../../shared/storybook.const';
 
 export default {
 	component: DirectionsBarComponent,
-	title: 'App / Bars',
+	title: StorybookConst.app + ' Bars',
 	decorators: [
 		moduleMetadata({
 			imports: [CommonModule]
