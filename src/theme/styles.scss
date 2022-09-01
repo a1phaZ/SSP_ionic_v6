@@ -172,3 +172,37 @@ html {
 
 	}
 }
+
+.list__item-wrapper {
+	cursor: pointer;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border-radius: 8px;
+	min-height: 62px;
+	width: 100%;
+	margin-bottom: 8px;
+
+	.list__item-title {
+		font-weight: 300;
+		font-size: 1.5rem;
+		line-height: 1.8rem;
+		padding-bottom: 8px;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	.list__item-wrapper {
+		background-color: var(--bg-item-dark);
+		color: var(--color-dark);
+		box-shadow: var(--bs-item-dark);
+	}
+}
+
+@media (prefers-color-scheme: light) {
+	.list__item-wrapper {
+		background-color: var(--bg-item-light);
+		color: var(--color-light);
+		box-shadow: var(--bs-item-light);
+	}
+}
