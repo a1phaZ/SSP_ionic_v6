@@ -1,3 +1,4 @@
 export enum StorybookConst {
-	app = 'Приложение /'
+	app = 'Приложение /',
+	charts = 'Графики /'
 }
