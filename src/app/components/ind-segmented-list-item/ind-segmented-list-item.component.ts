@@ -11,6 +11,8 @@ export class IndSegmentedListItemComponent extends ItemComponent {
 
 	@Input()
 	item: TReserve;
+	@Input()
+	orientation: 'vertical' | 'horizontal' = 'vertical';
 
 	constructor() {
 		super();
