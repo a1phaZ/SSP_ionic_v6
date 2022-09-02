@@ -28,6 +28,8 @@ import {ItemsBarComponent} from './base/items-bar/items-bar.component';
 import {IndSegmentedListItemComponent} from './ind-segmented-list-item/ind-segmented-list-item.component';
 import {IndListItemModule} from './ind-list-item/ind-list-item.module';
 import {IndSegmentedListComponent} from './ind-segmented-list/ind-segmented-list.component';
+import {IndProgressListItemComponent} from './ind-progress-list-item/ind-progress-list-item.component';
+import {ChartsModule} from './charts/charts.module';
 
 const appComponents = [
 	PickerComponent,
@@ -56,6 +58,7 @@ const tableComponents = [
 		IndSegmentedListItemComponent,
 		IndListComponent,
 		IndSegmentedListComponent,
+		IndProgressListItemComponent,
 		ListComponent,
 		ItemComponent,
 		indicatorComponents,
@@ -71,8 +74,9 @@ const tableComponents = [
 		LoaderComponent,
 		DashboardItemComponent,
 		DashboardListComponent,
-		IndSegmentedListItemComponent,
 		IndListComponent,
+		IndSegmentedListItemComponent,
+		IndProgressListItemComponent,
 		IndSegmentedListComponent,
 		ListComponent,
 		ItemComponent,
@@ -91,7 +95,8 @@ const tableComponents = [
 		CustomIconButtonModule,
 		HeaderModule,
 		HighchartsChartModule,
-		IndListItemModule
+		IndListItemModule,
+		ChartsModule
 	],
 	// providers: [LoaderComponent]
 })

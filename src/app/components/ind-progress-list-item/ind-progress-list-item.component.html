@@ -1,0 +1,20 @@
+<div class="progress-list__item list__item-wrapper">
+	<div class="item__info">
+		<div class="info__title">{{item.name}}</div>
+		<div class="info__details f-column">
+			<div class="details__info details__info-primary">
+				{{item.position}}
+			</div>
+			<div class="details__info details__info-secondary">
+				{{item.place}}
+			</div>
+		</div>
+	</div>
+	<div class="progress__wrapper">
+		<app-circle [item]="item"></app-circle>
+	</div>
+	<div class="item__value-wrapper">
+		<span class="value">{{item.value}}</span>
+		<span class="unit">{{item.unit}}</span>
+	</div>
+</div>
