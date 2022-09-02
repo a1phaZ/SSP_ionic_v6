@@ -1,5 +1,7 @@
 <div class="segmented-list__item list__item-wrapper">
-	<div class="item__title list__item-title">{{item.title}}</div>
+	<div class="item__info">
+		<div class="item__title list__item-title">{{item.title}}</div>
+	</div>
 	<div class="segments__wrapper" [ngClass]="orientation">
 		<div class="segment__item"  *ngFor="let value of item.values; let idx = index;">
 			<span class="segment__item-value">{{value}}</span>

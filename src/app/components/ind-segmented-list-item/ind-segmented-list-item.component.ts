@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {ItemComponent} from '../list/item/item.component';
-import {TReserve} from '../../models/reserv.model';
+import {TIndicatorReserve} from '../../models/indicator-reserv.model';
 
 @Component({
 	selector: 'app-ind-segmented-list-item',
@@ -10,7 +10,7 @@ import {TReserve} from '../../models/reserv.model';
 export class IndSegmentedListItemComponent extends ItemComponent {
 
 	@Input()
-	item: TReserve;
+	item: TIndicatorReserve;
 	@Input()
 	orientation: 'vertical' | 'horizontal' = 'vertical';
 

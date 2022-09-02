@@ -11,22 +11,9 @@
 	.item__info {
 		flex: 1;
 		padding: 8px 3px 8px 6px;
-		.info__title {
-			font-weight: 300;
-			font-size: 1.5rem;
-			line-height: 1.8rem;
-			padding-bottom: 8px;
-		}
 
 		.info__details {
-			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
 			.details__info {
-				font-size: 1.15rem;
-				line-height: 1.2rem;
-				font-weight: 300;
-
 				.sum {
 					font-weight: 700;
 					padding: 0 4px;
@@ -50,28 +37,9 @@
 	}
 
 	.item__sum {
-		display: flex;
-		flex-direction: column;
-		flex: 0 0 110px;
-		max-width: 110px;
-		align-items: center;
-		padding: 2px 5px 5px;
-		border-radius: 8px;
-		justify-content: center;
-		background-color: var(--bg-item-light);
-		color: black;
 
 		&.test {
 			background-color: var(--bg-item-test);
-		}
-
-		.sum {
-			font-weight: 700;
-			font-size: 1.5rem;
-			line-height: 1.8rem;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
 		}
 	}
 
