@@ -2,6 +2,7 @@ import {Component, Input} from '@angular/core';
 import {TIndicator} from '../../models/indicator.model';
 import {TOrgSelectItem} from '../../models/organization.model';
 import {TIndicatorReserve} from '../../models/indicator-reserv.model';
+import {TIndicatorProgress} from '../../models/indicator-progress.model';
 
 @Component({
 	selector: 'app-list',
@@ -10,7 +11,7 @@ import {TIndicatorReserve} from '../../models/indicator-reserv.model';
 })
 export class ListComponent {
 	@Input()
-	list: Array<TIndicator | TOrgSelectItem | TIndicatorReserve>;
+	list: Array<TIndicator | TOrgSelectItem | TIndicatorReserve | TIndicatorProgress>;
 
 	@Input()
 	isOpen = false;

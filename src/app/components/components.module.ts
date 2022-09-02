@@ -30,6 +30,7 @@ import {IndListItemModule} from './ind-list-item/ind-list-item.module';
 import {IndSegmentedListComponent} from './ind-segmented-list/ind-segmented-list.component';
 import {IndProgressListItemComponent} from './ind-progress-list-item/ind-progress-list-item.component';
 import {ChartsModule} from './charts/charts.module';
+import {IndProgressListComponent} from './ind-progress-list/ind-progress-list.component';
 
 const appComponents = [
 	PickerComponent,
@@ -59,6 +60,7 @@ const tableComponents = [
 		IndListComponent,
 		IndSegmentedListComponent,
 		IndProgressListItemComponent,
+		IndProgressListComponent,
 		ListComponent,
 		ItemComponent,
 		indicatorComponents,
@@ -78,6 +80,7 @@ const tableComponents = [
 		IndSegmentedListItemComponent,
 		IndProgressListItemComponent,
 		IndSegmentedListComponent,
+		IndProgressListComponent,
 		ListComponent,
 		ItemComponent,
 		indicatorComponents,

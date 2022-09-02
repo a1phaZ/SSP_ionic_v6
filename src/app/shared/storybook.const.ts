@@ -1,4 +1,6 @@
 export enum StorybookConst {
 	app = 'Приложение /',
-	charts = 'Графики /'
+	indicators = 'Показатели /',
+	charts = 'Графики /',
+	lists = 'Списки',
 }

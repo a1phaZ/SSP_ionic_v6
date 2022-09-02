@@ -1,0 +1,5 @@
+<div class="list__wrapper">
+	<ng-container *ngFor="let item of list">
+		<app-ind-progress-list-item [item]="item" (itemToggle)="itemToggle($event)"></app-ind-progress-list-item>
+	</ng-container>
+</div>

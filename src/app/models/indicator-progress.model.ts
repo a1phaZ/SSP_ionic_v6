@@ -9,4 +9,5 @@ export type TIndicatorProgress = {
 	progressValue: number;
 	unit: string;
 	value: string;
+	isOpen?: boolean;
 };
