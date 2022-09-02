@@ -10,7 +10,7 @@ import {TIndicatorReserve} from '../../models/indicator-reserv.model';
 export class IndSegmentedListComponent extends ListComponent{
 
 	@Input()
-	list: TReserve[];
+	list: TIndicatorReserve[];
 
 	constructor() {
 		super();
