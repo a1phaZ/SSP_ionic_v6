@@ -1,7 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {TIndicator} from '../../../models/indicator.model';
 import {TOrgSelectItem} from '../../../models/organization.model';
-import {TReserve} from '../../../models/reserv.model';
+import {TIndicatorReserve} from '../../../models/indicator-reserv.model';
+import {TIndicatorProgress} from '../../../models/indicator-progress.model';
 
 @Component({
 	selector: 'app-item',
@@ -11,7 +12,7 @@ import {TReserve} from '../../../models/reserv.model';
 export class ItemComponent implements OnInit {
 
 	@Input()
-	item: TIndicator | TOrgSelectItem | TReserve;
+	item: TIndicator | TOrgSelectItem | TIndicatorReserve | TIndicatorProgress;
 
 	@Output()
 	itemToggle: EventEmitter<any> = new EventEmitter<any>();

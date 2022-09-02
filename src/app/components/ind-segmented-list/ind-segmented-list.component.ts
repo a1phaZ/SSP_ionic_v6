@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {ListComponent} from '../list/list.component';
-import {TReserve} from '../../models/reserv.model';
+import {TIndicatorReserve} from '../../models/indicator-reserv.model';
 
 @Component({
 	selector: 'app-ind-segmented-list',

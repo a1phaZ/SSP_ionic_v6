@@ -1,4 +1,4 @@
-export type TReserve = {
+export type TIndicatorReserve = {
 	id: number;
 	parentId: number;
 	title: string;
