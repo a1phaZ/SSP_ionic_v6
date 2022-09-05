@@ -2,10 +2,11 @@ import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {ChartComponent} from './chart.component';
 import {HighchartsChartModule} from 'highcharts-angular';
 import {CommonModule} from '@angular/common';
+import {StorybookConst} from '../../../shared/storybook.const';
 
 export default {
 	component: ChartComponent,
-	title: 'Indicators / Info / Details / Chart',
+	title:  StorybookConst.charts + 'Chart',
 	decorators: [
 		moduleMetadata({
 			imports: [HighchartsChartModule, CommonModule]
