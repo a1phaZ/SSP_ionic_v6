@@ -35,3 +35,9 @@
 		color: var(--color-light)
 	}
 }
+
+// FEAT Проверяет есть ли у родительского блока данный класс
+:host-context(.block__wrapper-header) .item__title,
+:host-context(.block__wrapper-header) .item__value {
+	font-size: 1.2rem;
+}
