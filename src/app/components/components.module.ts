@@ -33,6 +33,8 @@ import {ChartsModule} from './charts/charts.module';
 import {IndProgressListComponent} from './ind-progress-list/ind-progress-list.component';
 import {SimpleListItemComponent} from './simple-list-item/simple-list-item.component';
 import {SimpleListComponent} from './simple-list/simple-list.component';
+import { ArrayDescriptionListItemComponent } from './array-description-list-item/array-description-list-item.component';
+import {ArrayDescriptionListComponent} from './array-description-list/array-description-list.component';
 
 const appComponents = [
 	PickerComponent,
@@ -60,6 +62,8 @@ const tableComponents = [
 		DashboardListComponent,
 		IndSegmentedListItemComponent,
 		IndListComponent,
+		ArrayDescriptionListItemComponent,
+		ArrayDescriptionListComponent,
 		SimpleListItemComponent,
 		SimpleListComponent,
 		IndSegmentedListComponent,
@@ -81,6 +85,8 @@ const tableComponents = [
 		DashboardItemComponent,
 		DashboardListComponent,
 		IndListComponent,
+		ArrayDescriptionListItemComponent,
+		ArrayDescriptionListComponent,
 		SimpleListItemComponent,
 		SimpleListComponent,
 		IndSegmentedListItemComponent,

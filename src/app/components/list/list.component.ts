@@ -4,6 +4,7 @@ import {TOrgSelectItem} from '../../models/organization.model';
 import {TIndicatorReserve} from '../../models/indicator-reserv.model';
 import {TIndicatorProgress} from '../../models/indicator-progress.model';
 import {TSimpleItem} from '../../models/simple-item.model';
+import {TArrayDescription} from '../../models/array-description.model';
 
 @Component({
 	selector: 'app-list',
@@ -12,7 +13,12 @@ import {TSimpleItem} from '../../models/simple-item.model';
 })
 export class ListComponent {
 	@Input()
-	list: Array<TIndicator | TOrgSelectItem | TIndicatorReserve | TIndicatorProgress | TSimpleItem>;
+	list: Array<TIndicator |
+		TOrgSelectItem |
+		TIndicatorReserve |
+		TIndicatorProgress |
+		TSimpleItem |
+		TArrayDescription>;
 
 	@Input()
 	isOpen = false;

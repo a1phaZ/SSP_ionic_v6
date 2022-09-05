@@ -4,6 +4,7 @@ import {TOrgSelectItem} from '../../../models/organization.model';
 import {TIndicatorReserve} from '../../../models/indicator-reserv.model';
 import {TIndicatorProgress} from '../../../models/indicator-progress.model';
 import {TSimpleItem} from '../../../models/simple-item.model';
+import {TArrayDescription} from '../../../models/array-description.model';
 
 @Component({
 	selector: 'app-item',
@@ -13,7 +14,14 @@ import {TSimpleItem} from '../../../models/simple-item.model';
 export class ItemComponent implements OnInit {
 
 	@Input()
-	item: TIndicator | TOrgSelectItem | TIndicatorReserve | TIndicatorProgress | TSimpleItem;
+	item: |
+		TIndicator |
+		TOrgSelectItem |
+		TIndicatorReserve |
+		TIndicatorProgress |
+		TSimpleItem |
+		TArrayDescription
+	;
 
 	@Output()
 	itemToggle: EventEmitter<any> = new EventEmitter<any>();

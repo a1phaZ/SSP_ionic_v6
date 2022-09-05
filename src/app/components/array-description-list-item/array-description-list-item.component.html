@@ -1,0 +1,16 @@
+<div class="list__item-wrapper array--description__item-wrapper">
+	<div class="item__info">
+		<div class="info__title">{{item.userName}}</div>
+		<div class="info__details array__description-wrapper" *ngIf="item.values as values">
+			<ng-container *ngFor="let val of values">
+				<div class="details__info details__arr-value">
+					{{val}}
+				</div>
+			</ng-container>
+		</div>
+	</div>
+	<div class="item__value-wrapper">
+		<span class="value">{{item.value}}</span>
+		<span class="unit">{{item.units}}</span>
+	</div>
+</div>

@@ -1,0 +1,14 @@
+.array--description__item-wrapper{
+	.item__info {
+		.array__description-wrapper {
+			flex-direction: column;
+
+			.details__arr-value {
+				font-size: 1rem;
+				line-height: 1.4rem;
+				font-weight: 300;
+			}
+		}
+	}
+}
+
