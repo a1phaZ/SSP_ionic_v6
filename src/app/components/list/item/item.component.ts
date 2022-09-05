@@ -3,6 +3,7 @@ import {TIndicator} from '../../../models/indicator.model';
 import {TOrgSelectItem} from '../../../models/organization.model';
 import {TIndicatorReserve} from '../../../models/indicator-reserv.model';
 import {TIndicatorProgress} from '../../../models/indicator-progress.model';
+import {TSimpleItem} from '../../../models/simple-item.model';
 
 @Component({
 	selector: 'app-item',
@@ -12,7 +13,7 @@ import {TIndicatorProgress} from '../../../models/indicator-progress.model';
 export class ItemComponent implements OnInit {
 
 	@Input()
-	item: TIndicator | TOrgSelectItem | TIndicatorReserve | TIndicatorProgress;
+	item: TIndicator | TOrgSelectItem | TIndicatorReserve | TIndicatorProgress | TSimpleItem;
 
 	@Output()
 	itemToggle: EventEmitter<any> = new EventEmitter<any>();

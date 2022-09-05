@@ -3,4 +3,5 @@ export enum StorybookConst {
 	indicators = 'Показатели /',
 	charts = 'Графики /',
 	lists = 'Списки',
+	elements = 'Элементы'
 }
