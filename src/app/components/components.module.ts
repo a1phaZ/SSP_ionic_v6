@@ -13,7 +13,7 @@ import {ItemBarComponent} from './indicator/details/block/item-bar/item-bar.comp
 import {TableComponent} from './table/table.component';
 import {CustomIconButtonModule} from './custom-icon-button/custom-icon.button.module';
 import {TableRowComponent} from './table/table-row/table-row.component';
-import {ChartComponent} from './chart/chart.component';
+import {ChartComponent} from './charts/chart/chart.component';
 import {HighchartsChartModule} from 'highcharts-angular';
 import {ItemComponent} from './list/item/item.component';
 import {OrgListItemComponent} from './org-list-item/org-list-item.component';
@@ -35,6 +35,8 @@ import {SimpleListItemComponent} from './simple-list-item/simple-list-item.compo
 import {SimpleListComponent} from './simple-list/simple-list.component';
 import { ArrayDescriptionListItemComponent } from './array-description-list-item/array-description-list-item.component';
 import {ArrayDescriptionListComponent} from './array-description-list/array-description-list.component';
+import {TimelineComponent} from './timeline/timeline.component';
+import {TimelineItemComponent} from './timeline-item/timeline-item.component';
 
 const appComponents = [
 	PickerComponent,
@@ -77,7 +79,9 @@ const tableComponents = [
 		OrgListItemComponent,
 		OrgsListComponent,
 		CustomIconButtonWithTextComponent,
-		ButtonsWrapperComponent
+		ButtonsWrapperComponent,
+		TimelineItemComponent,
+		TimelineComponent,
 	],
 	exports: [
 		appComponents,
@@ -101,7 +105,9 @@ const tableComponents = [
 		OrgListItemComponent,
 		OrgsListComponent,
 		CustomIconButtonWithTextComponent,
-		ButtonsWrapperComponent
+		ButtonsWrapperComponent,
+		TimelineItemComponent,
+		TimelineComponent,
 	],
 	imports: [
 		CommonModule,
