@@ -1,0 +1,13 @@
+<div class="block__wrapper">
+	<div class="block__header">{{block.periodName}}</div>
+	<div class="block__header-main">
+		<span class="header__title">Структура ФОТ</span>
+		<span class="header__title header__small">Сумма</span>
+	</div>
+	<ng-container *ngIf="block.values as values">
+		<div *ngFor="let item of values" class="level-{{item.lvl}}">
+			<app-item-text [item]="transformItem(item)"></app-item-text>
+		</div>
+
+	</ng-container>
+</div>

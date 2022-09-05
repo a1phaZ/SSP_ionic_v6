@@ -1,0 +1,36 @@
+.block__wrapper {
+	.block__header-main {
+		height: 32px;
+		line-height: 32px;
+		background: var(--bg-table-header);
+		border-radius: 4px;
+		overflow: hidden;
+		color: var(--color-light);
+		font-size: 1rem;
+		margin-bottom: 8px;
+		//width: calc(100% - 16px);
+
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 0 8px;
+	}
+
+	app-item-text {
+		background: red;
+		.item__wrapper {
+			font-size: 1.2rem!important;
+			.item__title, .item__value {
+				font-size: 1.2rem!important;
+			}
+		}
+	}
+
+	.level-1 {
+		padding-left: 20px;
+	}
+
+	.level-2 {
+		padding-left: 40px;
+	}
+}

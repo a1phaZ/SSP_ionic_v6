@@ -5,10 +5,11 @@ import {CommonModule} from '@angular/common';
 import {PipesModule} from '../../../../pipes/pipes.module';
 import {ItemTextComponent} from './item-text/item-text.component';
 import {ItemBarComponent} from './item-bar/item-bar.component';
+import {StorybookConst} from '../../../../shared/storybook.const';
 
 export default {
 	component: BlockComponent,
-	title: 'Indicators / Info / Details / Block',
+	title: StorybookConst.indicators + 'Блоки',
 	decorators: [
 		moduleMetadata({
 			imports: [CommonModule, PipesModule],
@@ -156,3 +157,4 @@ export const blockPeriodYear = template.bind({});
 blockPeriodYear.args = {
 	block: {...blocks[2]}
 };
+
