@@ -4,5 +4,6 @@ export type TIndicatorReserve = {
 	title: string;
 	values: number[];
 	labels: string[];
+	childs: TIndicatorReserve[];
 	isOpen?: boolean;
 };

@@ -3,5 +3,6 @@
 		<app-ind-segmented-list-item
 			[item]="item"
 			(itemToggle)="itemToggle($event)"></app-ind-segmented-list-item>
+		<app-ind-segmented-list *ngIf="item.isOpen && item.childs.length > 0" [list]="item.childs" [isOpen]="item.isOpen"></app-ind-segmented-list>
 	</ng-container>
 </div>
