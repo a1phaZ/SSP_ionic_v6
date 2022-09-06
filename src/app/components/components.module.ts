@@ -40,6 +40,8 @@ import {TimelineItemComponent} from './timeline-item/timeline-item.component';
 import {BlockWithHeaderComponent} from './blocks/block-with-header/block-with-header.component';
 import {SimpleRatingListItemComponent} from './simple-rating-list-item/simple-rating-list-item.component';
 import {SimpleRatingListComponent} from './simple-rating-list/simple-rating-list.component';
+import {BlockColumnsComponent} from './blocks/block-columns/block-columns.component';
+import {ItemsModule} from './items/items.module';
 
 const appComponents = [
 	PickerComponent,
@@ -86,6 +88,7 @@ const tableComponents = [
 		TimelineItemComponent,
 		TimelineComponent,
 		BlockWithHeaderComponent,
+		BlockColumnsComponent,
 		SimpleRatingListItemComponent,
 		SimpleRatingListComponent,
 	],
@@ -115,6 +118,7 @@ const tableComponents = [
 		TimelineItemComponent,
 		TimelineComponent,
 		BlockWithHeaderComponent,
+		BlockColumnsComponent,
 		SimpleRatingListItemComponent,
 		SimpleRatingListComponent,
 	],
@@ -126,7 +130,8 @@ const tableComponents = [
 		HeaderModule,
 		HighchartsChartModule,
 		IndListItemModule,
-		ChartsModule
+		ChartsModule,
+		ItemsModule
 	],
 	// providers: [LoaderComponent]
 })

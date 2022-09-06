@@ -1,0 +1,31 @@
+:host-context(.block__columns-wrapper) {
+
+	.item__wrapper {
+		display: flex;
+		flex-direction: row;
+		justify-content: start;
+		align-items: start;
+		gap: 5px;
+		padding-bottom: 8px;
+
+
+
+		.item__name,
+		.item__value,
+		.item__comment {
+			font-size: 1.1rem;
+			width: 30%;
+		}
+
+		.item__value {
+			width: 40%;
+		}
+	}
+
+	&:last-child {
+		.item__wrapper {
+			padding-bottom: 0;
+
+		}
+	}
+}

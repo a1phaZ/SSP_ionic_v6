@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {TIndicatorDetailsBlock} from '../../../../models/indicator.model';
-import {TBlockWithHeader} from '../../../../models/blocks.model';
+import {TBlockColumn, TBlockWithHeader} from '../../../../models/blocks.model';
 
 @Component({
 	selector: 'app-block',
@@ -10,7 +10,7 @@ import {TBlockWithHeader} from '../../../../models/blocks.model';
 export class BlockComponent {
 
 	@Input()
-	block: TIndicatorDetailsBlock | TBlockWithHeader;
+	block: TIndicatorDetailsBlock | TBlockWithHeader | TBlockColumn;
 
 	constructor() {
 	}

@@ -9,3 +9,14 @@ export type TBlockWithHeaderValues = {
 	value: string;
 	lvl: string;
 };
+
+export type TBlockColumn = {
+	name: string;
+	info: TBlockColumnInfo[];
+};
+
+export type TBlockColumnInfo = {
+	name: string;
+	value: string;
+	comment: string;
+};
