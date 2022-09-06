@@ -14,14 +14,13 @@ export class SimpleRatingListItemComponent extends SimpleListItemComponent{
 	}
 
 	getTrendName(trend: number) {
-		switch (trend) {
-			case 1: {
-				return `custom-${Icons.trendUp}`;
-			}
-			case -1: {
-				return `custom-${Icons.trendDown}`;
-			}
-			default: return '';
+		if (trend > 0) {
+			return `custom-${Icons.trendUp}`;
+		} else if (trend < 0) {
+			return `custom-${Icons.trendDown}`;
+		} else {
+			return '';
 		}
 	}
+
 }
