@@ -10,5 +10,7 @@ export enum Icons {
 	month = 'month',
 	quaterYear = 'quater-year',
 	halfYear = 'half-year',
-	year = 'year'
+	year = 'year',
+	trendUp = 'trend-up',
+	trendDown = 'trend-down'
 }

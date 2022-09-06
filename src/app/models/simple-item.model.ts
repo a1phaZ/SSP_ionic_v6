@@ -4,3 +4,11 @@ export type TSimpleItem = {
 	value: number;
 	isOpen?: boolean;
 };
+
+export type TSimpleRatingItem = {
+	id: number;
+	name: string;
+	value: string;
+	trend: number;
+	rating: number;
+};

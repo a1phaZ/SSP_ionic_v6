@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {ItemComponent} from '../list/item/item.component';
-import {TSimpleItem} from '../../models/simple-item.model';
+import {TSimpleItem, TSimpleRatingItem} from '../../models/simple-item.model';
 
 @Component({
   selector: 'app-simple-list-item',
@@ -10,7 +10,7 @@ import {TSimpleItem} from '../../models/simple-item.model';
 export class SimpleListItemComponent extends ItemComponent{
 
 	@Input()
-	item: TSimpleItem;
+	item: TSimpleItem | TSimpleRatingItem;
 
   constructor() {
 	  super();

@@ -38,6 +38,7 @@ import {ArrayDescriptionListComponent} from './array-description-list/array-desc
 import {TimelineComponent} from './timeline/timeline.component';
 import {TimelineItemComponent} from './timeline-item/timeline-item.component';
 import {BlockWithHeaderComponent} from './blocks/block-with-header/block-with-header.component';
+import {SimpleRatingListItemComponent} from './simple-rating-list-item/simple-rating-list-item.component';
 
 const appComponents = [
 	PickerComponent,
@@ -83,7 +84,8 @@ const tableComponents = [
 		ButtonsWrapperComponent,
 		TimelineItemComponent,
 		TimelineComponent,
-		BlockWithHeaderComponent
+		BlockWithHeaderComponent,
+		SimpleRatingListItemComponent
 	],
 	exports: [
 		appComponents,
@@ -110,7 +112,8 @@ const tableComponents = [
 		ButtonsWrapperComponent,
 		TimelineItemComponent,
 		TimelineComponent,
-		BlockWithHeaderComponent
+		BlockWithHeaderComponent,
+		SimpleRatingListItemComponent
 	],
 	imports: [
 		CommonModule,
