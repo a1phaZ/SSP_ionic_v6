@@ -3,7 +3,7 @@ import {TIndicator} from '../../models/indicator.model';
 import {TOrgSelectItem} from '../../models/organization.model';
 import {TIndicatorReserve} from '../../models/indicator-reserv.model';
 import {TIndicatorProgress} from '../../models/indicator-progress.model';
-import {TSimpleItem} from '../../models/simple-item.model';
+import {TSimpleItem, TSimpleRatingItem} from '../../models/simple-item.model';
 import {TArrayDescription} from '../../models/array-description.model';
 
 @Component({
@@ -18,7 +18,8 @@ export class ListComponent {
 		TIndicatorReserve |
 		TIndicatorProgress |
 		TSimpleItem |
-		TArrayDescription>;
+		TArrayDescription |
+		TSimpleRatingItem>;
 
 	@Input()
 	isOpen = false;

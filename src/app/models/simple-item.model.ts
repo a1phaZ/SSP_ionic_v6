@@ -11,4 +11,5 @@ export type TSimpleRatingItem = {
 	value: string;
 	trend: number;
 	rating: number;
+	isOpen?: boolean;
 };

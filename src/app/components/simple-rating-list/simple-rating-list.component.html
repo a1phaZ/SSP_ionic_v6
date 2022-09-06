@@ -1,0 +1,7 @@
+<div class="list__wrapper">
+	<ng-container *ngFor="let item of list">
+		<app-simple-rating-list-item
+			[item]="item"
+			(itemToggle)="itemToggle($event)"></app-simple-rating-list-item>
+	</ng-container>
+</div>
