@@ -5,13 +5,14 @@ import {IonicModule} from '@ionic/angular';
 import {action} from '@storybook/addon-actions';
 import {OrgsListComponent} from './orgs-list.component';
 import {OrgListItemComponent} from '../org-list-item/org-list-item.component';
+import {LogoModule} from '../app/logo/logo.module';
 
 export default {
 	component: OrgsListComponent,
 	title: 'Organizations / List',
 	decorators: [
 		moduleMetadata({
-			imports: [CommonModule, IonicModule.forRoot()],
+			imports: [CommonModule, IonicModule.forRoot(), LogoModule],
 			declarations: [OrgListItemComponent, CustomIconButtonComponent]
 		})
 	]

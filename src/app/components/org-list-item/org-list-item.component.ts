@@ -1,16 +1,13 @@
-import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {ItemComponent} from '../list/item/item.component';
 import {TOrgSelectItem} from '../../models/organization.model';
-import {LogoService} from '../../services/logo.service';
 
 @Component({
 	selector: 'app-org-list-item',
 	templateUrl: './org-list-item.component.html',
 	styleUrls: ['./org-list-item.component.scss'],
 })
-export class OrgListItemComponent extends ItemComponent implements AfterViewInit {
-
-	@ViewChild('itemLogo') itemLogo: ElementRef;
+export class OrgListItemComponent extends ItemComponent {
 
 	@Input()
 	item: TOrgSelectItem;
@@ -18,17 +15,8 @@ export class OrgListItemComponent extends ItemComponent implements AfterViewInit
 	@Input()
 	active: boolean;
 
-	constructor(private logoService: LogoService) {
+	constructor() {
 		super();
 	}
-
-	ngAfterViewInit(): void {
-		this.setLogo();
-	}
-
-	setLogo() {
-		this.itemLogo.nativeElement.innerHTML = this.logoService.logoList[this.item.logo] || this.logoService.primaryLogo;
-	}
-
 
 }

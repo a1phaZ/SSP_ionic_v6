@@ -1,5 +1,5 @@
 <div class="org-list__item list__item-wrapper" [ngClass]="{'active': active}">
-	<div class="item__icon" #itemLogo></div>
+	<app-logo [logo]="item.logo"></app-logo>
 	<div class="item__title">{{item.title}}</div>
 	<app-custom-icon-button *ngIf="item.childs && item.childs.length > 0"
 							[id]="item.id"

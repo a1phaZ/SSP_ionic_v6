@@ -9,19 +9,8 @@
 
 	min-height: 50px;
 
-	&.active {
-		.item__icon {
-			background: linear-gradient(135deg, #65e2b7 0%, #0098aa 100%);
-		}
-	}
-
-	.item__icon {
-		background-color: var(--bg-item-dark);
-		height: 40px;
-		width: 60px;
-		border-radius: 4px;
-		margin-right: 20px;
-	}
+	border-radius: 0;
+	margin-bottom: 0;
 
 	.item__title {
 		font-size: 1.5rem;

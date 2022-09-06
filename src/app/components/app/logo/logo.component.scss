@@ -4,3 +4,21 @@
 		width: 40px;
 	}
 }
+
+:host-context(.org-list__item) {
+	.item__icon {
+		background-color: var(--bg-item-dark);
+		height: 40px;
+		width: 60px;
+		border-radius: 4px;
+		margin-right: 20px;
+	}
+
+
+}
+
+:host-context(.org-list__item.active) {
+		.item__icon {
+			background: linear-gradient(135deg, #65e2b7 0%, #0098aa 100%);
+		}
+}

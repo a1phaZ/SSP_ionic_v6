@@ -4,13 +4,14 @@ import {IonicModule} from '@ionic/angular';
 import {CommonModule} from '@angular/common';
 import {CustomIconButtonModule} from '../custom-icon-button/custom-icon.button.module';
 import {ServiceModule} from '../../services/service.module';
+import {LogoModule} from '../app/logo/logo.module';
 
 export default {
 	component: OrgListItemComponent,
 	title: 'Organizations / List / Item',
 	decorators: [
 		moduleMetadata({
-			imports: [IonicModule.forRoot(), CommonModule, CustomIconButtonModule, ServiceModule],
+			imports: [IonicModule.forRoot(), CommonModule, CustomIconButtonModule, ServiceModule, LogoModule],
 			// declarations: [LogoService]
 		})
 	]
