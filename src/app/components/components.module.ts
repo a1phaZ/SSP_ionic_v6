@@ -33,7 +33,7 @@ import {ChartsModule} from './charts/charts.module';
 import {IndProgressListComponent} from './ind-progress-list/ind-progress-list.component';
 import {SimpleListItemComponent} from './simple-list-item/simple-list-item.component';
 import {SimpleListComponent} from './simple-list/simple-list.component';
-import { ArrayDescriptionListItemComponent } from './array-description-list-item/array-description-list-item.component';
+import {ArrayDescriptionListItemComponent} from './array-description-list-item/array-description-list-item.component';
 import {ArrayDescriptionListComponent} from './array-description-list/array-description-list.component';
 import {TimelineComponent} from './timeline/timeline.component';
 import {TimelineItemComponent} from './timeline-item/timeline-item.component';
@@ -42,6 +42,7 @@ import {SimpleRatingListItemComponent} from './simple-rating-list-item/simple-ra
 import {SimpleRatingListComponent} from './simple-rating-list/simple-rating-list.component';
 import {BlockColumnsComponent} from './blocks/block-columns/block-columns.component';
 import {ItemsModule} from './items/items.module';
+import {LogoModule} from './app/logo/logo.module';
 
 const appComponents = [
 	PickerComponent,
@@ -91,6 +92,7 @@ const tableComponents = [
 		BlockColumnsComponent,
 		SimpleRatingListItemComponent,
 		SimpleRatingListComponent,
+
 	],
 	exports: [
 		appComponents,
@@ -121,6 +123,7 @@ const tableComponents = [
 		BlockColumnsComponent,
 		SimpleRatingListItemComponent,
 		SimpleRatingListComponent,
+
 	],
 	imports: [
 		CommonModule,
@@ -131,7 +134,8 @@ const tableComponents = [
 		HighchartsChartModule,
 		IndListItemModule,
 		ChartsModule,
-		ItemsModule
+		ItemsModule,
+		LogoModule
 	],
 	// providers: [LoaderComponent]
 })

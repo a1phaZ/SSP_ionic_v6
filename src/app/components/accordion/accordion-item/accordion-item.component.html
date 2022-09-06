@@ -1,0 +1,45 @@
+<div class="accordion__item-wrapper" [ngClass]="{'active': isOpen}">
+	<div class="item__header">
+		<div class="header__title">{{item.name}}</div>
+	</div>
+	<ng-container *ngIf="true">
+		<div class="accordion__item-content">
+			<div class="content__wrapper">
+				<div class="item__content">
+					<div class="content__element">
+						<span class="element__title">Город: </span>
+						<span class="element__value">{{item.city}}</span>
+					</div>
+					<div class="content__element">
+						<span class="element__title">Объект: </span>
+						<span class="element__value">{{item.objectName}}</span>
+					</div>
+					<div class="content__element">
+						<span class="element__title">Тип объекта: </span>
+						<span class="element__value">{{item.objectType}}</span>
+					</div>
+					<div class="content__element">
+						<span class="element__title">Год постройки: </span>
+						<span class="element__value">{{item.year}} г.</span>
+					</div>
+					<div class="content__element">
+						<span class="element__title">Площадь: </span>
+						<span class="element__value">{{item.square}}</span>
+					</div>
+					<div class="content__element">
+						<span class="element__value element__status">{{item.status}}</span>
+					</div>
+				</div>
+				<div class="item__thumb">
+					<img src="https://ssp.keyauto.ru{{item.thumb}}" alt="{{item.name}}">
+				</div>
+			</div>
+			<div class="element__profile-status">
+				<span class="element__value ">Профиль не заполнен</span>
+			</div>
+		</div>
+		<div class="accordion__addition">
+			<app-logo *ngFor="let logo of item.logo" [logo]="logo"></app-logo>
+		</div>
+	</ng-container>
+</div>
