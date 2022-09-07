@@ -12,6 +12,23 @@
 	border-radius: 0;
 	margin-bottom: 0;
 
+	.logo__wrapper {
+		height: 40px;
+		width: 60px;
+		border-radius: 4px;
+		background-color: var(--bg-item-dark);
+		margin-right: 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&.active {
+		.logo__wrapper {
+			background: linear-gradient(135deg, #65e2b7 0%, #0098aa 100%);
+		}
+	}
+
 	.item__title {
 		font-size: 1.5rem;
 		flex: 1;
