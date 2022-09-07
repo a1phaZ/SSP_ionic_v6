@@ -12,6 +12,8 @@ export class LogoComponent implements AfterViewInit {
 
 	@Input()
 	logo: string;
+	@Input()
+	size = 32;
 
 	constructor(
 		private logoService: LogoService
@@ -23,7 +25,13 @@ export class LogoComponent implements AfterViewInit {
 	}
 
 	setLogo() {
-		this.itemLogo.nativeElement.innerHTML = this.logoService.logoList[this.logo] || this.logoService.primaryLogo;
+		// const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+		console.log(this.logoService.logoList[this.logo]);
+		this.itemLogo.nativeElement.innerHTML = this.removeAttr(this.logoService.logoList[this.logo] || this.logoService.primaryLogo);
+	}
+
+	removeAttr(svg: string) {
+		return svg.replace(/width="\w*"/, '').replace(/height="\w*"/, '');
 	}
 
 }
