@@ -1,8 +1,8 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {AccordionComponent} from './accordion.component';
 import {AccordionModule} from './accordion.module';
-import {TAccordionItem} from '../../models/accordion.model';
-import {StorybookConst} from '../../shared/storybook.const';
+import {TAccordionItem} from '../../../models/accordion.model';
+import {StorybookConst} from '../../../shared/storybook.const';
 
 export default {
 	component: AccordionComponent,
