@@ -18,7 +18,7 @@ const template: Story = (args) => ({
 
 export const accordionItem = template.bind({});
 accordionItem.args = {
-	item:  {
+	item: {
 		id: 1,
 		city: 'Адыгея',
 		name: 'Адыгея',

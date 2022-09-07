@@ -1,6 +1,9 @@
 <div class="accordion__item-wrapper" [ngClass]="{'active': isOpen}">
 	<div class="item__header" (click)="toggleItem()">
 		<div class="header__title">{{item.name}}</div>
+		<app-icon
+			[name]="isOpen ? 'custom-arrow-up-fill' : 'custom-arrow-down-fill'"
+		></app-icon>
 	</div>
 	<ng-container *ngIf="isOpen">
 		<div class="accordion__item-content">
