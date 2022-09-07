@@ -1,10 +1,11 @@
 import {Meta, moduleMetadata, Story} from '@storybook/angular';
 import {AccordionItemComponent} from './accordion-item.component';
 import {AccordionModule} from '../accordion.module';
+import {StorybookConst} from '../../../shared/storybook.const';
 
 export default {
 	component: AccordionItemComponent,
-	title: 'Аккордион',
+	title: StorybookConst.app + 'Аккордион',
 	decorators: [
 		moduleMetadata({
 			imports: [AccordionModule]
