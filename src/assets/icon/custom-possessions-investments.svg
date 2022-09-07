@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="currentColor" stroke="none" class="ionicon">
+  <g id="Сгруппировать_438" data-name="Сгруппировать 438" transform="translate(1125 1446)">
+    <g id="Сгруппировать_278" data-name="Сгруппировать 278" transform="translate(-1125 -1446)">
+      <g id="Сгруппировать_277" data-name="Сгруппировать 277">
+        <path id="Контур_447" data-name="Контур 447" d="M25.607,4.393A15,15,0,1,0,4.393,25.607,15,15,0,1,0,25.607,4.393ZM15,28.8A13.8,13.8,0,1,1,28.8,15,13.82,13.82,0,0,1,15,28.8Z" />
+      </g>
+    </g>
+    <g id="Сгруппировать_437" data-name="Сгруппировать 437" transform="translate(47.001)">
+      <rect id="Прямоугольник_684" data-name="Прямоугольник 684" width="1" height="20" transform="translate(-1162 -1441)" />
+      <rect id="Прямоугольник_687" data-name="Прямоугольник 687" width="1" height="6" transform="translate(-1155.5 -1427.5) rotate(90)"/>
+      <path id="Вычитание_2" data-name="Вычитание 2" d="M6,10H0V9h5.89a3,3,0,0,0,3-3V4a3,3,0,0,0-3-3H0V0H6a4,4,0,0,1,4,4V6A4,4,0,0,1,6,10Z" transform="translate(-1162 -1441)"/>
+    </g>
+  </g>
+</svg>

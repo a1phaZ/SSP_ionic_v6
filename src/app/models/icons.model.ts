@@ -12,5 +12,9 @@ export enum Icons {
 	halfYear = 'half-year',
 	year = 'year',
 	trendUp = 'trend-up',
-	trendDown = 'trend-down'
+	trendDown = 'trend-down',
+	possessionsInfo = 'possessions-info',
+	possessionsInvestments = 'possessions-investments',
+	possessionsDocuments = 'possessions-documents',
+	possessionsNoise = 'possessions-noise',
 }
