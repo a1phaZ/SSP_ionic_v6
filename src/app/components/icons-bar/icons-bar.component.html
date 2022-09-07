@@ -1,0 +1,11 @@
+<div class="bar__wrapper bottom__bar">
+	<ng-container *ngIf="items">
+		<div class="bar__item"
+			 *ngFor="let item of items"
+			 [ngClass]="{'selected': item.id === selectedId}"
+			 (click)="changeSelected(item.id)"
+		>
+			<app-icon [name]="item.icon" size="3rem"></app-icon>
+		</div>
+	</ng-container>
+</div>
