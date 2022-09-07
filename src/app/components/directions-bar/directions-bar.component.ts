@@ -5,7 +5,7 @@ import {ItemsBarComponent} from '../base/items-bar/items-bar.component';
 @Component({
   selector: 'app-directions-bar',
   templateUrl: './directions-bar.component.html',
-  styleUrls: ['./directions-bar.component.scss'],
+  styleUrls: ['../base/items-bar/items-bar.component.scss','./directions-bar.component.scss'],
 })
 export class DirectionsBarComponent extends ItemsBarComponent implements OnInit {
 
