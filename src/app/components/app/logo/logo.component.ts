@@ -25,8 +25,6 @@ export class LogoComponent implements AfterViewInit {
 	}
 
 	setLogo() {
-		// const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-		console.log(this.logoService.logoList[this.logo]);
 		this.itemLogo.nativeElement.innerHTML = this.removeAttr(this.logoService.logoList[this.logo] || this.logoService.primaryLogo);
 	}
 
