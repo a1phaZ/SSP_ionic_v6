@@ -1,0 +1,8 @@
+.item__wrapper {
+	height: 30vh;
+	.gallery__item {
+		object-fit: cover;
+		height: auto;
+		max-height: none;
+	}
+}
