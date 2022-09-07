@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {TAccordionItem} from '../../../models/accordion.model';
 
 @Component({
@@ -8,26 +8,15 @@ import {TAccordionItem} from '../../../models/accordion.model';
 })
 export class AccordionItemComponent {
 
-	// @Input()
-	item: TAccordionItem = {
-		id: 1,
-		city: 'Адыгея',
-		name: 'Адыгея',
-		thumb: '/functions/s3Files.php?filename=ssp/posessions/gallery_5fdf6da2442d31608478114_thumb.jpg',
-		objectName: 'Mercedes_Land Rover_Jaguar Конгрессная 6',
-		square: '3234,2 кв.м.',
-		year: 2015,
-		objectType: 'Построен ГК',
-		status: 'Действующий',
-		logo: [
-			'jlr',
-			'mercedes'
-		]
-	};
+	@Input()
+	item: TAccordionItem;
 
 	isOpen: boolean;
 
 	constructor() {
 	}
 
+	toggleItem() {
+		this.isOpen = !this.isOpen;
+	}
 }
