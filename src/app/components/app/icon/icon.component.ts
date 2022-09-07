@@ -1,19 +1,16 @@
-import {AfterViewInit, Component, Input} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
 	selector: 'app-icon',
 	templateUrl: './icon.component.html',
 	styleUrls: ['./icon.component.scss'],
 })
-export class IconComponent implements AfterViewInit {
+export class IconComponent {
 	@Input()
 	name: string;
+	@Input()
+	size = '1rem';
 
 	constructor() {
 	}
-
-
-	ngAfterViewInit(): void {
-	}
-
 }
