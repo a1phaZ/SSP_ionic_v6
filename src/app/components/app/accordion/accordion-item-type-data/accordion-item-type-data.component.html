@@ -1,0 +1,21 @@
+<div class="accordion__item-wrapper" [ngClass]="{'active': isOpen}">
+	<div class="item__header" (click)="toggleItem()" *ngIf="item.name">
+		<div class="header__title">{{item.name}}</div>
+	</div>
+	<ng-container *ngIf="isOpen || !item.name">
+		<div class="accordion__item-content" [ngClass]="'content__type-'+item.type">
+			<div class="content__wrapper">
+				<div class="item__content">
+					<div class="content__element" *ngFor="let field of item.data">
+						<span class="element__title">{{field.field_name}}</span>
+						<span class="element__value" *ngIf="field.field_value; else noData">{{field.field_value}}</span>
+						<ng-template #noData>
+							<span class="element__value element__empty">Нет данных</span>
+						</ng-template>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</ng-container>
+</div>
