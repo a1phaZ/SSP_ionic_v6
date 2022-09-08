@@ -1,0 +1,16 @@
+<div class="accordion__item-wrapper" [ngClass]="{'active': isOpen}">
+	<div class="item__header" (click)="toggleItem()">
+		<div class="header__title">{{item.name}}</div>
+	</div>
+	<ng-container *ngIf="isOpen">
+		<div class="accordion__item-content" [ngClass]="'content__type-'+item.type">
+			<div class="content__wrapper">
+				<div class="item__content">
+					<div class="content__element" *ngFor="let i of item.data">
+						<app-accordion-item-type-data [item]="i"></app-accordion-item-type-data>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ng-container>
+</div>

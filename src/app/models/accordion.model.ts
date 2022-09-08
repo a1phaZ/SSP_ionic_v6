@@ -45,3 +45,21 @@ export type TAccordionItemBrand = {
 	brand_id: number;
 	brand_name: string;
 };
+
+export type TAccordionItemFolder = {
+	name: string;
+	type: 'folder';
+	data: Array<TAccordionItemTypeData>;
+};
+
+export type TAccordionItemTypeData = {
+	name: string;
+	type: 'data';
+	data: Array<TAccordionItemFieldTypeText>;
+};
+
+export type TAccordionItemFieldTypeText = {
+	field_name: string;
+	field_type: 'text';
+	field_value: string | false;
+};
