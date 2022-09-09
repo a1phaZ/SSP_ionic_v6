@@ -13,7 +13,6 @@ import {ItemBarComponent} from './indicator/details/block/item-bar/item-bar.comp
 import {TableComponent} from './table/table.component';
 import {CustomIconButtonModule} from './custom-icon-button/custom-icon.button.module';
 import {TableRowComponent} from './table/table-row/table-row.component';
-import {ChartComponent} from './charts/chart/chart.component';
 import {HighchartsChartModule} from 'highcharts-angular';
 import {ItemComponent} from './list/item/item.component';
 import {OrgListItemComponent} from './org-list-item/org-list-item.component';
@@ -81,7 +80,6 @@ const tableComponents = [
 		ItemComponent,
 		indicatorComponents,
 		tableComponents,
-		ChartComponent,
 		OrgListItemComponent,
 		OrgsListComponent,
 		CustomIconButtonWithTextComponent,
@@ -112,7 +110,6 @@ const tableComponents = [
 		ItemComponent,
 		indicatorComponents,
 		tableComponents,
-		ChartComponent,
 		OrgListItemComponent,
 		OrgsListComponent,
 		CustomIconButtonWithTextComponent,
