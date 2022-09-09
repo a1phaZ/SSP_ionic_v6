@@ -4,6 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardPage } from './dashboard.page';
 
 const routes: Routes = [
+	{
+		path: ':buttonId/indicators',
+		loadChildren: () => import('../indicators/indicators.module').then(m => m.IndicatorsPageModule),
+	},
   {
     path: '',
     component: DashboardPage

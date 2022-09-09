@@ -1,4 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {IDashboardState} from '../../../store/dashboard/dashboard.reducer';
+import {selectButton} from '../../../store/dashboard/dashboard.actions';
 
 @Component({
   selector: 'app-dashboard-list',
@@ -9,8 +12,14 @@ export class DashboardListComponent implements OnInit {
 
 	@Input() list: any[];
 
-  constructor() { }
+	constructor(private store: Store<IDashboardState>) {
+		this.store.subscribe((data) => console.log(data));
+	}
 
-  ngOnInit() {}
+    ngOnInit() {}
+
+	selectItem(item) {
+		this.store.dispatch(selectButton({item}));
+	}
 
 }

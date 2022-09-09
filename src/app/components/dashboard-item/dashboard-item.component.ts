@@ -1,9 +1,9 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
-  selector: 'app-dashboard-item',
-  templateUrl: './dashboard-item.component.html',
-  styleUrls: ['./dashboard-item.component.scss'],
+	selector: 'app-dashboard-item',
+	templateUrl: './dashboard-item.component.html',
+	styleUrls: ['./dashboard-item.component.scss'],
 })
 /**
  * Button to dashboard
@@ -14,10 +14,11 @@ export class DashboardItemComponent {
 	@Output() selectItem: EventEmitter<any> = new EventEmitter<any>();
 
 
-  constructor() { }
+	constructor() {
 
+	}
 
-	onSelectItem(id) {
-		this.selectItem.emit(id);
+	onSelectItem(item) {
+		this.selectItem.emit(item);
 	}
 }

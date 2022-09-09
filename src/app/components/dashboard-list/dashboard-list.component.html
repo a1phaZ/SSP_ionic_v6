@@ -1,3 +1,6 @@
-<div class="dashboard">
-	<app-dashboard-item class="dashboard__item" *ngFor="let item of list" [item]="item"></app-dashboard-item>
+<div class="dashboard__wrapper">
+	<div class="dashboard">
+		<app-dashboard-item class="dashboard__item" *ngFor="let item of list" [item]="item" (selectItem)="selectItem($event)"></app-dashboard-item>
+	</div>
 </div>
+

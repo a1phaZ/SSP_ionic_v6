@@ -1,3 +1,5 @@
+import {TDashboardItem} from '../models/dashboard.model';
+
 type TIconList = {
 	id: number; icon: string;
 };
@@ -763,7 +765,7 @@ const getIcon = (id: number) => {
 	return '';
 };
 
-export const dashboardList = [
+export const dashboardList: TDashboardItem[] = [
 	{
 		id: 8,
 		name: 'Автохолдинг',
@@ -786,6 +788,7 @@ export const dashboardList = [
 		isChild: true,
 		// isAccess: checkBtnAccess('official'),
 		isDevelopment: false,
+		path: 'indicators'
 	},
 	{
 		id: 10,

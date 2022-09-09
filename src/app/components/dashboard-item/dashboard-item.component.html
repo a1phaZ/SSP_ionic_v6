@@ -4,7 +4,7 @@
 		class="dashboard__btn"
 		[ngStyle]="{'background': item.background}"
 		[ngClass]="''"
-		(click)="onSelectItem(item.id)">
+		(click)="onSelectItem(item)">
 		<div class="dashboard__icon" [innerHTML]="item.icon | innerHtml"></div>
 		<div class="dashboard__text">{{item.name}}</div>
 	</div>

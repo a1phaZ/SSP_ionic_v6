@@ -1,21 +1,26 @@
-.dashboard {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
+.dashboard__wrapper {
 	height: 100%;
-	padding: 8px;
 	background: var(--bg-dark);
+	padding: 8px;
 
-	.dashboard__item {
-		width: 50%;
-		min-height: calc(100% / 5);
-		max-height: calc(100% / 5);
-		//height: calc(100% / 5);
+	.dashboard {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		height: 100%;
+
+		.dashboard__item {
+			width: 50%;
+			min-height: calc(100% / 5);
+			max-height: calc(100% / 5);
+			//height: calc(100% / 5);
+		}
 	}
 }
 
+
 @media (prefers-color-scheme: light) {
-	.dashboard {
+	.dashboard__wrapper {
 		background: var(--bg-light);
 	}
 }
