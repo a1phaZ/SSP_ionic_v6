@@ -12,6 +12,9 @@ import {AuthInterceptor} from './interceptors/auth.interceptor';
 import {ComponentsModule} from './components/components.module';
 import {HighchartsChartModule} from 'highcharts-angular';
 
+import { StoreModule } from '@ngrx/store';
+import {  dashboardReducer  } from '../store/dashboard/dashboard.reducer';
+
 @NgModule({
 	declarations: [AppComponent],
 	imports: [
@@ -20,7 +23,10 @@ import {HighchartsChartModule} from 'highcharts-angular';
 		AppRoutingModule,
 		ServiceModule,
 		ComponentsModule,
-		HighchartsChartModule
+		HighchartsChartModule,
+		StoreModule.forRoot({
+			dashboard: dashboardReducer
+		})
 	],
 	providers: [
 		{provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
