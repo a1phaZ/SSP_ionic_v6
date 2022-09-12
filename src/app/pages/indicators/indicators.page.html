@@ -1,0 +1,10 @@
+<app-header title="Официальные дилеры"></app-header>
+<app-directions-bar></app-directions-bar>
+<app-picker></app-picker>
+<ion-content>
+	<ion-infinite-scroll *ngIf="(indicatorService.indicators$ | async) as indicators">
+		<app-ind-list [list]="indicators | directionFilter : (currentDirection$ | async)"></app-ind-list>
+
+	</ion-infinite-scroll>
+
+</ion-content>
