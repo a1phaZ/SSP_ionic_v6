@@ -11,7 +11,7 @@ export class AuthInterceptor implements HttpInterceptor {
 	) {
 	}
 	intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-		this.loadingService.loading = true;
+		// this.loadingService.loading = true;
 		const clonedReq = req.clone({
 			setHeaders: {
 				// eslint-disable-next-line @typescript-eslint/naming-convention
@@ -24,16 +24,14 @@ export class AuthInterceptor implements HttpInterceptor {
 		return next.handle(clonedReq)
 			.pipe(
 				tap((event) => {
-					// console.log(event);
 					if (event['body'] && event['body'].payload && event['body'].payload.token) {
 						localStorage.setItem('token', event['body'].payload.token);
 					}
 					if (event instanceof HttpResponse) {
-						this.loadingService.loading = false;
+						// this.loadingService.loading = false;
 					}
 				}),
 				catchError(err => {
-					console.log(err);
 					this.loadingService.loading = false;
 					return throwError(err);
 				})
