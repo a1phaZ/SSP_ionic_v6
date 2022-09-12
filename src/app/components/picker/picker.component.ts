@@ -3,6 +3,19 @@ import {IonModal, PickerColumnOption, PickerController} from '@ionic/angular';
 import {Button} from '../../models/button.model';
 import {DomService} from '../../services/dom.service';
 import {ButtonsWrapperComponent} from '../buttons-wrapper/buttons-wrapper.component';
+import {Store} from '@ngrx/store';
+import {IAppState} from '../../../store/app.state';
+import {ActivatedRoute} from '@angular/router';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
+import {
+	changePeriodValue,
+	initializePicker,
+	nextPeriodValue,
+	prevPeriodValue
+} from '../../../store/period-picker/period-picker.actions';
+import {selectPeriodByButtonId} from '../../../store/period-picker/period-picker.selectors';
+import {ARRAY_OF_MONTH_VALUES} from '../../../store/period-picker/period-picker.reducer';
 
 @Component({
 	selector: 'app-picker',
@@ -27,138 +40,30 @@ export class PickerComponent implements OnInit {
 	@ViewChild(IonModal) modal: IonModal;
 
 	monthValues: any;
-	arrayOfMonthValues = [
-		{
-			id: 3,
-			values: [
-				{
-					text: 'Январь',
-					value: 1,
-				},
-				{
-					text: 'Февраль',
-					value: 2,
-				},
-				{
-					text: 'Март',
-					value: 3,
-				},
-				{
-					text: 'Апрель',
-					value: 4,
-				},
-				{
-					text: 'Май',
-					value: 5,
-				},
-				{
-					text: 'Июнь',
-					value: 6,
-				},
-				{
-					text: 'Июль',
-					value: 7,
-				},
-				{
-					text: 'Август',
-					value: 8,
-				},
-				{
-					text: 'Сентябрь',
-					value: 9,
-				},
-				{
-					text: 'Октябрь',
-					value: 10,
-				},
-				{
-					text: 'Ноябрь',
-					value: 11,
-				},
-				{
-					text: 'Декабрь',
-					value: 12,
-				},
-			]
-		},
-		{
-			id: 4,
-			values: [
-				{
-					text: '1-ый квартал',
-					value: 1,
-				},
-				{
-					text: '2-ой квартал',
-					value: 2,
-				},
-				{
-					text: '3-ий квартал',
-					value: 3,
-				},
-				{
-					text: '4-ый квартал',
-					value: 4,
-				},
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-
-			]
-		},
-		{
-			id: 5,
-			values: [
-				{
-					text: '1-ое полугодие',
-					value: 1,
-				},
-				{
-					text: '2-ое полугодие',
-					value: 2,
-				},
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-
-			]
-		},
-		{
-			id: 6,
-			values: [
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-				{ value: -1, text: '', disabled: true },
-			]
-		}
-	];
+	arrayOfMonthValues = ARRAY_OF_MONTH_VALUES;
 	arrayOfYears: any[] = [];
 
 	title: string;
 
-	constructor(private pickerCtrl: PickerController, private domService: DomService) {
+	buttonId: number;
 
+	private ngUnsubscribe: Subject<any> = new Subject<any>();
+
+	constructor(
+		private pickerCtrl: PickerController,
+		private domService: DomService,
+		private route: ActivatedRoute,
+		private store: Store<IAppState>,
+	) {
+		this.route
+			.params
+			.pipe(
+				takeUntil(this.ngUnsubscribe)
+			)
+			.subscribe((data: { buttonId: string }) => {
+				this.store.dispatch(initializePicker({buttonId: Number(data.buttonId)}));
+				this.buttonId = Number(data.buttonId);
+			});
 	}
 
 	get _buttons(): Button[] {
@@ -171,6 +76,13 @@ export class PickerComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		this.store.select(selectPeriodByButtonId(9))
+			.subscribe(data => {
+				for (const key of Object.keys(data)) {
+					this[key] = data[key];
+				}
+			});
+
 		this.changePeriodId(this.periodId);
 		this.title = this.getTitle();
 		this.arrayOfYears = this.fillArray(this.minYear, this.maxYear);
@@ -242,11 +154,14 @@ export class PickerComponent implements OnInit {
 				{
 					text: 'Ок',
 					handler: (value) => {
-						this.changePeriodId(_periodId);
 						attached.clickBtn.unsubscribe();
-						this._buttons = this.changePeriodType(this.periodId);
-						this.periodValue = value.month ? value.month.value : this.periodValue;
-						this.periodYear = value.years.value;
+
+						this.store.dispatch(changePeriodValue({
+							buttonId: this.buttonId,
+							periodId: _periodId,
+							periodValue: value.month ? value.month.value : this.periodValue,
+							periodYear: value.years.value,
+						}));
 						this.title = this.getTitle();
 					},
 				},
@@ -291,24 +206,14 @@ export class PickerComponent implements OnInit {
 	}
 
 	prevPeriodValue() {
-		const v = this.getValues(this.periodId);
-		if (this.periodValue > 1) {
-			this.periodValue -= 1;
-		} else {
-			this.periodValue = v.length;
-			this.periodYear -= 1;
-		}
+		this.store.dispatch(prevPeriodValue({buttonId: this.buttonId}));
+
 		this.title = this.getTitle();
 	}
 
 	nextPeriodValue() {
-		const v = this.getValues(this.periodId);
-		if (this.periodValue < v.length) {
-			this.periodValue += 1;
-		} else {
-			this.periodValue = 1;
-			this.periodYear += 1;
-		}
+		this.store.dispatch(nextPeriodValue({buttonId: this.buttonId}));
+
 		this.title = this.getTitle();
 	}
 
