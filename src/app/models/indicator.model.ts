@@ -18,6 +18,11 @@ export type TIndicator = {
 	isOpen: boolean;
 };
 
+export type TIndicatorStore = {
+	direction: number;
+	data: TIndicator[];
+};
+
 export type TIndicatorDetails = {
 	blocks: TIndicatorDetailsBlock[];
 	comments: string;

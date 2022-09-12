@@ -5,4 +5,7 @@ export enum ApiModel {
 	checkToken = '/auth/checkToken',
 	authByLoginPass = '/auth/authByLoginPass',
 	pin = '/auth/login/',
+
+	//Indicators
+	getIndList = '/api/indicators/getIndList/'
 }
