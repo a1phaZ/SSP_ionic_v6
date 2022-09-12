@@ -3,18 +3,21 @@ import {CommonModule} from '@angular/common';
 import {InnerHtmlPipe} from './inner-html.pipe';
 import {ProgressValuePipe} from './progress-value.pipe';
 import {SortIndRatingPipe} from './sort-ind-rating.pipe';
+import {DirectionFilterPipe} from './direction-filter.pipe';
 
 
 @NgModule({
 	declarations: [
 		InnerHtmlPipe,
 		ProgressValuePipe,
-		SortIndRatingPipe
+		SortIndRatingPipe,
+		DirectionFilterPipe
 	],
 	exports: [
 		InnerHtmlPipe,
 		ProgressValuePipe,
-		SortIndRatingPipe
+		SortIndRatingPipe,
+		DirectionFilterPipe
 	],
 	imports: [
 		CommonModule
