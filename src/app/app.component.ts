@@ -18,13 +18,10 @@ export class AppComponent {
 	public loadingService: LoadingService,
     private platform: Platform
   ) {
-    platform.ready().then(async (data) => {
+    platform.ready().then(async () => {
       // Получаем валидный url
       this.apiService.getValidUrl();
       this.authService.checkToken();
-	  this.loadingService.loading.subscribe((loading) => console.log('loading: ', loading));
-
-      console.log('platform ready', data);
-    });
+	});
   }
 }
