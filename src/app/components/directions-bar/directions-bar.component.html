@@ -1,8 +1,8 @@
 <div class="bar__wrapper">
-	<ng-container *ngIf="items">
+	<ng-container *ngIf="directionsList$ | async as list">
 		<div class="bar__item"
-			 *ngFor="let item of items"
-			 [ngClass]="{'selected': item.id === selectedId}"
+			 *ngFor="let item of list"
+			 [ngClass]="{'selected': item.id === (currentDirection$ | async)}"
 			 (click)="changeSelected(item.id)"
 		>{{item.title}}</div>
 	</ng-container>
