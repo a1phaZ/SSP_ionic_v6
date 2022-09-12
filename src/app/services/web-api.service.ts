@@ -15,16 +15,16 @@ export class WebApiService {
   ) { }
 
   get$(url: string, params: any = {}) {
-    console.log('web api get params', params);
+    // console.log('web api get params', params);
     return this.httpClient.get(`${this.appService.urlValue}${url}`, {
       params: new HttpParams({
-        fromObject: {...params, user: ''}
+        fromObject: {...params}
       })
     });
   }
 
   post$(url: string, data: any) {
-    console.log('web api post params', data);
+    // console.log('web api post params', data);
     return this.httpClient.post(`${this.appService.urlValue}${url}`, data, {responseType: 'json'});
   }
 
