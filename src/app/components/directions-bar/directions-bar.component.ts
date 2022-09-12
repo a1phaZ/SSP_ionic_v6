@@ -7,6 +7,7 @@ import {switchMap} from 'rxjs/operators';
 import {Observable, of} from 'rxjs';
 import {selectCurrentDirection, selectDirections} from '../../../store/directions/directions.selectors';
 import {IAppState} from '../../../store/app.state';
+import {DirectionService} from '../../services/direction.service';
 
 @Component({
 	selector: 'app-directions-bar',
@@ -21,13 +22,14 @@ export class DirectionsBarComponent implements OnInit {
 	constructor(
 		private route: ActivatedRoute,
 		private store: Store<IAppState>,
+		private directionService: DirectionService,
 	) {
 		this.route.params.pipe(
 			switchMap((data: { buttonId: number }) => {
 				this.store.dispatch(filterDirectionsList({buttonId: Number(data.buttonId)}));
 				return of(true);
 			})
-		).subscribe(() => {
+		).subscribe((data) => {
 			this.directionsList$ = this.store.select(selectDirections);
 			this.currentDirection$ = this.store.select(selectCurrentDirection);
 		});
