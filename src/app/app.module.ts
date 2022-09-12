@@ -14,6 +14,8 @@ import {HighchartsChartModule} from 'highcharts-angular';
 
 import { StoreModule } from '@ngrx/store';
 import {  dashboardReducer  } from '../store/dashboard/dashboard.reducer';
+import {directionsReducer} from '../store/directions/directions.reducer';
+import {periodPickerReducer} from '../store/period-picker/period-picker.reducer';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -25,7 +27,9 @@ import {  dashboardReducer  } from '../store/dashboard/dashboard.reducer';
 		ComponentsModule,
 		HighchartsChartModule,
 		StoreModule.forRoot({
-			dashboard: dashboardReducer
+			dashboard: dashboardReducer,
+			directions: directionsReducer,
+			periods: periodPickerReducer,
 		})
 	],
 	providers: [
