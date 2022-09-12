@@ -38,7 +38,6 @@ export class IndicatorsPage implements OnInit, OnDestroy {
 
 	ngOnInit() {
 		this.indicators$ = this.store.select(selectIndicatorsPageState).pipe(
-			tap(console.log),
 			takeUntil(this.ngUnsubscribe),
 			switchMap((data) => {
 				console.log(data);
