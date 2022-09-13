@@ -3,7 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {WebApiService} from '../../services/web-api.service';
 import {ApiModel} from '../../models/api.model';
 import {TIndicator, TIndicatorStore} from '../../models/indicator.model';
-import {map, mergeMap, scan, switchMap, takeUntil, tap} from 'rxjs/operators';
+import {map, mergeMap, scan, switchMap, takeUntil} from 'rxjs/operators';
 import {from, Observable, Subject} from 'rxjs';
 import {Store} from '@ngrx/store';
 import {IAppState} from '../../../store/app.state';
@@ -40,7 +40,6 @@ export class IndicatorsPage implements OnInit, OnDestroy {
 		this.indicators$ = this.store.select(selectIndicatorsPageState).pipe(
 			takeUntil(this.ngUnsubscribe),
 			switchMap((data) => {
-				console.log(data);
 				const requestData = data
 					.directions
 					.directionsList
@@ -60,7 +59,6 @@ export class IndicatorsPage implements OnInit, OnDestroy {
 					}));
 				return from(requestData).pipe(
 					mergeMap(r => this.makeRequest(r)),
-					tap(console.log),
 					map(
 						(response: {
 							[key: string]: any;
