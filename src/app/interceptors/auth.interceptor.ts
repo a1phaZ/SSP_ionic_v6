@@ -3,11 +3,14 @@ import {HttpEvent, HttpHandler, HttpInterceptor, HttpParams, HttpRequest, HttpRe
 import {Observable, throwError} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
 import {LoadingService} from '../services/loading.service';
+import {AlertService} from '../services/alert.service';
+import {getErrorMessage} from '../shared/utils/error.utils';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 	constructor(
-		private loadingService: LoadingService
+		private loadingService: LoadingService,
+		private alertService: AlertService
 	) {
 	}
 	intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -32,6 +35,7 @@ export class AuthInterceptor implements HttpInterceptor {
 					}
 				}),
 				catchError(err => {
+					this.alertService.presentToast(getErrorMessage(err), 'top', 'error');
 					this.loadingService.loading = false;
 					return throwError(err);
 				})
