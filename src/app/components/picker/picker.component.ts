@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, ViewChild} from '@angular/core';
-import {IonModal, PickerColumnOption, PickerController} from '@ionic/angular';
+import {IonModal, PickerController} from '@ionic/angular';
 import {Button} from '../../models/button.model';
 import {DomService} from '../../services/dom.service';
 import {ButtonsWrapperComponent} from '../buttons-wrapper/buttons-wrapper.component';
@@ -16,6 +16,7 @@ import {
 } from '../../../store/period-picker/period-picker.actions';
 import {selectPeriodByButtonId} from '../../../store/period-picker/period-picker.selectors';
 import {ARRAY_OF_MONTH_VALUES} from '../../../store/period-picker/period-picker.reducer';
+import {getValues} from 'src/app/shared/utils/period.utils';
 
 @Component({
 	selector: 'app-picker',
@@ -89,7 +90,7 @@ export class PickerComponent implements OnInit {
 	}
 
 	getTitle(): string {
-		const monthValue = this.getValues(this.periodId).find((item) => item.value === this.periodValue);
+		const monthValue = getValues(this.periodId, this.arrayOfMonthValues).find((item) => item.value === this.periodValue);
 		if (!monthValue) {
 			return this.periodYear.toString();
 		}
@@ -119,16 +120,8 @@ export class PickerComponent implements OnInit {
 		}));
 	}
 
-	getValues(periodId: number): PickerColumnOption[] {
-		const v = this.arrayOfMonthValues.find(({id}) => id === periodId);
-		if (!v) {
-			return null;
-		}
-		return v.values as PickerColumnOption[];
-	}
-
 	async openPicker() {
-		const monthValues = this.getValues(this.periodId);
+		const monthValues = getValues(this.periodId, this.arrayOfMonthValues);
 		let _periodId = this.periodId;
 
 		const picker = await this.pickerCtrl.create({
@@ -185,7 +178,7 @@ export class PickerComponent implements OnInit {
 			// this.changePeriodId(id);
 			_periodId = id;
 			attached.buttons = this.changePeriodType(id, _b);
-			const options = this.getValues(id);
+			const options = getValues(id, this.arrayOfMonthValues);
 
 			// TODO Убирать колонку месяца если нет значений.
 
@@ -222,7 +215,7 @@ export class PickerComponent implements OnInit {
 	}
 
 	disableNext(): boolean {
-		return this.periodYear === this.maxYear && this.periodValue === this.getValues(this.periodId).length;
+		return this.periodYear === this.maxYear && this.periodValue === getValues(this.periodId, this.arrayOfMonthValues).length;
 	}
 
 }
