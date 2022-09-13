@@ -8,12 +8,25 @@
 	height: 40px;
 	//text-transform: capitalize;
 
+	app-custom-icon-button {
+		height: 100%;
+		width: 40px;
+	}
+
 	.period-title__wrapper {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		font-size: 2rem;
 		color: var(--block-item-title);
+		width: 100%;
+		height: 100%;
+		justify-content: space-around;
+
+		.wrapper {
+			align-items: center;
+			display: flex;
+		}
 
 		.period-title {
 			font-size: 1.2rem;
