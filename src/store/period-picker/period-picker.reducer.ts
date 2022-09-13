@@ -78,7 +78,8 @@ export const periodPickerReducer = createReducer(
 		const v = getValues(_state[idx].periodId, ARRAY_OF_MONTH_VALUES);
 		_state[idx] = {
 			..._state[idx],
-			periodValue: _state[idx].periodValue - 1,
+			periodValue: _state[idx].periodValue > 1 ? _state[idx].periodValue - 1 : v.length,
+			periodYear: _state[idx].periodValue > 1 ? _state[idx].periodYear : _state[idx].periodYear - 1,
 		};
 		return [..._state];
 	}),
@@ -91,7 +92,8 @@ export const periodPickerReducer = createReducer(
 		const v = getValues(_state[idx].periodId, ARRAY_OF_MONTH_VALUES);
 		_state[idx] = {
 			..._state[idx],
-			periodValue: _state[idx].periodValue + 1,
+			periodValue: _state[idx].periodValue < v.length ? _state[idx].periodValue + 1 : 1,
+			periodYear: _state[idx].periodValue < v.length ? _state[idx].periodYear : _state[idx].periodYear + 1,
 		};
 		return [..._state];
 	}),
