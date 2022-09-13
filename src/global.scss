@@ -53,4 +53,6 @@ ion-picker.picker__wrapper {
 	}
 }
 
-
+.toast__error {
+	--background: var(--status-danger);
+}
