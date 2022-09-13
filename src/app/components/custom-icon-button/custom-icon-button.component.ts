@@ -22,8 +22,8 @@ export class CustomIconButtonComponent {
 	constructor() {
 	}
 
-	onClickBtn(id) {
-		this.clickBtn.emit(id);
+	onClickBtn(event) {
+		if (!this.disabled) {this.clickBtn.emit(event);}
 	}
 
 }
