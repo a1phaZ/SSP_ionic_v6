@@ -6,7 +6,7 @@ export enum Icons {
 	arrowDown = 'arrow-down',
 	arrowDownFill = 'arrow-down-fill',
 	filterCrisis = 'filter-crisis',
-	menu = 'menu',
+	filter = 'filter',
 	month = 'month',
 	quaterYear = 'quater-year',
 	halfYear = 'half-year',

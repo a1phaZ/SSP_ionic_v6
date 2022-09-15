@@ -9,4 +9,5 @@ export type TDashboardItem = {
 	name: string;
 	title: string;
 	path?: string;
+	availableTypes?: any[];
 };
