@@ -1,0 +1,16 @@
+<app-header title="Выберите элемент списка" [buttons]="{right: ['close']}" (rightHandle)="closeModal()"></app-header>
+<ion-content>
+	<ion-infinite-scroll>
+		<ng-container *ngIf="list$ | async as list">
+			<app-orgs-list [list]="list | filterOrgs : selectedId" (selectItem)="selectItem($event)"></app-orgs-list>
+		</ng-container>
+	</ion-infinite-scroll>
+</ion-content>
+<ion-footer>
+	<ion-toolbar class="modal__footer">
+		<app-items-bar
+			[items]="button.availableTypes"
+			[selectedId]="selectedId"
+			(changeSelected)="changeBar($event)"></app-items-bar>
+	</ion-toolbar>
+</ion-footer>
