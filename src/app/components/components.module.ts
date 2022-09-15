@@ -15,15 +15,12 @@ import {CustomIconButtonModule} from './custom-icon-button/custom-icon.button.mo
 import {TableRowComponent} from './table/table-row/table-row.component';
 import {HighchartsChartModule} from 'highcharts-angular';
 import {ItemComponent} from './list/item/item.component';
-import {OrgListItemComponent} from './org-list-item/org-list-item.component';
 import {HeaderModule} from './app/header/header.module';
 import {IndListComponent} from './ind-list/ind-list.component';
-import {OrgsListComponent} from './orgs-list/orgs-list.component';
 import {PickerComponent} from './picker/picker.component';
 import {CustomIconButtonWithTextComponent} from './custom-icon-button-with-text/custom-icon-button-with-text.component';
 import {ButtonsWrapperComponent} from './buttons-wrapper/buttons-wrapper.component';
 import {DirectionsBarComponent} from './directions-bar/directions-bar.component';
-import {ItemsBarComponent} from './base/items-bar/items-bar.component';
 import {IndSegmentedListItemComponent} from './ind-segmented-list-item/ind-segmented-list-item.component';
 import {IndListItemModule} from './ind-list-item/ind-list-item.module';
 import {IndSegmentedListComponent} from './ind-segmented-list/ind-segmented-list.component';
@@ -42,10 +39,12 @@ import {SimpleRatingListComponent} from './simple-rating-list/simple-rating-list
 import {BlockColumnsComponent} from './blocks/block-columns/block-columns.component';
 import {ItemsModule} from './items/items.module';
 import {LogoModule} from './app/logo/logo.module';
+import {ModalsModule} from './modals/modals.module';
+import {OrgsListModule} from './orgs-list/orgs-list.module';
+import {ItemsBarModule} from './base/items-bar/items-bar.module';
 
 const appComponents = [
 	PickerComponent,
-	ItemsBarComponent,
 	DirectionsBarComponent,
 ];
 
@@ -80,8 +79,6 @@ const tableComponents = [
 		ItemComponent,
 		indicatorComponents,
 		tableComponents,
-		OrgListItemComponent,
-		OrgsListComponent,
 		CustomIconButtonWithTextComponent,
 		ButtonsWrapperComponent,
 		TimelineItemComponent,
@@ -110,8 +107,6 @@ const tableComponents = [
 		ItemComponent,
 		indicatorComponents,
 		tableComponents,
-		OrgListItemComponent,
-		OrgsListComponent,
 		CustomIconButtonWithTextComponent,
 		ButtonsWrapperComponent,
 		TimelineItemComponent,
@@ -132,7 +127,10 @@ const tableComponents = [
 		IndListItemModule,
 		ChartsModule,
 		ItemsModule,
-		LogoModule
+		LogoModule,
+		ModalsModule,
+		OrgsListModule,
+		ItemsBarModule
 	],
 	// providers: [LoaderComponent]
 })
