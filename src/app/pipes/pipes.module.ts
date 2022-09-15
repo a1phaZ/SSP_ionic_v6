@@ -4,20 +4,22 @@ import {InnerHtmlPipe} from './inner-html.pipe';
 import {ProgressValuePipe} from './progress-value.pipe';
 import {SortIndRatingPipe} from './sort-ind-rating.pipe';
 import {DirectionFilterPipe} from './direction-filter.pipe';
-
+import {FilterOrgsPipe} from './filter-orgs.pipe';
 
 @NgModule({
 	declarations: [
 		InnerHtmlPipe,
 		ProgressValuePipe,
 		SortIndRatingPipe,
-		DirectionFilterPipe
+		DirectionFilterPipe,
+		FilterOrgsPipe,
 	],
 	exports: [
 		InnerHtmlPipe,
 		ProgressValuePipe,
 		SortIndRatingPipe,
-		DirectionFilterPipe
+		DirectionFilterPipe,
+		FilterOrgsPipe,
 	],
 	imports: [
 		CommonModule
