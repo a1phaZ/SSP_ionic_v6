@@ -791,8 +791,8 @@ export const dashboardList: TDashboardItem[] = [
 		isDevelopment: false,
 		path: 'indicators', // For Routing
 		availableTypes: [
-			{ id: EAvailableOrgs.group,	title: CAvailableOrgsTranslate[EAvailableOrgs.group], order: 1 },
 			{ id: EAvailableOrgs.division, title: CAvailableOrgsTranslate[EAvailableOrgs.division], order: 3 },
+			{ id: EAvailableOrgs.group,	title: CAvailableOrgsTranslate[EAvailableOrgs.group], order: 1 },
 			{ id: EAvailableOrgs.mark, title: CAvailableOrgsTranslate[EAvailableOrgs.mark], order: 0 },
 			{ id: EAvailableOrgs.brand, title: CAvailableOrgsTranslate[EAvailableOrgs.brand], order: -1 },
 		],
