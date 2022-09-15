@@ -16,6 +16,9 @@ import { StoreModule } from '@ngrx/store';
 import {  dashboardReducer  } from '../store/dashboard/dashboard.reducer';
 import {directionsReducer} from '../store/directions/directions.reducer';
 import {periodPickerReducer} from '../store/period-picker/period-picker.reducer';
+import {organizationsReducer} from '../store/organizations/organizations.reducer';
+import {EffectsModule} from '@ngrx/effects';
+import {OrganizationsEffects} from '../store/organizations/organizations.effects';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -30,7 +33,11 @@ import {periodPickerReducer} from '../store/period-picker/period-picker.reducer'
 			dashboard: dashboardReducer,
 			directions: directionsReducer,
 			periods: periodPickerReducer,
-		})
+			organizations: organizationsReducer,
+		}),
+		EffectsModule.forRoot([
+			OrganizationsEffects
+		]),
 	],
 	providers: [
 		{provide: RouteReuseStrategy, useClass: IonicRouteStrategy},
