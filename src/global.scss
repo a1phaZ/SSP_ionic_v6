@@ -56,3 +56,13 @@ ion-picker.picker__wrapper {
 .toast__error {
 	--background: var(--status-danger);
 }
+
+ion-content {
+	--background: var(--bg-dark);
+}
+
+@media (prefers-color-scheme: light) {
+	ion-content {
+		--background: var(--bg-light);
+	}
+}
