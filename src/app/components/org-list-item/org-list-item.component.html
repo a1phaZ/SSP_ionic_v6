@@ -1,12 +1,12 @@
 <div class="org-list__item list__item-wrapper" [ngClass]="{'active': active}">
-	<div class="logo__wrapper">
+	<div class="logo__wrapper" (click)="onSelectItem(item)">
 		<app-logo [logo]="item.logo"></app-logo>
 	</div>
 
-	<div class="item__title">{{item.title}}</div>
+	<div class="item__title" (click)="onSelectItem(item)">{{item.title}}</div>
 	<app-custom-icon-button *ngIf="item.childs && item.childs.length > 0"
 							[id]="item.id"
 							[name]="!item.isOpen ? 'arrow-down' : 'arrow-up'"
-							(clickBtn)="onItemToggle($event)"
+							(clickBtn)="onItemToggle(item)"
 	></app-custom-icon-button>
 </div>
