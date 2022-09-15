@@ -31,11 +31,19 @@ export class SelectComponent implements OnInit {
 
 	ngOnInit() {
 		this.button = dashboardList.find(({id}) => id === this.buttonId);
-		this.selectedId = this.button.availableTypes.find((item) => item.order === 1)?.id;
+
 		this.list$ = this.store.select(selectOrganizationsByButton(this.buttonId))
 			.pipe(
 				tap(console.log),
-				mergeMap((list) => of(getChild(list, list)))
+				mergeMap((list) => {
+					const childsList = getChild(list, list);
+					const activeParentOrg = childsList.find(({isActive}) => isActive);
+					this.selectedId =
+						activeParentOrg.orgType === 1 ?
+							this.button.availableTypes.find((item) => item.order === 1)?.id :
+							activeParentOrg.orgType;
+					return of(childsList);
+				})
 			);
 
 		this.store.subscribe(console.log);
