@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +10,13 @@ export class HeaderComponent implements OnInit {
 	@Input()
 	title: string;
 	@Input()
-	buttons: {left: string[]; right: string[]};
+	buttons: {left?: string[]; right?: string[]};
+
+	@Output()
+	rightHandle: EventEmitter<any> = new EventEmitter<any>();
+
+	@Output()
+	leftHandle: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 

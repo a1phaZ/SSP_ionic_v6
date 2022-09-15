@@ -6,6 +6,7 @@
 				*ngFor="let button of buttons.left"
 				[name]="button"
 				size="24px"
+				(clickBtn)="leftHandle.emit($event)"
 			></app-custom-icon-button>
 		</ion-buttons>
 		<ion-buttons slot="primary" *ngIf="buttons && buttons.right">
@@ -13,6 +14,7 @@
 				*ngFor="let button of buttons.right"
 				[name]="button"
 				size="24px"
+				(clickBtn)="rightHandle.emit($event)"
 			></app-custom-icon-button>
 		</ion-buttons>
 		<ion-title class="header__title">{{title}}</ion-title>
