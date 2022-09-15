@@ -2,8 +2,11 @@
 	<ng-container *ngFor="let item of list">
 		<app-org-list-item
 			[item]="item"
-			[active]="item.isActive"
-			(itemToggle)="itemToggle($event)"></app-org-list-item>
-		<app-orgs-list *ngIf="item.isOpen && item.childs.length > 0" [list]="item.childs" [isOpen]="item.isOpen"></app-orgs-list>
+			[active]="item.isActive && !item.summary"
+			(itemToggle)="itemToggle($event)" (selectItem)="itemToggle($event)"></app-org-list-item>
+		<app-orgs-list *ngIf="item.isOpen && item?.childs?.length > 0"
+					   [list]="item?.childs"
+					   [isOpen]="item.isOpen"
+					   (selectItem)="onSelectItem($event)"></app-orgs-list>
 	</ng-container>
 </div>
