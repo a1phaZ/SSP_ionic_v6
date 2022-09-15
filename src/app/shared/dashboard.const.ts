@@ -1,4 +1,5 @@
 import {TDashboardItem} from '../models/dashboard.model';
+import {CAvailableOrgsTranslate, EAvailableOrgs} from '../models/organization.model';
 
 type TIconList = {
 	id: number; icon: string;
@@ -788,7 +789,13 @@ export const dashboardList: TDashboardItem[] = [
 		isChild: true,
 		// isAccess: checkBtnAccess('official'),
 		isDevelopment: false,
-		path: 'indicators'
+		path: 'indicators', // For Routing
+		availableTypes: [
+			{ id: EAvailableOrgs.group,	title: CAvailableOrgsTranslate[EAvailableOrgs.group], order: 1 },
+			{ id: EAvailableOrgs.division, title: CAvailableOrgsTranslate[EAvailableOrgs.division], order: 3 },
+			{ id: EAvailableOrgs.mark, title: CAvailableOrgsTranslate[EAvailableOrgs.mark], order: 0 },
+			{ id: EAvailableOrgs.brand, title: CAvailableOrgsTranslate[EAvailableOrgs.brand], order: -1 },
+		],
 	},
 	{
 		id: 10,
