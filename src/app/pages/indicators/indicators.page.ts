@@ -10,6 +10,10 @@ import {IAppState} from '../../../store/app.state';
 import {IndicatorsService} from '../../services/indicators.service';
 import {selectCurrentDirection} from '../../../store/directions/directions.selectors';
 import {selectIndicatorsPageState} from '../../../store/app.selectors';
+import {ModalController} from '@ionic/angular';
+import {SelectComponent} from '../../components/modals/select/select.component';
+import {initializeOrgs, setOrganizationList} from '../../../store/organizations/organizations.actions';
+import {ORGS_LIST} from '../../components/orgs-list/orgs-list.const';
 
 @Component({
 	selector: 'app-indicators',
@@ -28,15 +32,23 @@ export class IndicatorsPage implements OnInit, OnDestroy {
 		private webApi: WebApiService,
 		private store: Store<IAppState>,
 		public indicatorService: IndicatorsService,
+		private modalCtrl: ModalController,
 	) {
 		this.route.params.subscribe((params) => {
-			this.buttonId = params.buttonId;
+			this.buttonId = Number(params.buttonId);
 		});
 
 		this.currentDirection$ = this.store.select(selectCurrentDirection);
+
+
+		// TODO Перенести в авторизацию
+		this.store.dispatch(setOrganizationList({list: ORGS_LIST}));
+
 	}
 
 	ngOnInit() {
+		this.store.dispatch(initializeOrgs({buttonId: this.buttonId}));
+
 		this.indicators$ = this.store.select(selectIndicatorsPageState).pipe(
 			takeUntil(this.ngUnsubscribe),
 			switchMap((data) => {
@@ -48,14 +60,14 @@ export class IndicatorsPage implements OnInit, OnDestroy {
 						periodName: data.period.periodId,
 						periodValue: data.period.periodValue,
 						periodYear: data.period.periodYear,
-						org: 39,
+						org: data.organization.id,
 						isGroup: false,
 						podr: 0,
 						brand: 0,
 						// mode: 'op1',
 						directions: id,
-						objectId: 39,
-						objectType: 1,
+						objectId: data.organization.id,
+						objectType: data.organization.orgType,
 					}));
 				return from(requestData).pipe(
 					mergeMap(r => this.makeRequest(r)),
@@ -106,6 +118,17 @@ export class IndicatorsPage implements OnInit, OnDestroy {
 	ngOnDestroy(): void {
 		this.ngUnsubscribe.next();
 		this.ngUnsubscribe.complete();
+	}
+
+	async selectModalOpen(event) {
+		const modal = await this.modalCtrl.create({
+			component: SelectComponent,
+			componentProps: {
+				buttonId: this.buttonId,
+				data: event
+			}
+		});
+		modal.present();
 	}
 
 }

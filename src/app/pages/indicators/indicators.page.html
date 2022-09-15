@@ -1,4 +1,4 @@
-<app-header title="Официальные дилеры"></app-header>
+<app-header title="Официальные дилеры" [buttons]="{right: ['filter']}" (rightHandle)="selectModalOpen($event)"></app-header>
 <app-directions-bar></app-directions-bar>
 <app-picker></app-picker>
 <ion-content>
