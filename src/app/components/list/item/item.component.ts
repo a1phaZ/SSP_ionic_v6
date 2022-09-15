@@ -27,14 +27,21 @@ export class ItemComponent implements OnInit {
 	@Output()
 	itemToggle: EventEmitter<any> = new EventEmitter<any>();
 
+	@Output()
+	selectItem: EventEmitter<any> = new EventEmitter<any>();
+
 	constructor() {
 	}
 
 	ngOnInit() {
 	}
 
-	onItemToggle(id) {
-		this.itemToggle.emit(id);
+	onItemToggle(item) {
+		this.itemToggle.emit(item);
+	}
+
+	onSelectItem(event) {
+		this.selectItem.emit(event);
 	}
 
 }

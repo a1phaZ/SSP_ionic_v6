@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {TIndicator} from '../../models/indicator.model';
 import {TOrgSelectItem} from '../../models/organization.model';
 import {TIndicatorReserve} from '../../models/indicator-reserv.model';
@@ -24,6 +24,9 @@ export class ListComponent {
 	@Input()
 	isOpen = false;
 
+	@Output()
+	selectItem: EventEmitter<any> = new EventEmitter<any>();
+
 	constructor() {
 	}
 
@@ -32,6 +35,10 @@ export class ListComponent {
 		if (ind) {
 			ind.isOpen = !ind.isOpen;
 		}
+	}
+
+	onSelectItem(event) {
+		this.selectItem.emit(event);
 	}
 
 }
