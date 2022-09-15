@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
 	selector: 'app-items-bar',
@@ -12,17 +12,21 @@ export class ItemsBarComponent implements OnInit {
 	@Input()
 	selectedId: number;
 
+	@Output()
+	changeSelected: EventEmitter<number> = new EventEmitter<number>();
+
 	constructor() {
 	}
 
 	ngOnInit() {
 	}
 
-	changeSelected(id: number) {
+	onChangeSelected(id: number) {
 		if (this.selectedId === id) {
 			return;
 		}
-		this.selectedId = id;
+		// this.selectedId = id;
+		this.changeSelected.emit(id);
 	}
 
 }

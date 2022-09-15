@@ -1,3 +1,9 @@
-<p>
-  items-bar works!
-</p>
+<div class="bar__wrapper bottom__bar">
+	<ng-container *ngIf="items as list">
+		<div class="bar__item"
+			 *ngFor="let item of list"
+			 [ngClass]="{'selected': item.id === selectedId}"
+			 (click)="onChangeSelected(item.id)"
+		>{{item.title}}</div>
+	</ng-container>
+</div>
