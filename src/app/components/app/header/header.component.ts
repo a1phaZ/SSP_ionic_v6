@@ -8,7 +8,12 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class HeaderComponent implements OnInit {
 
 	@Input()
-	title: string;
+	primaryTitle: string;
+	@Input()
+	secondaryTitle: string;
+	@Input()
+	tertiaryTitle: string;
+
 	@Input()
 	buttons: {left?: string[]; right?: string[]};
 

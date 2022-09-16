@@ -10,5 +10,19 @@
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
+
+		.header__title-wrapper {
+			display: flex;
+			flex-direction: column;
+
+			.secondary, .tertiary {
+				font-weight: 300;
+				font-size: 1.1rem;
+				line-height: 1rem;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
 	}
 }

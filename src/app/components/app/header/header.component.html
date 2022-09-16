@@ -17,6 +17,13 @@
 				(clickBtn)="rightHandle.emit($event)"
 			></app-custom-icon-button>
 		</ion-buttons>
-		<ion-title class="header__title">{{title}}</ion-title>
+		<ion-title class="header__title">
+			<div class="header__title-wrapper">
+				<span class="primary">{{primaryTitle}}</span>
+				<span class="secondary" *ngIf="secondaryTitle">{{secondaryTitle}}</span>
+				<span class="tertiary" *ngIf="tertiaryTitle">{{tertiaryTitle}}</span>
+			</div>
+
+		</ion-title>
 	</ion-toolbar>
 </ion-header>
