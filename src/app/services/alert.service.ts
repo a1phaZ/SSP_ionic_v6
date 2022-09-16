@@ -13,15 +13,13 @@ export class AlertService {
 	) {
 	}
 
-	async presentToast(message: string, position: 'top' | 'bottom', cssClass: string | null = null) {
+	async presentToast(message: string, position: 'top' | 'bottom', cssClass: string = '', duration: number = 0) {
 		this.toast = await this.toastCtrl.create({
 			message,
-			// duration: 10000,
+			duration,
 			position,
 			cssClass: cssClass && `toast__${cssClass}`,
-			buttons: [{
-				text: 'x',
-			}]
+			buttons: duration === 0 ? [{text: 'x',}] : null
 		});
 		this.toast.present();
 	}
