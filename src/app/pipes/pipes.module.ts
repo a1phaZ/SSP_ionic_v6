@@ -5,6 +5,7 @@ import {ProgressValuePipe} from './progress-value.pipe';
 import {SortIndRatingPipe} from './sort-ind-rating.pipe';
 import {DirectionFilterPipe} from './direction-filter.pipe';
 import {FilterOrgsPipe} from './filter-orgs.pipe';
+import { RunratePipe } from './runrate.pipe';
 
 @NgModule({
 	declarations: [
@@ -13,6 +14,7 @@ import {FilterOrgsPipe} from './filter-orgs.pipe';
 		SortIndRatingPipe,
 		DirectionFilterPipe,
 		FilterOrgsPipe,
+  RunratePipe,
 	],
 	exports: [
 		InnerHtmlPipe,
@@ -20,6 +22,7 @@ import {FilterOrgsPipe} from './filter-orgs.pipe';
 		SortIndRatingPipe,
 		DirectionFilterPipe,
 		FilterOrgsPipe,
+		RunratePipe,
 	],
 	imports: [
 		CommonModule

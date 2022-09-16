@@ -16,6 +16,7 @@ export type TIndicator = {
 	test?: boolean;
 	childs: TIndicator[];
 	isOpen: boolean;
+	runRate?: number;
 };
 
 export type TIndicatorStore = {

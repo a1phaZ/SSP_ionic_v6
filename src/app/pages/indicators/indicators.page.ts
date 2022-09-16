@@ -15,6 +15,9 @@ import {SelectComponent} from '../../components/modals/select/select.component';
 import {initializeOrgs, setOrganizationList} from '../../../store/organizations/organizations.actions';
 import {ORGS_LIST} from '../../components/orgs-list/orgs-list.const';
 import {getPrimaryTitle, getSecondaryTitle, getTertiaryTitle} from '../../shared/utils/header.utils';
+import {Icons} from '../../models/icons.model';
+import {CrisisService} from '../../services/crisis.service';
+import {THeaderButtons} from '../../models/button.model';
 
 @Component({
 	selector: 'app-indicators',
@@ -40,6 +43,7 @@ export class IndicatorsPage implements OnInit, OnDestroy {
 		private store: Store<IAppState>,
 		public indicatorService: IndicatorsService,
 		private modalCtrl: ModalController,
+		public crisisService: CrisisService
 	) {
 		this.route.params.subscribe((params) => {
 			this.buttonId = Number(params.buttonId);
@@ -55,8 +59,6 @@ export class IndicatorsPage implements OnInit, OnDestroy {
 
 	ngOnInit() {
 		this.store.dispatch(initializeOrgs({buttonId: this.buttonId}));
-
-
 
 		this.indicators$ = this.store.select(selectIndicatorsPageState).pipe(
 			takeUntil(this.ngUnsubscribe),
@@ -125,7 +127,8 @@ export class IndicatorsPage implements OnInit, OnDestroy {
 				viewSum: item.fakt_mobile,
 				sum: item.number_fakt
 			},
-			units: item.unit
+			units: item.unit,
+			runRate: item.runrate,
 		};
 	}
 
@@ -135,7 +138,21 @@ export class IndicatorsPage implements OnInit, OnDestroy {
 		this.ngUnsubscribe.complete();
 	}
 
-	async selectModalOpen(event) {
+	buttonsHandle(button: string) {
+		switch (button) {
+			case Icons.filter: {
+				return this.selectModalOpen();
+			}
+			case Icons.filterCrisis: {
+				this.crisisService.setFilter();
+				return;
+			}
+			default:
+				return;
+		}
+	}
+
+	async selectModalOpen() {
 		const modal = await this.modalCtrl.create({
 			component: SelectComponent,
 			componentProps: {
@@ -146,4 +163,12 @@ export class IndicatorsPage implements OnInit, OnDestroy {
 		modal.present();
 	}
 
+	initializeHeaderButtons(): THeaderButtons {
+		return {
+			right: [
+				{name: 'filter-crisis', cssClass: this.crisisService.value && 'bad'},
+				{name: 'filter'}
+			]
+		};
+	}
 }
