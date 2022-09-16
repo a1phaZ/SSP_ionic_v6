@@ -33,6 +33,13 @@
 				font-size: 1.15rem;
 				line-height: 1.2rem;
 			}
+
+			.rr__wrapper {
+				display: flex;
+				flex-direction: row;
+				gap: 8px;
+				align-items: baseline;
+			}
 		}
 	}
 

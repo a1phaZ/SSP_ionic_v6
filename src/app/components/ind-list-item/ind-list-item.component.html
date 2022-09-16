@@ -7,9 +7,17 @@
 				<span class="sum">{{item.plan.viewSum}}</span>
 				<span class="units">{{item.units}}</span>
 			</div>
-			<div class="details__percent" [ngClass]="item.plan.completeStatus">
+			<div class="details__percent" [ngClass]="item.plan.completeStatus" *ngIf="!crisisService.value; else runRate">
 				{{item.plan.complete}}%
 			</div>
+			<ng-template #runRate>
+				<div class="rr__wrapper">
+					RR
+					<div class="details__percent" [ngClass]="item.plan.completeStatus">
+						{{item.runRate}}%
+					</div>
+				</div>
+			</ng-template>
 		</div>
 	</div>
 	<div class="item__sum item__value-wrapper" [ngClass]="item.test ? 'test' : null">

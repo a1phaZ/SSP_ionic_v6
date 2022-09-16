@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {ItemComponent} from '../list/item/item.component';
+import {CrisisService} from '../../services/crisis.service';
 
 @Component({
 	selector: 'app-ind-list-item',
@@ -7,7 +8,9 @@ import {ItemComponent} from '../list/item/item.component';
 	styleUrls: ['./ind-list-item.component.scss'],
 })
 export class IndListItemComponent extends ItemComponent {
-	constructor() {
+	constructor(
+		public crisisService: CrisisService
+	) {
 		super();
 	}
 
