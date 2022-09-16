@@ -14,7 +14,8 @@ export const initialState: IDashboardState = {
 
 export const dashboardReducer = createReducer(
 	initialState,
-	on(DashboardActions.selectButton, (state, {item}) => {
+	on(DashboardActions.selectButton, (state, {type, item}) => {
+		console.log(type);
 		if (!state.selected) {
 			return {...state, selected: item};
 		}
@@ -26,4 +27,8 @@ export const dashboardReducer = createReducer(
 			selected: item
 		};
 	}),
+	on(DashboardActions.dashboardBack, (state) => ({
+		selected: state.prevSelected ? state.prevSelected : null,
+		prevSelected: null
+	}))
 );

@@ -7,7 +7,7 @@
 				[name]="button.name"
 				[buttonClass]="button.cssClass"
 				size="24px"
-				(clickBtn)="leftHandle.emit($event)"
+				(clickBtn)="leftHandle.emit(button.name)"
 			></app-custom-icon-button>
 		</ion-buttons>
 		<ion-buttons slot="primary" *ngIf="buttons && buttons.right">

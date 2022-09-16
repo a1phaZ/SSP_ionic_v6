@@ -5,3 +5,7 @@ export const selectButton = createAction(
 	'[Dashboard] selectButton',
 	props<{item: TDashboardItem}>()
 );
+
+export const dashboardBack = createAction(
+	'[Dashboard] Back'
+);

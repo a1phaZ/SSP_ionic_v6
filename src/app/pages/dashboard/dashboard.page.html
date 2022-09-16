@@ -1,4 +1,4 @@
-<app-header [primaryTitle]="'КЛЮЧАВТО'"></app-header>
+<app-header [primaryTitle]="'КЛЮЧАВТО'" [buttons]="headerButtons" (leftHandle)="buttonsHandle($event)"></app-header>
 
 <ion-content>
 	<app-dashboard-list [list]="list"></app-dashboard-list>

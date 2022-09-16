@@ -13,7 +13,6 @@ export class DashboardListComponent implements OnInit {
 	@Input() list: any[];
 
 	constructor(private store: Store<IDashboardState>) {
-		this.store.subscribe((data) => console.log(data));
 	}
 
     ngOnInit() {}

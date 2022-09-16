@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {WebApiService} from '../../services/web-api.service';
 import {ApiModel} from '../../models/api.model';
 import {TIndicator, TIndicatorStore} from '../../models/indicator.model';
@@ -18,6 +18,8 @@ import {getPrimaryTitle, getSecondaryTitle, getTertiaryTitle} from '../../shared
 import {Icons} from '../../models/icons.model';
 import {CrisisService} from '../../services/crisis.service';
 import {THeaderButtons} from '../../models/button.model';
+import {NavigationService} from '../../services/navigation.service';
+import {dashboardBack} from '../../../store/dashboard/dashboard.actions';
 
 @Component({
 	selector: 'app-indicators',
@@ -39,11 +41,13 @@ export class IndicatorsPage implements OnInit, OnDestroy {
 
 	constructor(
 		private route: ActivatedRoute,
+		private router: Router,
 		private webApi: WebApiService,
 		private store: Store<IAppState>,
 		public indicatorService: IndicatorsService,
 		private modalCtrl: ModalController,
-		public crisisService: CrisisService
+		public crisisService: CrisisService,
+		private navigation: NavigationService,
 	) {
 		this.route.params.subscribe((params) => {
 			this.buttonId = Number(params.buttonId);
@@ -147,6 +151,12 @@ export class IndicatorsPage implements OnInit, OnDestroy {
 				this.crisisService.setFilter();
 				return;
 			}
+			case Icons.back: {
+				this.navigation.back();
+				this.ngOnDestroy();
+				this.store.dispatch(dashboardBack());
+				return ;
+			}
 			default:
 				return;
 		}
@@ -166,8 +176,11 @@ export class IndicatorsPage implements OnInit, OnDestroy {
 	initializeHeaderButtons(): THeaderButtons {
 		return {
 			right: [
-				{name: 'filter-crisis', cssClass: this.crisisService.value && 'bad'},
-				{name: 'filter'}
+				{name: Icons.filterCrisis, cssClass: this.crisisService.value && 'bad'},
+				{name: Icons.filter}
+			],
+			left: [
+				{name: Icons.back}
 			]
 		};
 	}
