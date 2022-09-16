@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {THeaderButtons} from '../../../models/button.model';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +16,7 @@ export class HeaderComponent implements OnInit {
 	tertiaryTitle: string;
 
 	@Input()
-	buttons: {left?: string[]; right?: string[]};
+	buttons: THeaderButtons;
 
 	@Output()
 	rightHandle: EventEmitter<any> = new EventEmitter<any>();

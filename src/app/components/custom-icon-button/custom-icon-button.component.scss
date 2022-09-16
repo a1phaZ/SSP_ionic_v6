@@ -7,6 +7,11 @@
 	--padding-end: 1em;
 	min-height: 100%;
 	--color: var(--color-dark);
+
+	&.bad {
+		background: transparent;
+		--color: var(--status-danger);
+	}
 }
 
 @media (prefers-color-scheme: light) {

@@ -4,7 +4,8 @@
 		<ion-buttons slot="secondary" *ngIf="buttons && buttons.left">
 			<app-custom-icon-button
 				*ngFor="let button of buttons.left"
-				[name]="button"
+				[name]="button.name"
+				[buttonClass]="button.cssClass"
 				size="24px"
 				(clickBtn)="leftHandle.emit($event)"
 			></app-custom-icon-button>
@@ -12,9 +13,10 @@
 		<ion-buttons slot="primary" *ngIf="buttons && buttons.right">
 			<app-custom-icon-button
 				*ngFor="let button of buttons.right"
-				[name]="button"
+				[name]="button.name"
+				[buttonClass]="button.cssClass"
 				size="24px"
-				(clickBtn)="rightHandle.emit($event)"
+				(clickBtn)="rightHandle.emit(button.name)"
 			></app-custom-icon-button>
 		</ion-buttons>
 		<ion-title class="header__title">

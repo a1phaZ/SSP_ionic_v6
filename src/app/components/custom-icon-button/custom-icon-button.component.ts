@@ -15,6 +15,8 @@ export class CustomIconButtonComponent {
 	size: string | null = null;
 	@Input()
 	disabled = false;
+	@Input()
+	buttonClass = '';
 
 	@Output()
 	clickBtn: EventEmitter<any> = new EventEmitter<any>();
