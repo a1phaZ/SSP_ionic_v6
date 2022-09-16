@@ -14,6 +14,7 @@ import {ModalController} from '@ionic/angular';
 import {SelectComponent} from '../../components/modals/select/select.component';
 import {initializeOrgs, setOrganizationList} from '../../../store/organizations/organizations.actions';
 import {ORGS_LIST} from '../../components/orgs-list/orgs-list.const';
+import {getPrimaryTitle, getSecondaryTitle, getTertiaryTitle} from '../../shared/utils/header.utils';
 
 @Component({
 	selector: 'app-indicators',
@@ -25,6 +26,12 @@ export class IndicatorsPage implements OnInit, OnDestroy {
 	indicators$: Observable<TIndicatorStore[]>;
 	currentDirection$: Observable<number>;
 	buttonId: number;
+
+	titles: {
+		primary: string;
+		secondary?: string;
+		tertiary?: string;
+	} = {primary: ''};
 	private ngUnsubscribe: Subject<any> = new Subject<any>();
 
 	constructor(
@@ -49,9 +56,17 @@ export class IndicatorsPage implements OnInit, OnDestroy {
 	ngOnInit() {
 		this.store.dispatch(initializeOrgs({buttonId: this.buttonId}));
 
+
+
 		this.indicators$ = this.store.select(selectIndicatorsPageState).pipe(
 			takeUntil(this.ngUnsubscribe),
 			switchMap((data) => {
+				console.log(data);
+				this.titles = {
+					primary: getPrimaryTitle(this.buttonId),
+					secondary: getSecondaryTitle(data.organization),
+					tertiary: getTertiaryTitle(data.directions.directionsList, data.directions.currentDirection),
+				};
 				const requestData = data
 					.directions
 					.directionsList
@@ -116,6 +131,7 @@ export class IndicatorsPage implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
+		console.warn('Indicators page destroy');
 		this.ngUnsubscribe.next();
 		this.ngUnsubscribe.complete();
 	}
