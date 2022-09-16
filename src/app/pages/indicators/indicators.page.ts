@@ -61,7 +61,6 @@ export class IndicatorsPage implements OnInit, OnDestroy {
 		this.indicators$ = this.store.select(selectIndicatorsPageState).pipe(
 			takeUntil(this.ngUnsubscribe),
 			switchMap((data) => {
-				console.log(data);
 				this.titles = {
 					primary: getPrimaryTitle(this.buttonId),
 					secondary: getSecondaryTitle(data.organization),
