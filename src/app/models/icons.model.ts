@@ -1,6 +1,7 @@
 export enum Icons {
 	arrowLeft = 'arrow-left',
 	arrowRight = 'arrow-right',
+	back = 'arrow-right',
 	arrowUp = 'arrow-up',
 	arrowUpFill = 'arrow-up-fill',
 	arrowDown = 'arrow-down',
