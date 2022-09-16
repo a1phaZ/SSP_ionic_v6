@@ -2,16 +2,16 @@ html {
 	font-size: 12px;
 	font-family: 'Roboto', sans-serif;
 
-	.excellent {
+	.excellent, .good {
 		background: var(--status-excellent);
 	}
-	.enough {
+	.enough, .crit {
 		background: var(--status-enough);
 	}
-	.danger {
+	.danger, .bad {
 		background: var(--status-danger);
 	}
-	.success {
+	.success, .norm {
 		background: var(--status-success);
 	}
 }
