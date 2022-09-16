@@ -1,6 +1,6 @@
 import {Icons} from './icons.model';
 
-export type Button = {
+export type TButton = {
 	id: number;
 	name: Icons;
 	text: string;

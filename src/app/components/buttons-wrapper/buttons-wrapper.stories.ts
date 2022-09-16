@@ -4,7 +4,7 @@ import {CommonModule} from '@angular/common';
 import {
 	CustomIconButtonWithTextComponent
 } from '../custom-icon-button-with-text/custom-icon-button-with-text.component';
-import {Button} from '../../models/button.model';
+import {TButton} from '../../models/button.model';
 import {Icons} from '../../models/icons.model';
 import {StorybookConst} from '../../shared/storybook.const';
 
@@ -19,7 +19,7 @@ export default {
 	]
 } as Meta;
 
-const template: Story = (args: { buttons: Button[] }) => ({
+const template: Story = (args: { buttons: TButton[] }) => ({
 	props: {
 		...args,
 	}

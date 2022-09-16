@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Button} from '../../models/button.model';
+import {TButton} from '../../models/button.model';
 
 @Component({
 	selector: 'app-buttons-wrapper',
@@ -9,7 +9,7 @@ import {Button} from '../../models/button.model';
 export class ButtonsWrapperComponent {
 
 	@Input()
-	buttons: Button[];
+	buttons: TButton[];
 
 	@Output()
 	clickBtn: EventEmitter<any> = new EventEmitter<any>();

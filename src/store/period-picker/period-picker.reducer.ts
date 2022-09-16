@@ -1,6 +1,6 @@
 import {createReducer, on} from '@ngrx/store';
 import * as PeriodPickerActions from './period-picker.actions';
-import {Button} from '../../app/models/button.model';
+import {TButton} from '../../app/models/button.model';
 import {Icons} from '../../app/models/icons.model';
 import { getValues } from 'src/app/shared/utils/period.utils';
 
@@ -11,7 +11,7 @@ export interface IPeriodState {
 	periodId?: number;
 	periodValue?: number;
 	periodYear?: number;
-	buttons?: Button[];
+	buttons?: TButton[];
 }
 
 export const initialState: IPeriodState[] = [];
@@ -116,7 +116,7 @@ export const periodPickerReducer = createReducer(
 	})
 );
 
-const PICKER_BUTTONS: Button[] = [
+const PICKER_BUTTONS: TButton[] = [
 	{
 		id: 3,
 		name: Icons.month,

@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, ViewChild} from '@angular/core';
 import {IonModal, PickerController} from '@ionic/angular';
-import {Button} from '../../models/button.model';
+import {TButton} from '../../models/button.model';
 import {DomService} from '../../services/dom.service';
 import {ButtonsWrapperComponent} from '../buttons-wrapper/buttons-wrapper.component';
 import {Store} from '@ngrx/store';
@@ -36,7 +36,7 @@ export class PickerComponent implements OnInit {
 	@Input()
 	periodYear;
 	@Input()
-	buttons: Button[];
+	buttons: TButton[];
 
 	@ViewChild(IonModal) modal: IonModal;
 
@@ -67,8 +67,8 @@ export class PickerComponent implements OnInit {
 			});
 	}
 
-	get _buttons(): Button[] {
-		return [...this.buttons] as Button[];
+	get _buttons(): TButton[] {
+		return [...this.buttons] as TButton[];
 	}
 
 	set _buttons(buttons) {
