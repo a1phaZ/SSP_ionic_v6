@@ -7,6 +7,11 @@
 	.block__header {
 		font-weight: bold;
 		margin-bottom: 8px;
+
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+
 	}
 }
 @media (prefers-color-scheme: dark) {

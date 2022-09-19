@@ -1,5 +1,5 @@
 <div class="details__wrapper">
-	<ng-container *ngIf="indicator.blocks as blocks">
+	<ng-container *ngIf="indicator?.blocks as blocks">
 		<div class="details__block" *ngFor="let block of blocks">
 			<app-block [block]="block"></app-block>
 		</div>

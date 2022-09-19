@@ -1,30 +1,59 @@
-import {createSelector} from '@ngrx/store';
-import {IAppState} from './app.state';
+import {createFeatureSelector, createSelector} from '@ngrx/store';
+import {IDirectionState} from './directions/directions.reducer';
+import {IPeriodState} from './period-picker/period-picker.reducer';
+import {IOrganizationsState} from './organizations/organizations.reducer';
+import {ICurrentDateState} from './current-date/current-date.reducer';
+import {IDashboardState} from './dashboard/dashboard.reducer';
 
-export const getState = (state: IAppState) => state;
+export const selectAppDashboard = createFeatureSelector<IDashboardState>('dashboard');
+export const selectAppDirections = createFeatureSelector<IDirectionState>('directions');
+export const selectAppPeriods = createFeatureSelector<IPeriodState[]>('periods');
+export const selectAppOrgs = createFeatureSelector<IOrganizationsState>('organizations');
+export const selectAppCurrentDate = createFeatureSelector<ICurrentDateState>('currentDate');
 
-export const selectIndicatorsPageState = createSelector(
-	getState,
-	(state) => ({
-		dashboard: {
-			selected: state.dashboard.selected?.id || 9, // TODO Убрать когда будет полное приложение,
-		},
+export const selectIndicatorsPageState = (buttonId) => createSelector(
+	// selectState,
+	selectAppDirections,
+	selectAppPeriods,
+	selectAppOrgs,
+	(directions, periods, organizations) => ({
 		directions: {
-			currentDirection: state.directions.currentDirection,
-			directionsList: state.directions.directionsList,
+			currentDirection: directions.currentDirection,
+			directionsList: directions.directionsList,
 		},
-		period: state.periods.find(
-			({buttonId: id}) => Number(id) === Number(state.dashboard.selected?.id || 9)
-		),  // TODO Убрать когда будет полное приложение,
-		organization: state.organizations.currentOrg[state.dashboard.selected?.id || 9]
+		period: periods.find(
+			({buttonId: id}) => Number(id) === Number(buttonId)
+		),
+		organization: organizations.currentOrg[buttonId]
 	})
 );
 
+export const selectIndicatorDetailsState = (buttonId) => createSelector(
+	selectAppDirections,
+	selectAppPeriods,
+	selectAppOrgs,
+	selectAppCurrentDate,
+	(directions, periods, organizations, currentDate) => ({
+		buttonId,
+		directions: {
+			currentDirection: directions.currentDirection,
+			directionsList: directions.directionsList,
+		},
+		period: periods.find(
+			({buttonId: id}) => Number(id) === Number(buttonId)
+		),
+		organization: organizations.currentOrg[buttonId],
+		currentDate: currentDate[buttonId]
+	})
+);
+
+
 export const selectOrgsModal = createSelector(
-	getState,
-	(state) => ({
-		buttonId: state.dashboard.selected?.id,
-		availableTypes: state.dashboard.selected?.availableTypes,
+	selectAppDashboard,
+	(dashboard) => ({
+		buttonId: dashboard.selected?.id,
+		availableTypes: dashboard.selected?.availableTypes,
 		// list: state.organizations.commonList
 	})
 );
+

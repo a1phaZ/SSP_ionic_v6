@@ -9,5 +9,6 @@ export class IndicatorsService {
 
 	indicators$: BehaviorSubject<TIndicatorStore[]> = new BehaviorSubject([]);
 
-  constructor() { }
+  constructor() {
+  }
 }

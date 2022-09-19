@@ -1,3 +1,5 @@
+import {TBlockColumn, TBlockWithHeaderValues} from './blocks.model';
+
 export type TIndicator = {
 	id: number;
 	title: string;
@@ -38,7 +40,11 @@ export type TIndicatorDetailsBlock = {
 	values: TIndicatorDetailsBlockValue[];
 };
 
-export type TIndicatorDetailsBlockValue = TIndicatorDetailsBlockValueTypeText | TIndicatorDetailsBlockValueTypeBar;
+export type TIndicatorDetailsBlockValue = |
+	TIndicatorDetailsBlockValueTypeText |
+	TIndicatorDetailsBlockValueTypeBar |
+	TBlockColumn |
+	TBlockWithHeaderValues;
 
 export type TIndicatorDetailsBlockValueTypeText = {
 	type: 'text';

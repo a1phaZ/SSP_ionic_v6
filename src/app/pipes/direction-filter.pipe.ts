@@ -2,11 +2,12 @@ import {Pipe, PipeTransform} from '@angular/core';
 import {TIndicator, TIndicatorStore} from '../models/indicator.model';
 
 @Pipe({
-	name: 'directionFilter'
+	name: 'directionFilter',
 })
 export class DirectionFilterPipe implements PipeTransform {
 
 	transform(value: TIndicatorStore[], direction: number): TIndicator[] {
+		if (!value) {return [];}
 		const indList = value.find((list) => list.direction === direction);
 		if (!indList) {
 			return [];

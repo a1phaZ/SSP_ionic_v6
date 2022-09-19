@@ -12,13 +12,16 @@ import {AuthInterceptor} from './interceptors/auth.interceptor';
 import {ComponentsModule} from './components/components.module';
 import {HighchartsChartModule} from 'highcharts-angular';
 
-import { StoreModule } from '@ngrx/store';
-import {  dashboardReducer  } from '../store/dashboard/dashboard.reducer';
+import {StoreModule} from '@ngrx/store';
+import {dashboardReducer} from '../store/dashboard/dashboard.reducer';
 import {directionsReducer} from '../store/directions/directions.reducer';
 import {periodPickerReducer} from '../store/period-picker/period-picker.reducer';
 import {organizationsReducer} from '../store/organizations/organizations.reducer';
 import {EffectsModule} from '@ngrx/effects';
 import {OrganizationsEffects} from '../store/organizations/organizations.effects';
+import {PeriodPickerEffects} from '../store/period-picker/period-picker.effects';
+import {currentDateReducer} from '../store/current-date/current-date.reducer';
+import {CurrentDateEffects} from '../store/current-date/current-date.effects';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -34,9 +37,12 @@ import {OrganizationsEffects} from '../store/organizations/organizations.effects
 			directions: directionsReducer,
 			periods: periodPickerReducer,
 			organizations: organizationsReducer,
+			currentDate: currentDateReducer,
 		}),
 		EffectsModule.forRoot([
-			OrganizationsEffects
+			OrganizationsEffects,
+			PeriodPickerEffects,
+			CurrentDateEffects
 		]),
 	],
 	providers: [

@@ -3,11 +3,11 @@ import {IonModal, PickerController} from '@ionic/angular';
 import {TButton} from '../../models/button.model';
 import {DomService} from '../../services/dom.service';
 import {ButtonsWrapperComponent} from '../buttons-wrapper/buttons-wrapper.component';
-import {Store} from '@ngrx/store';
+import {select, Store} from '@ngrx/store';
 import {IAppState} from '../../../store/app.state';
 import {ActivatedRoute} from '@angular/router';
 import {Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
+import {takeUntil, tap} from 'rxjs/operators';
 import {
 	changePeriodValue,
 	initializePicker,
@@ -15,7 +15,7 @@ import {
 	prevPeriodValue
 } from '../../../store/period-picker/period-picker.actions';
 import {selectPeriodByButtonId} from '../../../store/period-picker/period-picker.selectors';
-import {ARRAY_OF_MONTH_VALUES} from '../../../store/period-picker/period-picker.reducer';
+import {ARRAY_OF_MONTH_VALUES, IPeriodState} from '../../../store/period-picker/period-picker.reducer';
 import {getValues} from 'src/app/shared/utils/period.utils';
 
 @Component({
@@ -59,10 +59,9 @@ export class PickerComponent implements OnInit {
 		this.route
 			.params
 			.pipe(
-				takeUntil(this.ngUnsubscribe)
+				takeUntil(this.ngUnsubscribe),
 			)
 			.subscribe((data: { buttonId: string }) => {
-				this.store.dispatch(initializePicker({buttonId: Number(data.buttonId)}));
 				this.buttonId = Number(data.buttonId);
 			});
 	}
@@ -77,16 +76,33 @@ export class PickerComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.store.select(selectPeriodByButtonId(9))
+		this.store
+			.pipe(
+				select(selectPeriodByButtonId(9)),
+				tap((period: IPeriodState) => !period ?
+					this.store.dispatch(initializePicker({buttonId: Number(this.buttonId)})) :
+					this.store.dispatch(initializePicker({
+								buttonId: Number(this.buttonId),
+								periodId: period.periodId,
+								periodValue: period.periodValue,
+								periodYear: period.periodYear
+							}
+						)
+					)
+				)
+			)
 			.subscribe(data => {
-				for (const key of Object.keys(data)) {
-					this[key] = data[key];
+				if (data) {
+					for (const key of Object.keys(data)) {
+						this[key] = data[key];
+					}
+					this.changePeriodId(this.periodId);
+					this.title = this.getTitle();
+					this.arrayOfYears = this.fillArray(this.minYear, this.maxYear);
+				} else {
+					console.log('initializePicker', data);
 				}
 			});
-
-		this.changePeriodId(this.periodId);
-		this.title = this.getTitle();
-		this.arrayOfYears = this.fillArray(this.minYear, this.maxYear);
 	}
 
 	getTitle(): string {

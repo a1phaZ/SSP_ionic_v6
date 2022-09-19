@@ -2,7 +2,7 @@ import {createReducer, on} from '@ngrx/store';
 import * as PeriodPickerActions from './period-picker.actions';
 import {TButton} from '../../app/models/button.model';
 import {Icons} from '../../app/models/icons.model';
-import { getValues } from 'src/app/shared/utils/period.utils';
+import {getValues} from 'src/app/shared/utils/period.utils';
 
 export interface IPeriodState {
 	buttonId: number;
@@ -11,6 +11,7 @@ export interface IPeriodState {
 	periodId?: number;
 	periodValue?: number;
 	periodYear?: number;
+	currentDate?: string;
 	buttons?: TButton[];
 }
 
@@ -27,6 +28,7 @@ const getDefaultPeriodValue = (periodValue) => {
  * Инициализация периода
  *
  * @param state
+ * @param type
  * @param buttonId
  * @param minYear
  * @param maxYear
@@ -37,6 +39,7 @@ const getDefaultPeriodValue = (periodValue) => {
  */
 // eslint-disable-next-line max-len
 const initializePeriod = (state, {
+	type,
 	buttonId,
 	minYear = 2017,
 	maxYear,
@@ -44,7 +47,8 @@ const initializePeriod = (state, {
 	periodYear,
 	periodId,
 	buttons = PICKER_BUTTONS
-}: IPeriodState) => {
+}: any) => {
+	console.log(type);
 	const _state = [...state];
 	const idx = _state.findIndex((item) => buttonId === item.buttonId);
 	if (idx === -1) {
@@ -57,19 +61,20 @@ const initializePeriod = (state, {
 				periodValue: getDefaultPeriodValue(periodValue),
 				periodYear: periodYear ? periodYear : new Date().getFullYear(),
 				periodId: periodId ? periodId : 3,
-				buttons
+				buttons,
 			}
 		];
 	}
 
 	// Возвращаем тот же стейт, если уже инициализировали
-	return [...state];
+	return state;
 };
 
 export const periodPickerReducer = createReducer(
 	initialState,
 	on(PeriodPickerActions.initializePicker, initializePeriod),
-	on(PeriodPickerActions.prevPeriodValue, (state, {buttonId}) => {
+	on(PeriodPickerActions.prevPeriodValue, (state, {type, buttonId}) => {
+		console.log(type);
 		const _state = [...state];
 		const idx = _state.findIndex(({buttonId: id}) => buttonId === id);
 		if (idx === -1) {
@@ -83,7 +88,8 @@ export const periodPickerReducer = createReducer(
 		};
 		return [..._state];
 	}),
-	on(PeriodPickerActions.nextPeriodValue, (state, {buttonId}) => {
+	on(PeriodPickerActions.nextPeriodValue, (state, {type, buttonId}) => {
+		console.log(type);
 		const _state = [...state];
 		const idx = _state.findIndex(({buttonId: id}) => buttonId === id);
 		if (idx === -1) {
@@ -97,7 +103,8 @@ export const periodPickerReducer = createReducer(
 		};
 		return [..._state];
 	}),
-	on(PeriodPickerActions.changePeriodValue, (state, {buttonId, periodId, periodValue, periodYear}) => {
+	on(PeriodPickerActions.changePeriodValue, (state, {type, buttonId, periodId, periodValue, periodYear}) => {
+		console.log({type, buttonId, periodId, periodValue, periodYear});
 		const _state = [...state];
 		const idx = _state.findIndex(({buttonId: id}) => buttonId === id);
 		if (idx === -1) {
@@ -113,7 +120,7 @@ export const periodPickerReducer = createReducer(
 			periodYear
 		};
 		return [..._state];
-	})
+	}),
 );
 
 const PICKER_BUTTONS: TButton[] = [

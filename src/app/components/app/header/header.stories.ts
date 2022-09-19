@@ -27,6 +27,6 @@ header.args = {
 	title: 'Default Title',
 	buttons: {
 		left: [Icons.arrowLeft],
-		right: [Icons.filterCrisis, Icons.menu]
+		right: [Icons.filterCrisis, Icons.filter]
 	}
 };

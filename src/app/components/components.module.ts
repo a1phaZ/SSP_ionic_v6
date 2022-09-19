@@ -6,10 +6,6 @@ import {PipesModule} from '../pipes/pipes.module';
 import {DashboardListComponent} from './dashboard-list/dashboard-list.component';
 import {ListComponent} from './list/list.component';
 import {IonicModule} from '@ionic/angular';
-import {DetailsComponent} from './indicator/details/details.component';
-import {BlockComponent} from './indicator/details/block/block.component';
-import {ItemTextComponent} from './indicator/details/block/item-text/item-text.component';
-import {ItemBarComponent} from './indicator/details/block/item-bar/item-bar.component';
 import {TableComponent} from './table/table.component';
 import {CustomIconButtonModule} from './custom-icon-button/custom-icon.button.module';
 import {TableRowComponent} from './table/table-row/table-row.component';
@@ -42,17 +38,11 @@ import {LogoModule} from './app/logo/logo.module';
 import {ModalsModule} from './modals/modals.module';
 import {OrgsListModule} from './orgs-list/orgs-list.module';
 import {ItemsBarModule} from './base/items-bar/items-bar.module';
+import {DetailsModule} from './indicator/details/details.module';
 
 const appComponents = [
 	PickerComponent,
 	DirectionsBarComponent,
-];
-
-const indicatorComponents = [
-	DetailsComponent,
-	BlockComponent,
-	ItemTextComponent,
-	ItemBarComponent
 ];
 
 const tableComponents = [
@@ -77,7 +67,6 @@ const tableComponents = [
 		IndProgressListComponent,
 		ListComponent,
 		ItemComponent,
-		indicatorComponents,
 		tableComponents,
 		CustomIconButtonWithTextComponent,
 		ButtonsWrapperComponent,
@@ -105,7 +94,6 @@ const tableComponents = [
 		IndProgressListComponent,
 		ListComponent,
 		ItemComponent,
-		indicatorComponents,
 		tableComponents,
 		CustomIconButtonWithTextComponent,
 		ButtonsWrapperComponent,
@@ -130,7 +118,8 @@ const tableComponents = [
 		LogoModule,
 		ModalsModule,
 		OrgsListModule,
-		ItemsBarModule
+		ItemsBarModule,
+		DetailsModule
 	],
 	// providers: [LoaderComponent]
 })

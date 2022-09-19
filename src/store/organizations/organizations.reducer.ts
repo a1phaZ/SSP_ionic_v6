@@ -18,20 +18,26 @@ export const initialState: IOrganizationsState = {
 
 export const organizationsReducer = createReducer(
 	initialState,
-	on(OrgsActions.setOrganizationList, (state, {list}) => ({
-		...state,
-		commonList: list
-	})),
-	on(OrgsActions.initializeOrgs, (state, {buttonId}) =>
-		({
+	on(OrgsActions.setOrganizationList, (state, {type, list}) => {
+		console.log(type);
+		return {
+			...state,
+			commonList: list
+		};
+	}),
+	on(OrgsActions.initializeOrgs, (state, {type, buttonId}) => {
+		console.log(type);
+		if (state.list[buttonId]) {return state;}
+		return {
 			...state,
 			list: {
 				...state.list,
 				[buttonId]: state.commonList,
 			}
-		})
-	),
-	on(OrgsActions.chooseOrg, (state, {buttonId, org}) => {
+		};
+	}),
+	on(OrgsActions.chooseOrg, (state, {type, buttonId, org}) => {
+		console.log(type);
 		const {list} = state;
 		const orgs = [...restoreOrgs([...list[buttonId]])] as TOrgSelectItem[];
 		const idx = org ? orgs.findIndex(({parentId, id}) => id === org.id && parentId === org.parentId) : 0;

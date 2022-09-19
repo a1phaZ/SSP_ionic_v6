@@ -16,9 +16,14 @@ export const initialState: IDirectionState = {
 
 export const directionsReducer = createReducer(
 	initialState,
-	on(DirectionsActions.setDirectionsList, (state, {list}) => ({commonList: [...list], currentDirection: 0, directionsList: []})),
-	on(DirectionsActions.filterDirectionsList, (state, {buttonId}) => {
-		const {commonList} = state;
+	on(DirectionsActions.setDirectionsList, (state, {type, list}) => {
+		console.log(type);
+		return {commonList: [...list], currentDirection: 0, directionsList: []};
+	}),
+	on(DirectionsActions.filterDirectionsList, (state, {type, buttonId}) => {
+		console.log(type);
+		const {commonList, directionsList} = state;
+		if (directionsList.some((item) => item.buttonId === buttonId)) {return state;}
 		const list = commonList.filter((direction) => direction.buttonId === buttonId);
 		return {
 			...state,
@@ -26,5 +31,8 @@ export const directionsReducer = createReducer(
 			currentDirection: list.length > 0 ? list[0].id: 0,
 		};
 	}),
-	on(DirectionsActions.setCurrentDirection, (state, {directionId}) => ({...state, currentDirection: directionId}))
+	on(DirectionsActions.setCurrentDirection, (state, {type, directionId}) => {
+		console.log(type);
+		return {...state, currentDirection: directionId};
+	})
 );

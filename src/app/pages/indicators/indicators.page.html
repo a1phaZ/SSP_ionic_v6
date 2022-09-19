@@ -9,8 +9,9 @@
 <app-picker></app-picker>
 <ion-content>
 	<ion-infinite-scroll *ngIf="(indicatorService.indicators$ | async) as indicators">
-		<ng-container *ngIf="indicators | directionFilter : (currentDirection$ | async) as list">
-			<app-ind-list [list]="list | runrate : (crisisService.filter | async)"></app-ind-list>
+		<ng-container *ngIf="indicators | directionFilter : (currentDirection$ | async) | runrate : (crisisService.filter | async) as list">
+			<app-ind-list
+				[list]="list" (selectItem)="showItemDetails($event)"></app-ind-list>
 		</ng-container>
 	</ion-infinite-scroll>
 

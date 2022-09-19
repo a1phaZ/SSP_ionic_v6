@@ -6,6 +6,7 @@ import {NavigationEnd, Router} from '@angular/router';
   providedIn: 'root'
 })
 export class NavigationService {
+	lastUrl: string;
 	private history: string[] = [];
 
   constructor(
@@ -14,6 +15,8 @@ export class NavigationService {
   ) {
 	  this.router.events.subscribe((event) => {
 		  if (event instanceof NavigationEnd) {
+			  // console.log(event);
+			  this.lastUrl = event.urlAfterRedirects;
 			  this.history.push(event.urlAfterRedirects);
 		  }
 	  });
@@ -23,6 +26,8 @@ export class NavigationService {
 	  this.history.pop();
 	  if (this.history.length > 0) {
 		  this.location.back();
+		  this.lastUrl = this.history[this.history.length];
+		  // this.router.navigate([this.lastUrl]);
 	  } else {
 		  this.router.navigateByUrl('/');
 	  }

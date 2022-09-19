@@ -1,4 +1,4 @@
-<app-header primaryTitle="Выберите элемент списка" [buttons]="{right: ['close']}" (rightHandle)="closeModal()"></app-header>
+<app-header primaryTitle="Выберите элемент списка" [buttons]="{right: [{name: 'close'}]}" (rightHandle)="closeModal()"></app-header>
 <ion-content>
 	<ion-infinite-scroll>
 		<ng-container *ngIf="list$ | async as list">

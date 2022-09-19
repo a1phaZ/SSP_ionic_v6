@@ -9,10 +9,13 @@ import {TBlockColumn, TBlockWithHeader} from '../../../../models/blocks.model';
 })
 export class BlockComponent {
 
+
 	@Input()
 	block: TIndicatorDetailsBlock | TBlockWithHeader | TBlockColumn;
 
-	constructor() {
-	}
+	currentDate: string;
 
+	constructor() {
+		this.currentDate = new Date().toISOString();
+	}
 }

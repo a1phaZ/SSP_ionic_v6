@@ -1,5 +1,9 @@
 <div class="block__wrapper">
-	<div class="block__header">{{block.periodName}}</div>
+	<div class="block__header">
+		{{block.periodName}}
+
+		<app-date-picker *ngIf="block.periodId === 1"></app-date-picker>
+	</div>
 	<ng-container *ngIf="block.values as values">
 		<ng-container *ngFor="let item of values">
 			<ng-container *ngIf="item.type === 'text'; else itemBar">

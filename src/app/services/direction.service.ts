@@ -11,7 +11,6 @@ export class DirectionService {
 	constructor(
 		private store: Store<AppState>,
 	) {
-		console.log('DirectionService');
 		// TODO Диспатчить лист как только его получаю
 		this.store.dispatch(setDirectionsList({list: directionsList}));
 	}

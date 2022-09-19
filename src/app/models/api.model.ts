@@ -7,5 +7,6 @@ export enum ApiModel {
 	pin = '/auth/login/',
 
 	//Indicators
-	getIndList = '/api/indicators/getIndList/'
+	getIndList = '/api/indicators/getIndList/',
+	getIndicatorDetails = '/api/indicators/getFullValues/',
 }

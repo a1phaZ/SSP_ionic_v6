@@ -1,0 +1,17 @@
+<ion-datetime-button
+	class="date__button"
+	datetime="datetime"></ion-datetime-button>
+<ion-modal [keepContentsMounted]="true" trigger="open-modal">
+	<ng-template>
+		<ion-datetime
+			#datetime
+			id="datetime"
+			presentation="date"
+			doneText="Ок"
+			cancelText="Отмена"
+			[value]="currentDate"
+			[showDefaultButtons]="true"
+			[preferWheel]="true">
+		</ion-datetime>
+	</ng-template>
+</ion-modal>
