@@ -3,8 +3,6 @@ import {IonDatetime} from '@ionic/angular';
 import {IAppState} from '../../../store/app.state';
 import {Store} from '@ngrx/store';
 import {selectCurrentDate} from '../../../store/current-date/current-date.selectors';
-import {ActivatedRoute} from '@angular/router';
-import {Observable} from 'rxjs';
 import {setCurrentDate} from '../../../store/current-date/current-date.actions';
 import {IPeriodState} from '../../../store/period-picker/period-picker.reducer';
 
@@ -18,19 +16,17 @@ export class DatePickerComponent implements AfterViewInit {
 	@ViewChild('datetime') datetime: IonDatetime;
 	buttonId: number;
 
-	currentDateState$: Observable<{ currentDate: string; period: IPeriodState }>;
 	currentDate: string;
 	period: IPeriodState;
 
 	constructor(
 		private store: Store<IAppState>,
-		private route: ActivatedRoute,
 	) {
-		this.route.params.subscribe(({buttonId}) => this.buttonId = Number(buttonId));
-		this.store.select(selectCurrentDate(this.buttonId))
-			.subscribe(({date, period}) => {
+		this.store.select(selectCurrentDate)
+			.subscribe(({date, period, selected}) => {
 				this.currentDate = date.currentDate;
 				this.period = period;
+				this.buttonId = selected;
 			});
 	}
 
