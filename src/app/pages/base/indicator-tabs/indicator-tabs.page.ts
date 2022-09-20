@@ -14,6 +14,7 @@ import {Observable, Subject} from 'rxjs';
 import {TIndicatorDetails} from '../../../models/indicator.model';
 import {ApiModel} from '../../../models/api.model';
 import {DetailsService} from '../../../services/details.service';
+import {setDetails} from '../../../../store/details/details.actions';
 
 @Component({
 	selector: 'app-indicator-tabs',
@@ -55,7 +56,8 @@ export class IndicatorTabsPage implements OnInit, AfterViewInit {
 	}
 
 	ngAfterViewInit(): void {
-		this.detailsService.details$ = this.store.select(selectIndicatorDetailsState).pipe(
+		// this.detailsService.details$ = this.store.select(selectIndicatorDetailsState).pipe(
+		this.store.select(selectIndicatorDetailsState).pipe(
 			takeUntil(this.ngUnsubscribe),
 			tap(data => {
 				this.titles.secondary = data.organization.title;
@@ -76,8 +78,9 @@ export class IndicatorTabsPage implements OnInit, AfterViewInit {
 			}) as Observable<TIndicatorDetails>),
 			tap(response => {
 				this.titles.primary = response.indInfo.title;
+				this.store.dispatch(setDetails({buttonId: this.buttonId, details: response}));
 			})
-		);
+		).subscribe();
 	}
 
 	initializeHeaderButtons(): THeaderButtons {
