@@ -3,6 +3,12 @@ table {
 	font-weight: 300;
 	margin-bottom: 10px;
 
+	&.table__header {
+		position: sticky;
+		top: 0;
+		z-index: 100;
+	}
+
 	thead {
 		tr {
 			display: table-row;
@@ -79,6 +85,7 @@ table {
 	}
 
 }
+
 .indicator-details-thead-rating {
 	display: flex;
 	flex-direction: column;
