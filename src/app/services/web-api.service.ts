@@ -25,7 +25,8 @@ export class WebApiService {
 
   post$(url: string, data: any) {
     // console.log('web api post params', data);
-    return this.httpClient.post(`${this.appService.urlValue}${url}`, data, {responseType: 'json'});
+	  const d = this.prepareFormData(data);
+    return this.httpClient.post(`${this.appService.urlValue}${url}`, d, {responseType: 'json'});
   }
 
   getValidUrl() {
@@ -35,4 +36,20 @@ export class WebApiService {
       )
       .subscribe();
   }
+
+	prepareFormData(data) {
+		const _data = { ...data };
+		const fd = new FormData();
+
+		// _data.user = localStorage.getItem("userID") || "";
+		// if (!data.token) {
+		// 	_data.token = localStorage.getItem('authKey') || '';
+		// }
+
+		Object.keys(_data).forEach((key) => {
+			fd.append(key, _data[key]);
+		});
+
+		return fd;
+	}
 }

@@ -13,6 +13,10 @@ const routes: Routes = [
 				loadChildren: () => import('../../indicator-details/indicator-details.module').then(m => m.IndicatorDetailsPageModule),
 			},
 			{
+				path: 'rating',
+				loadChildren: () => import('../../indicator-rating/indicator-rating.module').then( m => m.IndicatorRatingPageModule)
+			},
+			{
 			  path: '',
 			  redirectTo: 'details',
 			  pathMatch: 'full'

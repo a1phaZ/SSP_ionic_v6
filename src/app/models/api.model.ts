@@ -9,4 +9,5 @@ export enum ApiModel {
 	//Indicators
 	getIndList = '/api/indicators/getIndList/',
 	getIndicatorDetails = '/api/indicators/getFullValues/',
+	getIndicatorRating = '/api/indicators/getRating/',
 }

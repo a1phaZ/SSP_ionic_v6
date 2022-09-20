@@ -71,3 +71,17 @@ export type TIndicatorDetailsIndInfo = {
 	title: string;
 	is_marka_analytics: boolean | null;
 };
+
+export type TIndicatorDetailsRequest = {
+	id: number;
+	periodName: number;
+	periodValue: number;
+	periodYear: number;
+	typeOrg: number;
+	brand: number;
+	idOrg: number;
+	podr: number;
+	objectId: number;
+	objectType: number;
+	user: number;
+};
