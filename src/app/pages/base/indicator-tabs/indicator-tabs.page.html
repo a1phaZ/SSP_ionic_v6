@@ -1,0 +1,19 @@
+<app-header
+	[primaryTitle]="titles.primary"
+	[secondaryTitle]="titles.secondary"
+	[tertiaryTitle]="titles.tertiary"
+	[buttons]="initializeHeaderButtons()"
+	(leftHandle)="buttonsHandle($event)"
+	(rightHandle)="buttonsHandle($event)"></app-header>
+<app-directions-bar></app-directions-bar>
+<app-picker></app-picker>
+
+<ion-content>
+	<ion-tabs #tabs>
+		<ion-tab-bar slot="bottom" #tabbar>
+			<ion-tab-button tab="details">
+				<ion-label>Детали</ion-label>
+			</ion-tab-button>
+		</ion-tab-bar>
+	</ion-tabs>
+</ion-content>

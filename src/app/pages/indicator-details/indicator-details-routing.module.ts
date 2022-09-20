@@ -1,17 +1,18 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
-import { IndicatorDetailsPage } from './indicator-details.page';
+import {IndicatorDetailsPage} from './indicator-details.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: IndicatorDetailsPage
-  }
+	{
+		path: '',
+		component: IndicatorDetailsPage,
+	}
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
-export class IndicatorDetailsPageRoutingModule {}
+export class IndicatorDetailsPageRoutingModule {
+}

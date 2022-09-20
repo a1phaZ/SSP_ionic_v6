@@ -6,7 +6,8 @@ import { IndicatorsPage } from './indicators.page';
 const routes: Routes = [
 	{
 		path: ':id',
-		loadChildren: () => import('../indicator-details/indicator-details.module').then(m => m.IndicatorDetailsPageModule)
+		loadChildren: () => import('../base/indicator-tabs/indicator-tabs.module').then(m => m.IndicatorTabsPageModule)
+		// loadChildren: () => import('../indicator-details/indicator-details.module').then(m => m.IndicatorDetailsPageModule)
 	},
   {
     path: '',

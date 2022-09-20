@@ -1,15 +1,5 @@
-<app-header
-	[primaryTitle]="titles.primary"
-	[secondaryTitle]="titles.secondary"
-	[tertiaryTitle]="titles.tertiary"
-	[buttons]="initializeHeaderButtons()"
-	(leftHandle)="buttonsHandle($event)"
-	(rightHandle)="buttonsHandle($event)"></app-header>
-<app-directions-bar></app-directions-bar>
-<app-picker></app-picker>
 <ion-content>
 	<div class="content__wrapper">
-		<app-details [indicator]="indicator$ | async"></app-details>
+		<app-details [indicator]="detailsService.details$ | async"></app-details>
 	</div>
-
 </ion-content>
