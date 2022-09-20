@@ -1,14 +1,16 @@
 import {createSelector} from '@ngrx/store';
 import {ICurrentDateState} from './current-date.reducer';
-import {selectAppCurrentDate, selectAppPeriods} from '../app.selectors';
+import {selectAppCurrentDate, selectAppDashboard, selectAppPeriods} from '../app.selectors';
 
 
-export const selectCurrentDate = (buttonId: number) => createSelector(
+export const selectCurrentDate = createSelector(
 	selectAppCurrentDate,
 	selectAppPeriods,
-	(date: ICurrentDateState, periods) => ({
-		date: date[buttonId],
+	selectAppDashboard,
+	(date: ICurrentDateState, periods, dashboard) => ({
+		date: date[dashboard.selected?.id],
 		period: periods.find(
-			({buttonId: id}) => Number(id) === Number(buttonId)),
+			({buttonId: id}) => Number(id) === Number(dashboard.selected?.id)),
+		selected: dashboard.selected?.id
 	})
 );

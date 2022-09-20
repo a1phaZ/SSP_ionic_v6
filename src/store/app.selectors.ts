@@ -11,39 +11,41 @@ export const selectAppPeriods = createFeatureSelector<IPeriodState[]>('periods')
 export const selectAppOrgs = createFeatureSelector<IOrganizationsState>('organizations');
 export const selectAppCurrentDate = createFeatureSelector<ICurrentDateState>('currentDate');
 
-export const selectIndicatorsPageState = (buttonId) => createSelector(
+export const selectIndicatorsPageState = createSelector(
 	// selectState,
 	selectAppDirections,
 	selectAppPeriods,
 	selectAppOrgs,
-	(directions, periods, organizations) => ({
+	selectAppDashboard,
+	(directions, periods, organizations, dashboard) => ({
 		directions: {
 			currentDirection: directions.currentDirection,
 			directionsList: directions.directionsList,
 		},
 		period: periods.find(
-			({buttonId: id}) => Number(id) === Number(buttonId)
+			({buttonId: id}) => Number(id) === Number(dashboard.selected?.id)
 		),
-		organization: organizations.currentOrg[buttonId]
+		organization: organizations.currentOrg[dashboard.selected?.id]
 	})
 );
 
-export const selectIndicatorDetailsState = (buttonId) => createSelector(
+export const selectIndicatorDetailsState = createSelector(
 	selectAppDirections,
 	selectAppPeriods,
 	selectAppOrgs,
 	selectAppCurrentDate,
-	(directions, periods, organizations, currentDate) => ({
-		buttonId,
+	selectAppDashboard,
+	(directions, periods, organizations, currentDate, dashboard) => ({
+		buttonId: dashboard.selected?.id,
 		directions: {
 			currentDirection: directions.currentDirection,
 			directionsList: directions.directionsList,
 		},
 		period: periods.find(
-			({buttonId: id}) => Number(id) === Number(buttonId)
+			({buttonId: id}) => Number(id) === Number(dashboard.selected?.id)
 		),
-		organization: organizations.currentOrg[buttonId],
-		currentDate: currentDate[buttonId]
+		organization: organizations.currentOrg[dashboard.selected?.id],
+		currentDate: currentDate[dashboard.selected?.id]
 	})
 );
 
