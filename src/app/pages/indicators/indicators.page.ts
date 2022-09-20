@@ -70,7 +70,7 @@ export class IndicatorsPage extends BasePage implements OnInit, OnDestroy {
 		this.store.dispatch(initializeOrgs({buttonId: this.buttonId}));
 
 		this.indicators$ = this.store.pipe(
-			select(selectIndicatorsPageState(this.buttonId)),
+			select(selectIndicatorsPageState),
 			takeUntil(this.ngUnsubscribe),
 			mergeMap((data) => {
 				this.titles = {
