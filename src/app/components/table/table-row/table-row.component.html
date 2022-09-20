@@ -2,7 +2,7 @@
 	[ngClass]="{selected: org === item.orgId, isOpen: item.isOpen, expanded: item.childs}"
 	(click)="openItem()"
 >
-	<td [class]="item.state">
+	<td [class]="'row-'+item.state">
 		{{index + 1}}
 	</td>
 	<td class="indiTDOrg">{{item.orgName}}</td>

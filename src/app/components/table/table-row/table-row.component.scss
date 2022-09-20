@@ -1,25 +1,25 @@
-.good, .norm, .crit, .bad{
+.row-good, .row-norm, .row-crit, .row-bad{
 	position: relative;
 	text-align: center;
 	width: 8%; box-sizing: border-box;
 	padding-left: 6px;
 }
-.good:after, .bad:after, .crit:after, .norm:after{
+.row-good:after, .row-bad:after, .row-crit:after, .row-norm:after{
 	position: absolute; top: 10%; left: 0;
 	content: "";
 	display: block;
 	width: 3px; height: 80%; border-radius: 3px;
 }
-.bad:after{
+.row-bad:after{
 	background:  var(--status-danger);
 }
-.crit:after{
+.row-crit:after{
 	background:  var(--status-enough);
 }
-.norm:after{
+.row-norm:after{
 	background: var(--status-success);
 }
-.good:after{
+.row-good:after{
 	background: var(--status-excellent);
 }
 
