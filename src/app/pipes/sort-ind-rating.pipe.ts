@@ -16,12 +16,13 @@ export class SortIndRatingPipe implements PipeTransform {
 	}
 
 	sortRating(dc, array): TRating[] {
-		if(array.length === 0) {return [];}
-		const total = array[array.length - 1];
+		const _a = [...array];
+		if(_a.length === 0) {return [];}
+		const total = _a[_a.length - 1];
 		if (total.total) {
-			array.pop();
+			_a.pop();
 		}
-		array.sort((a, b) => {
+		_a.sort((a, b) => {
 			if (typeof a[dc] === 'number' || typeof a[dc] === 'string') {
 				if (a[dc] > b[dc]) {return this.ratingSortOrder === 'asc' ? 1 : -1;}
 				if (a[dc] < b[dc]) {return this.ratingSortOrder === 'asc' ? -1 : 1;}
@@ -32,9 +33,9 @@ export class SortIndRatingPipe implements PipeTransform {
 			return 0;
 		});
 		if (total.total) {
-			array.push(total);
+			_a.push(total);
 		}
-		return array.map((item) => item.childs ? {...item, childs: this.sortRating(dc, item.childs)} : item);
+		return _a.map((item) => item.childs ? {...item, childs: this.sortRating(dc, item.childs)} : item);
 	}
 
 }
