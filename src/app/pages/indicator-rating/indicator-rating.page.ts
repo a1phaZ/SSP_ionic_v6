@@ -1,13 +1,16 @@
-import {Component, OnInit} from '@angular/core';
+import {ApplicationRef, Component, OnInit} from '@angular/core';
 import {IAppState} from '../../../store/app.state';
 import {select, Store} from '@ngrx/store';
-import {Observable, Subject} from 'rxjs';
+import {Subject} from 'rxjs';
 import {DetailsService} from '../../services/details.service';
-import {switchMap, takeUntil, tap} from 'rxjs/operators';
+import {takeUntil, tap} from 'rxjs/operators';
 import {selectRatingPageState} from '../../../store/details/details.selectors';
 import {ApiModel} from '../../models/api.model';
 import {WebApiService} from '../../services/web-api.service';
-import {TIndicatorDetailsRequest} from '../../models/indicator.model';
+import {TIndicatorDetailsRatingRequest} from '../../models/indicator.model';
+import {TRating} from '../../models/rating.model';
+import {getRating} from '../../../store/rating/rating.actions';
+import {selectRating} from '../../../store/rating/rating.selectors';
 
 @Component({
 	selector: 'app-indicator-rating',
@@ -16,30 +19,34 @@ import {TIndicatorDetailsRequest} from '../../models/indicator.model';
 })
 export class IndicatorRatingPage implements OnInit {
 
-	rating$: Observable<any>;
+	rating: TRating[];
 	private ngUnsubscribe: Subject<any> = new Subject<any>();
 
 	constructor(
 		private store: Store<IAppState>,
 		private detailsService: DetailsService,
 		private webApi: WebApiService,
+		private appRef: ApplicationRef,
 	) {
+		this.store.select(selectRating).subscribe((rating) => {
+			this.rating = rating;
+			this.appRef.tick();
+		});
 	}
 
 	ngOnInit() {
-		this.rating$ = this.store.pipe(
+		this.store.pipe(
 			select(selectRatingPageState),
 			takeUntil(this.ngUnsubscribe),
-			tap(console.log),
-			switchMap((data: TIndicatorDetailsRequest) => {
+			tap((data: TIndicatorDetailsRatingRequest) => {
+				// TODO Object types
 				const {id, ...body} = data;
 				body.objectType = 10;
 				body.typeOrg = 10;
-				return this.makeRequest(id, body);
-			})
-		);
-		// TODO Запрос на сервер
-		this.rating$.subscribe(console.log);
+				// return this.makeRequest(id, body);
+				this.store.dispatch(getRating({data}));
+			}),
+		).subscribe();
 	}
 
 	makeRequest(id, data) {
