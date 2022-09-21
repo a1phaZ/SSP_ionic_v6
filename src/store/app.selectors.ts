@@ -5,6 +5,7 @@ import {IOrganizationsState} from './organizations/organizations.reducer';
 import {ICurrentDateState} from './current-date/current-date.reducer';
 import {IDashboardState} from './dashboard/dashboard.reducer';
 import {IDetailsState} from './details/details.reducer';
+import {IRatingState} from './rating/rating.reducer';
 
 export const selectAppDashboard = createFeatureSelector<IDashboardState>('dashboard');
 export const selectAppDirections = createFeatureSelector<IDirectionState>('directions');
@@ -12,6 +13,7 @@ export const selectAppPeriods = createFeatureSelector<IPeriodState[]>('periods')
 export const selectAppOrgs = createFeatureSelector<IOrganizationsState>('organizations');
 export const selectAppCurrentDate = createFeatureSelector<ICurrentDateState>('currentDate');
 export const selectAppDetails = createFeatureSelector<IDetailsState>('details');
+export const selectAppRating = createFeatureSelector<IRatingState>('rating');
 
 export const selectIndicatorsPageState = createSelector(
 	// selectState,
@@ -32,23 +34,32 @@ export const selectIndicatorsPageState = createSelector(
 );
 
 export const selectIndicatorDetailsState = createSelector(
-	selectAppDirections,
-	selectAppPeriods,
-	selectAppOrgs,
-	selectAppCurrentDate,
+		selectAppDirections,
+		selectAppPeriods,
+		selectAppOrgs,
+		selectAppCurrentDate,
+		selectAppDashboard,
+		(directions, periods, organizations, currentDate, dashboard) => {
+			console.table({directions, dashboard, organizations, currentDate});
+
+			return {
+				buttonId: dashboard.selected?.id,
+				directions: {
+					currentDirection: directions.currentDirection,
+					directionsList: directions.directionsList,
+				},
+				period: periods.find(
+					({buttonId: id}) => Number(id) === Number(dashboard.selected?.id)
+				),
+				organization: organizations.currentOrg[dashboard.selected?.id],
+				currentDate: currentDate[dashboard.selected?.id]
+			};
+		}
+	);
+
+export const selectButtonId = createSelector(
 	selectAppDashboard,
-	(directions, periods, organizations, currentDate, dashboard) => ({
-		buttonId: dashboard.selected?.id,
-		directions: {
-			currentDirection: directions.currentDirection,
-			directionsList: directions.directionsList,
-		},
-		period: periods.find(
-			({buttonId: id}) => Number(id) === Number(dashboard.selected?.id)
-		),
-		organization: organizations.currentOrg[dashboard.selected?.id],
-		currentDate: currentDate[dashboard.selected?.id]
-	})
+	(db) => db.selected?.id
 );
 
 
