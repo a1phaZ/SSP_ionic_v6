@@ -23,6 +23,9 @@ import {PeriodPickerEffects} from '../store/period-picker/period-picker.effects'
 import {currentDateReducer} from '../store/current-date/current-date.reducer';
 import {CurrentDateEffects} from '../store/current-date/current-date.effects';
 import {detailsReducer} from '../store/details/details.reducer';
+import {DetailsEffects} from '../store/details/details.effects';
+import {RatingEffects} from '../store/rating/rating.effects';
+import {ratingReducer} from '../store/rating/rating.reducer';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -40,11 +43,14 @@ import {detailsReducer} from '../store/details/details.reducer';
 			organizations: organizationsReducer,
 			currentDate: currentDateReducer,
 			details: detailsReducer,
+			rating: ratingReducer,
 		}),
 		EffectsModule.forRoot([
 			OrganizationsEffects,
 			PeriodPickerEffects,
-			CurrentDateEffects
+			CurrentDateEffects,
+			DetailsEffects,
+			RatingEffects,
 		]),
 	],
 	providers: [
