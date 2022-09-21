@@ -3,9 +3,7 @@ import {createReducer, on} from '@ngrx/store';
 import * as DetailsActions from './details.actions';
 
 export interface IDetailsState {
-	[key: number]: {
-		details: TIndicatorDetails;
-	};
+	[key: number]: TIndicatorDetails;
 }
 
 export const initialState: IDetailsState = {};
@@ -16,9 +14,7 @@ export const detailsReducer = createReducer(
 		console.log(type);
 		return {
 			...state,
-			[buttonId]: {
-				details
-			}
+			[buttonId]: details,
 		};
-	})
+	}),
 );
