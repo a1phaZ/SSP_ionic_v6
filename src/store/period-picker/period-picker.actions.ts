@@ -6,7 +6,7 @@ export enum EPeriodPickerActions {
 	prevValue = '[Period Picker] Prev period value',
 	nextValue = '[Period Picker] Next Period Value',
 	changePeriod = '[Period Picker] Change Period Value',
-	setDate = '[Period Picker] Set Current Date',
+	changePeriodByDate = '[Period Picker] Change Period Value By Date',
 }
 
 export const initializePicker = createAction(
@@ -27,4 +27,14 @@ export const nextPeriodValue = createAction(
 export const changePeriodValue = createAction(
 	EPeriodPickerActions.changePeriod,
 	props<{buttonId: number; periodValue: number; periodId: number; periodYear: number }>()
+);
+
+export const changePeriodValueByDate = createAction(
+	EPeriodPickerActions.changePeriodByDate,
+	props<{buttonId: number; periodValue: number; periodId: number; periodYear: number }>()
+);
+
+// TODO перенести в AppReducer
+export const emptyAction = createAction(
+	'[Empty',
 );

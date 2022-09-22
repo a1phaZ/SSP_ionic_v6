@@ -85,3 +85,17 @@ export type TIndicatorDetailsRatingRequest = {
 	objectType: number;
 	user: number;
 };
+
+export type TIndicatorInfluenceRequest = {
+	user: number;
+	periodName: number;
+	periodValue: number;
+	periodYear: number;
+	org: number;
+	podr: number;
+	brand: number;
+	mode: 'depends';
+	idDepends: number;
+	objectId: number;
+	objectType: number;
+};

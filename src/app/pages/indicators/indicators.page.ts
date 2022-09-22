@@ -20,6 +20,7 @@ import {THeaderButtons} from '../../models/button.model';
 import {NavigationService} from '../../services/navigation.service';
 import {dashboardBack} from '../../../store/dashboard/dashboard.actions';
 import {BasePage} from '../base/base.page';
+import {serializeIndicator} from '../../shared/utils/indicator.utils';
 
 @Component({
 	selector: 'app-indicators',
@@ -108,7 +109,7 @@ export class IndicatorsPage extends BasePage implements OnInit, OnDestroy {
 							data: any;
 						}) => ({
 							direction: +response.direction,
-							data: response.data.map((item) => this.serializeIndicator(item))
+							data: response.data.map((item) => serializeIndicator(item))
 						})),
 					scan((inds: TIndicatorStore[], response: TIndicatorStore) => inds.concat(response), []),
 				);
@@ -124,29 +125,6 @@ export class IndicatorsPage extends BasePage implements OnInit, OnDestroy {
 	makeRequest(data: any) {
 		return this.webApi
 			.get$(ApiModel.getIndList, data);
-	}
-
-	serializeIndicator(item: any): TIndicator {
-		return {
-			id: item.id_tpl,
-			isOpen: false,
-			childs: item.childs,
-			mode: 'standard', //?
-			test: item.test,
-			title: item.title,
-			plan: {
-				sum: item.number_pln,
-				viewSum: item.pln_mobile,
-				complete: item.val_ptl_pct,
-				completeStatus: item.state,
-			},
-			fact: {
-				viewSum: item.fakt_mobile,
-				sum: item.number_fakt
-			},
-			units: item.unit,
-			runRate: item.runrate,
-		};
 	}
 
 	ngOnDestroy(): void {

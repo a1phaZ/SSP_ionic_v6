@@ -2,7 +2,6 @@ import {ApplicationRef, Component, OnInit} from '@angular/core';
 import {IAppState} from '../../../store/app.state';
 import {select, Store} from '@ngrx/store';
 import {Subject} from 'rxjs';
-import {DetailsService} from '../../services/details.service';
 import {takeUntil, tap} from 'rxjs/operators';
 import {selectRatingPageState} from '../../../store/details/details.selectors';
 import {ApiModel} from '../../models/api.model';
@@ -24,7 +23,6 @@ export class IndicatorRatingPage implements OnInit {
 
 	constructor(
 		private store: Store<IAppState>,
-		private detailsService: DetailsService,
 		private webApi: WebApiService,
 		private appRef: ApplicationRef,
 	) {

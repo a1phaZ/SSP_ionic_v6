@@ -17,6 +17,7 @@ import {
 import {selectPeriodByButtonId} from '../../../store/period-picker/period-picker.selectors';
 import {ARRAY_OF_MONTH_VALUES, IPeriodState} from '../../../store/period-picker/period-picker.reducer';
 import {getValues} from 'src/app/shared/utils/period.utils';
+import {selectButtonId} from '../../../store/app.selectors';
 
 @Component({
 	selector: 'app-picker',
@@ -47,6 +48,7 @@ export class PickerComponent implements OnInit {
 	title: string;
 
 	buttonId: number;
+	period: IPeriodState;
 
 	private ngUnsubscribe: Subject<any> = new Subject<any>();
 
@@ -56,14 +58,10 @@ export class PickerComponent implements OnInit {
 		private route: ActivatedRoute,
 		private store: Store<IAppState>,
 	) {
-		this.route
-			.params
-			.pipe(
-				takeUntil(this.ngUnsubscribe),
-			)
-			.subscribe((data: { buttonId: string }) => {
-				this.buttonId = Number(data.buttonId);
-			});
+		this.store.pipe(
+			takeUntil(this.ngUnsubscribe),
+			select(selectButtonId),
+		).subscribe((b) => this.buttonId = b);
 	}
 
 	get _buttons(): TButton[] {
@@ -76,37 +74,38 @@ export class PickerComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		console.log('picker on init');
 		this.store
 			.pipe(
-				select(selectPeriodByButtonId(9)),
-				tap((period: IPeriodState) => !period ?
-					this.store.dispatch(initializePicker({buttonId: Number(this.buttonId)})) :
-					this.store.dispatch(initializePicker({
-								buttonId: Number(this.buttonId),
-								periodId: period.periodId,
-								periodValue: period.periodValue,
-								periodYear: period.periodYear
-							}
-						)
-					)
-				)
+				select(selectPeriodByButtonId),
+				tap((period: IPeriodState) => this.period = period)
 			)
 			.subscribe(data => {
 				if (data) {
+					console.log(data);
 					for (const key of Object.keys(data)) {
 						this[key] = data[key];
 					}
 					this.changePeriodId(this.periodId);
 					this.title = this.getTitle();
 					this.arrayOfYears = this.fillArray(this.minYear, this.maxYear);
-				} else {
-					console.log('initializePicker', data);
 				}
 			});
+
+		if (!this.period) {
+			this.store.dispatch(initializePicker({buttonId: Number(this.buttonId)}));
+		} else {
+			this.store.dispatch(initializePicker({
+				buttonId: Number(this.buttonId),
+				periodId: this.period.periodId,
+				periodValue: this.period.periodValue,
+				periodYear: this.period.periodYear
+			}));
+		}
 	}
 
 	getTitle(): string {
-		const monthValue = getValues(this.periodId, this.arrayOfMonthValues).find((item) => item.value === this.periodValue);
+		const monthValue = getValues(this.periodId, this.arrayOfMonthValues)?.find((item) => item.value === this.periodValue);
 		if (!monthValue) {
 			return this.periodYear.toString();
 		}
@@ -125,6 +124,7 @@ export class PickerComponent implements OnInit {
 	}
 
 	changePeriodId(id) {
+		console.log('change period');
 		this.periodId = id;
 	}
 
@@ -211,7 +211,7 @@ export class PickerComponent implements OnInit {
 	}
 
 	getIconName(periodId: number) {
-		return `custom-${this.buttons.find(({id}) => id === periodId).name}`;
+		return `custom-${this.buttons.find(({id}) => id === periodId)?.name}`;
 	}
 
 	prevPeriodValue() {
@@ -231,7 +231,8 @@ export class PickerComponent implements OnInit {
 	}
 
 	disableNext(): boolean {
-		return this.periodYear === this.maxYear && this.periodValue === getValues(this.periodId, this.arrayOfMonthValues).length;
+		return this.periodYear === this.maxYear && this.periodValue === getValues(this.periodId, this.arrayOfMonthValues)?.length;
 	}
+
 
 }

@@ -1,27 +1,53 @@
 import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {EPeriodPickerActions} from './period-picker.actions';
-import {exhaustMap} from 'rxjs/operators';
+import {concatMap, exhaustMap, map, withLatestFrom} from 'rxjs/operators';
 import {of} from 'rxjs';
-import {initCurrentDate} from '../current-date/current-date.actions';
+import {initCurrentDate, setCurrentDateByPeriod} from '../current-date/current-date.actions';
+import {selectAppCurrentDate, selectButtonId} from '../app.selectors';
+import {Store} from '@ngrx/store';
+import {IAppState} from '../app.state';
 
 @Injectable()
 export class PeriodPickerEffects {
 
 	initPeriod$ = createEffect(() => this.actions$.pipe(
 		ofType(EPeriodPickerActions.init),
-		exhaustMap(({buttonId, periodId, periodValue, periodYear}) => {
-			// console.log(getMonth(periodId, periodValue));
+		concatMap((action) => of(action).pipe(
+			withLatestFrom(
+				this.store.select(selectButtonId),
+				this.store.select(selectAppCurrentDate)
+			),
+			map(([data, b, cd]) => ({buttonId: b, mode: cd[b]?.mode || 'auto', data})),
+		)),
+		exhaustMap(({buttonId, data: {periodId, periodValue, periodYear}, mode}) => {
 			if (!periodValue) {
 				return of(initCurrentDate({buttonId}));
 			}
-			const newDate = new Date(periodYear, getMonth(periodId, periodValue), 0, 0,0,0).toISOString();
-			return of(initCurrentDate({buttonId, date: newDate}));
+			const newDate = mode === 'auto' ?
+				new Date().toISOString() :
+				new Date(periodYear, getMonth(periodId, periodValue), 0, 0, 0, 0).toISOString();
+			return of(setCurrentDateByPeriod({buttonId, date: newDate, periodId}));
+		})
+	));
+
+	changePeriod$ = createEffect(() => this.actions$.pipe(
+		ofType(EPeriodPickerActions.changePeriod),
+		concatMap((action) => of(action).pipe(
+			withLatestFrom(
+				this.store.select(selectButtonId),
+			),
+			map(([data, b]) => ({buttonId: b, data}))
+		)),
+		exhaustMap(({buttonId, data: {periodId, periodValue, periodYear}}) => {
+			const newDate = new Date(periodYear, getMonth(periodId, periodValue), 0, 0, 0, 0).toISOString();
+			return of(setCurrentDateByPeriod({buttonId, date: newDate, periodId}));
 		})
 	));
 
 	constructor(
-		private actions$: Actions
+		private actions$: Actions,
+		private store: Store<IAppState>,
 	) {
 	}
 }

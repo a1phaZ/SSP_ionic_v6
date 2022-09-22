@@ -31,12 +31,15 @@ export class DatePickerComponent implements AfterViewInit {
 	}
 
 	ngAfterViewInit(): void {
-		this.datetime.ionChange.subscribe(({detail}) => {
-			this.store.dispatch(setCurrentDate({
-				buttonId: this.buttonId,
-				date: detail.value as string,
-				periodId: this.period.periodId
-			}));
+		this.datetime.ionChange.subscribe((event) => {
+			if (this.currentDate !== event.detail.value) {
+				console.log('===this.datetime.ionChange', event);
+				this.store.dispatch(setCurrentDate({
+					buttonId: this.buttonId,
+					date: event.detail.value as string,
+					periodId: this.period.periodId
+				}));
+			}
 		});
 	}
 

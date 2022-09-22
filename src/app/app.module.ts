@@ -26,6 +26,8 @@ import {detailsReducer} from '../store/details/details.reducer';
 import {DetailsEffects} from '../store/details/details.effects';
 import {RatingEffects} from '../store/rating/rating.effects';
 import {ratingReducer} from '../store/rating/rating.reducer';
+import {InfluenceEffects} from '../store/influence/influence.effects';
+import {influenceReducer} from '../store/influence/influence.reducer';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -44,6 +46,7 @@ import {ratingReducer} from '../store/rating/rating.reducer';
 			currentDate: currentDateReducer,
 			details: detailsReducer,
 			rating: ratingReducer,
+			influence: influenceReducer,
 		}),
 		EffectsModule.forRoot([
 			OrganizationsEffects,
@@ -51,6 +54,7 @@ import {ratingReducer} from '../store/rating/rating.reducer';
 			CurrentDateEffects,
 			DetailsEffects,
 			RatingEffects,
+			InfluenceEffects,
 		]),
 	],
 	providers: [

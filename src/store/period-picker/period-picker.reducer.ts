@@ -121,6 +121,24 @@ export const periodPickerReducer = createReducer(
 		};
 		return [..._state];
 	}),
+	on(PeriodPickerActions.changePeriodValueByDate, (state, {type, buttonId, periodId, periodValue, periodYear}) => {
+		console.log({type, buttonId, periodId, periodValue, periodYear});
+		const _state = [...state];
+		const idx = _state.findIndex(({buttonId: id}) => buttonId === id);
+		if (idx === -1) {
+			return state;
+		}
+		if (_state[idx].periodId === periodId && _state[idx].periodValue === periodValue && _state[idx].periodYear === periodYear) {
+			return state;
+		}
+		_state[idx] = {
+			..._state[idx],
+			periodId,
+			periodValue,
+			periodYear
+		};
+		return [..._state];
+	}),
 );
 
 const PICKER_BUTTONS: TButton[] = [

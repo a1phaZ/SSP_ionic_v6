@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {ECurrentDateActions} from './current-date.actions';
 import {exhaustMap} from 'rxjs/operators';
-import {changePeriodValue} from '../period-picker/period-picker.actions';
+import {changePeriodValueByDate} from '../period-picker/period-picker.actions';
 import {of} from 'rxjs';
 
 @Injectable()
@@ -10,7 +10,10 @@ export class CurrentDateEffects {
 
 	setDate$ = createEffect(() => this.actions$.pipe(
 		ofType(ECurrentDateActions.setDate),
-		exhaustMap(({buttonId, date, periodId}) => of(changePeriodValue({buttonId, periodId, ...getPeriod(date, periodId)})))
+		exhaustMap(({buttonId, date, periodId}) => of(changePeriodValueByDate({
+			buttonId,
+			periodId, ...getPeriod(date, periodId)
+		})))
 	));
 
 	constructor(

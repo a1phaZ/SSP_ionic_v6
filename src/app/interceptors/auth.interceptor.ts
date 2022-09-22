@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {ApplicationRef, Injectable} from '@angular/core';
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpParams, HttpRequest, HttpResponse} from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
@@ -10,11 +10,12 @@ import {getErrorMessage} from '../shared/utils/error.utils';
 export class AuthInterceptor implements HttpInterceptor {
 	constructor(
 		private loadingService: LoadingService,
-		private alertService: AlertService
+		private alertService: AlertService,
+		private appRef: ApplicationRef,
 	) {
 	}
 	intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-		// this.loadingService.loading = true;
+		this.loadingService.loading = true;
 		const clonedReq = req.clone({
 			setHeaders: {
 				// eslint-disable-next-line @typescript-eslint/naming-convention
@@ -31,12 +32,14 @@ export class AuthInterceptor implements HttpInterceptor {
 						localStorage.setItem('token', event['body'].payload.token);
 					}
 					if (event instanceof HttpResponse) {
-						// this.loadingService.loading = false;
+						this.loadingService.loading = false;
+						this.appRef.tick();
 					}
 				}),
 				catchError(err => {
 					this.alertService.presentToast(getErrorMessage(err), 'top', 'error');
 					this.loadingService.loading = false;
+					this.appRef.tick();
 					return throwError(err);
 				})
 			);

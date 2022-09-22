@@ -1,0 +1,8 @@
+<ion-content>
+	<ion-infinite-scroll *ngIf="influenceList as indicators">
+		<ng-container *ngIf="indicators | runrate : (crisisService.filter | async) as list">
+			<app-ind-list
+				[list]="list" (selectItem)="showItemDetails($event)"></app-ind-list>
+		</ng-container>
+	</ion-infinite-scroll>
+</ion-content>

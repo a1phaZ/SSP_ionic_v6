@@ -10,6 +10,20 @@ export interface ICurrentDateState {
 
 export const initialState: ICurrentDateState = {};
 
+export const dateReducer = () => (state, {type, buttonId, date}) => {
+	console.log(type);
+	if (splitDate(state[buttonId].currentDate) === splitDate(date)) {
+		return state;
+	}
+	console.log(state[buttonId].currentDate, date, state[buttonId].currentDate === date);
+	return {
+		...state, [buttonId]: {
+			currentDate: date,
+			mode: 'manual'
+		}
+	};
+};
+
 export const currentDateReducer = createReducer(
 	initialState,
 	on(CurrentDateActions.initCurrentDate, (state, {type, buttonId, date}) => {
@@ -23,13 +37,8 @@ export const currentDateReducer = createReducer(
 			}
 		};
 	}),
-	on(CurrentDateActions.setCurrentDate, (state, {type, buttonId, date}) => {
-		console.log(type);
-		return {
-			...state, [buttonId]: {
-				currentDate: date,
-				mode: 'manual'
-			}
-		};
-	})
+	on(CurrentDateActions.setCurrentDate, dateReducer()),
+	on(CurrentDateActions.setCurrentDateByPeriod, dateReducer())
 );
+
+const splitDate = (date: string): string => date.split('T')[0];
