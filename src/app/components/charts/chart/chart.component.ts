@@ -1,18 +1,16 @@
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {HighchartsChartModule} from 'highcharts-angular';
 import * as Highcharts from 'highcharts';
-import {CommonModule} from '@angular/common';
 
 @Component({
 	selector: 'app-chart',
 	templateUrl: './chart.component.html',
 	styleUrls: ['./chart.component.scss'],
-	standalone: true,
-	imports: [HighchartsChartModule, CommonModule]
+	// standalone: true,
+	// imports: [HighchartsChartModule, CommonModule]
 })
 export class ChartComponent implements OnChanges {
 	@Input()
-	data: any[];
+	data: any;
 
 	Highcharts = Highcharts;
 	// linechart: any = {
@@ -33,6 +31,12 @@ export class ChartComponent implements OnChanges {
 
 	constructor() {
 	}
+
+	chartCallback: Highcharts.ChartCallbackFunction = (chart): void => {
+		setTimeout(() => {
+			chart.reflow();
+		},0);
+	};
 
 	getChartSeries(series: IChartSeries[]) {
 		return series.map((s, idx) => ({

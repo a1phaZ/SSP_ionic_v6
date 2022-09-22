@@ -30,6 +30,7 @@ export class IndicatorTabsPage implements OnInit {
 		tertiary?: string;
 	} = {primary: 'Загрузка показателя'};
 
+	headerButtons: THeaderButtons;
 	private buttonId: number;
 
 	// private ngUnsubscribe: Subject<any> = new Subject<any>();
@@ -66,7 +67,7 @@ export class IndicatorTabsPage implements OnInit {
 	}
 
 	ngOnInit() {
-
+		this.headerButtons = this.initializeHeaderButtons();
 	}
 
 	getData<B>(data: any) {

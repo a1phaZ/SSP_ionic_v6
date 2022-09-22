@@ -10,4 +10,5 @@ export enum ApiModel {
 	getIndList = '/api/indicators/getIndList/',
 	getIndicatorDetails = '/api/indicators/getFullValues/',
 	getIndicatorRating = '/api/indicators/getRating/',
+	getIndicatorDynamics = '/api/indicators/getIndDiaByPeriod/'
 }

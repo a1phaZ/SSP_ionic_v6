@@ -21,6 +21,10 @@ const routes: Routes = [
 				loadChildren: () => import('../../indicator-influence/indicator-influence.module').then(m => m.IndicatorInfluencePageModule)
 			},
 			{
+				path: 'dynamics',
+				loadChildren: () => import('../../indicator-dynamics/indicator-dynamics.module').then(m => m.IndicatorDynamicsPageModule)
+			},
+			{
 			  path: '',
 			  redirectTo: 'details',
 			  pathMatch: 'full'

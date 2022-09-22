@@ -2,12 +2,15 @@ import {NgModule} from '@angular/core';
 import {DonutComponent} from './donut/donut.component';
 import {CommonModule} from '@angular/common';
 import {CircleChartComponent} from './circle/circle-chart.component';
+import {ChartComponent} from './chart/chart.component';
+import {HighchartsChartModule} from 'highcharts-angular';
 
 @NgModule({
-	declarations: [DonutComponent, CircleChartComponent],
+	declarations: [ChartComponent, DonutComponent, CircleChartComponent],
 	imports: [
-		CommonModule
+		CommonModule,
+		HighchartsChartModule
 	],
-	exports: [DonutComponent, CircleChartComponent]
+	exports: [ChartComponent, DonutComponent, CircleChartComponent]
 })
 export class ChartsModule {}

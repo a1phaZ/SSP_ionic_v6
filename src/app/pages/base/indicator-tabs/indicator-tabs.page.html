@@ -2,7 +2,7 @@
 	[primaryTitle]="titles.primary"
 	[secondaryTitle]="titles.secondary"
 	[tertiaryTitle]="titles.tertiary"
-	[buttons]="initializeHeaderButtons()"
+	[buttons]="headerButtons"
 	(leftHandle)="buttonsHandle($event)"
 	(rightHandle)="buttonsHandle($event)"></app-header>
 	<app-directions-bar></app-directions-bar>
@@ -19,6 +19,9 @@
 			</ion-tab-button>
 			<ion-tab-button tab="influence">
 				<ion-label>Влияюшие</ion-label>
+			</ion-tab-button>
+			<ion-tab-button tab="dynamics">
+				<ion-label>Динамика</ion-label>
 			</ion-tab-button>
 		</ion-tab-bar>
 	</ion-tabs>
