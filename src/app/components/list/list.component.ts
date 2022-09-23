@@ -5,6 +5,7 @@ import {TIndicatorReserve} from '../../models/indicator-reserv.model';
 import {TIndicatorProgress} from '../../models/indicator-progress.model';
 import {TSimpleItem, TSimpleRatingItem} from '../../models/simple-item.model';
 import {TArrayDescription} from '../../models/array-description.model';
+import {TDistributorRating} from '../../models/distributor-rating.model';
 
 @Component({
 	selector: 'app-list',
@@ -19,7 +20,8 @@ export class ListComponent {
 		TIndicatorProgress |
 		TSimpleItem |
 		TArrayDescription |
-		TSimpleRatingItem>;
+		TSimpleRatingItem |
+		TDistributorRating>;
 
 	@Input()
 	isOpen = false;
