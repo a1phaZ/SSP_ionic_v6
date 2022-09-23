@@ -3,7 +3,7 @@ import {TIndicator} from '../../models/indicator.model';
 export const serializeIndicator = (item: any): TIndicator => ({
 	id: item.id_tpl,
 	isOpen: false,
-	childs: item.childs,
+	childs: item.childs.map(serializeIndicator),
 	mode: 'standard', //?
 	test: item.test,
 	title: item.title,
