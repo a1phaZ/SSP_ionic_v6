@@ -76,3 +76,27 @@ ion-content {
 		--background: var(--bg-light);
 	}
 }
+
+.formula_op, .formula_ind {
+	float: left;
+	font-size: 1rem;
+	height: 24px;
+	line-height: 24px;
+	margin-right: 8px;
+	margin-bottom: 8px;
+	padding: 0 8px;
+}
+
+.formula_op {
+	font-size: 1.2rem;
+	height: 30px;
+	line-height: 30px;
+	background: #2C8EFF;
+}
+.formula_ind {
+	font-size: 1.2rem;
+	height: 30px;
+	line-height: 30px;
+	background: #0D8E11;
+}
+
