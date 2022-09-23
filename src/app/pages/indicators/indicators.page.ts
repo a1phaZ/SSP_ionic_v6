@@ -11,8 +11,7 @@ import {IndicatorsService} from '../../services/indicators.service';
 import {selectIndicatorsPageState} from '../../../store/app.selectors';
 import {ModalController} from '@ionic/angular';
 import {SelectComponent} from '../../components/modals/select/select.component';
-import {initializeOrgs, setOrganizationList} from '../../../store/organizations/organizations.actions';
-import {ORGS_LIST} from '../../components/orgs-list/orgs-list.const';
+import {initializeOrgs} from '../../../store/organizations/organizations.actions';
 import {getPrimaryTitle, getSecondaryTitle, getTertiaryTitle} from '../../shared/utils/header.utils';
 import {Icons} from '../../models/icons.model';
 import {CrisisService} from '../../services/crisis.service';
@@ -54,17 +53,6 @@ export class IndicatorsPage extends BasePage implements OnInit, OnDestroy {
 		private cdr: ChangeDetectorRef,
 	) {
 		super(route, router, webApi, store, modalCtrl, navigation);
-		// this.route.params.subscribe((params) => {
-		// 	console.log(params);
-		// 	this.buttonId = Number(params.buttonId);
-		// });
-		//
-		// this.currentDirection$ = this.store.select(selectCurrentDirection);
-
-
-		// TODO Перенести в авторизацию
-		this.store.dispatch(setOrganizationList({list: ORGS_LIST}));
-
 	}
 
 	ngOnInit() {
