@@ -1,0 +1,8 @@
+<ion-content>
+	<div class="methodology-content">
+		<div [innerHTML]="details.formula | innerHtml"></div>
+		<div [innerHTML]="details.formula2 | innerHtml"></div>
+		<div class="ind__code">Код: {{details.indInfo.id}}</div><br/>
+		<div [innerHTML]="details.comments | innerHtml"></div>
+	</div>
+</ion-content>
