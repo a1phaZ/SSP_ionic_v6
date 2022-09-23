@@ -1,4 +1,4 @@
-import {TDashboardItem} from '../models/dashboard.model';
+import {EDashboardPath, TDashboardItem} from '../models/dashboard.model';
 import {CAvailableOrgsTranslate, EAvailableOrgs} from '../models/organization.model';
 
 type TIconList = {
@@ -789,7 +789,7 @@ export const dashboardList: TDashboardItem[] = [
 		isChild: true,
 		// isAccess: checkBtnAccess('official'),
 		isDevelopment: false,
-		path: 'indicators', // For Routing
+		path: EDashboardPath.indicators, // For Routing
 		availableTypes: [
 			{ id: EAvailableOrgs.division, title: CAvailableOrgsTranslate[EAvailableOrgs.division], order: 3 },
 			{ id: EAvailableOrgs.group,	title: CAvailableOrgsTranslate[EAvailableOrgs.group], order: 1 },
@@ -800,7 +800,7 @@ export const dashboardList: TDashboardItem[] = [
 	{
 		id: 10,
 		parentId: 8,
-		name: 'КЛЮЧАВТО Автомобили с пробегом',
+		name: 'Автомобили с пробегом',
 		title: 'Автомобили с пробегом',
 		keyWord: 'asp',
 		background: 'linear-gradient(135deg, #8bc9ff 0%, #0d79a2 100%)',
@@ -808,6 +808,19 @@ export const dashboardList: TDashboardItem[] = [
 		isChild: true,
 		// isAccess: checkBtnAccess('asp'),
 		isDevelopment: false,
+		path: EDashboardPath.indicators,
+		availableTypes: [
+			{
+				id: EAvailableOrgs.division,
+				title: CAvailableOrgsTranslate[EAvailableOrgs.trade_division],
+				order: 2,
+			},
+			{
+				id: EAvailableOrgs.marketplace,
+				title: CAvailableOrgsTranslate[EAvailableOrgs.trade_marketplace],
+				order: 1,
+			},
+		]
 	},
 	{
 		id: 28, //id - need update
@@ -856,6 +869,12 @@ export const dashboardList: TDashboardItem[] = [
 		isChild: true,
 		// isAccess: checkBtnAccess('distributor'),
 		isDevelopment: false,
+		path: EDashboardPath.indicators,
+		availableTypes: [
+			{ id: EAvailableOrgs.brand, title: CAvailableOrgsTranslate[EAvailableOrgs.brand], order: 0 },
+			{ id: EAvailableOrgs.group,	title: CAvailableOrgsTranslate[EAvailableOrgs.group], order: 1 },
+			{ id: EAvailableOrgs.division, title: CAvailableOrgsTranslate[EAvailableOrgs.division], order: 2 },
+		],
 	},
 	{
 		id: 34, //id - need update
