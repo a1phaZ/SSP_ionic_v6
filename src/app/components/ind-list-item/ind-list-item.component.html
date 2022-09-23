@@ -27,6 +27,6 @@
 	<app-custom-icon-button *ngIf="item.childs && item.childs.length > 0"
 		[id]="item.id"
 		[name]="!item.isOpen ? 'arrow-down' : 'arrow-up'"
-		(clickBtn)="onItemToggle($event)"
+		(clickBtn)="onItemToggle(item.id)"
 	></app-custom-icon-button>
 </div>

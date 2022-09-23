@@ -36,8 +36,8 @@ export class ItemComponent implements OnInit {
 	ngOnInit() {
 	}
 
-	onItemToggle(item) {
-		this.itemToggle.emit(item);
+	onItemToggle(id) {
+		this.itemToggle.emit(id);
 	}
 
 	onSelectItem(event) {
