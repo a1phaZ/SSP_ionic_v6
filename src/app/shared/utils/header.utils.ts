@@ -6,4 +6,9 @@ export const getPrimaryTitle = (buttonId: number): string => dashboardList.find(
 
 export const getSecondaryTitle = (org: TOrgSelectItem): string => org?.title;
 
-export const getTertiaryTitle = (directions: TDirection[], current: number): string => directions.find(({id}) => id === current).title;
+export const getTertiaryTitle = (directions: TDirection[], current: number): string => {
+	if (directions.length <= 1) {
+		return null;
+	}
+	return directions.find(({id}) => id === current).title;
+};
