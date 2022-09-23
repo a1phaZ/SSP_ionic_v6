@@ -10,19 +10,28 @@ const routes: Routes = [
 		children: [
 			{
 				path: 'details',
-				loadChildren: () => import('../../indicator-details/indicator-details.module').then(m => m.IndicatorDetailsPageModule),
+				loadChildren: () => import('../../indicator-details/indicator-details.module')
+					.then(m => m.IndicatorDetailsPageModule),
 			},
 			{
 				path: 'rating',
-				loadChildren: () => import('../../indicator-rating/indicator-rating.module').then( m => m.IndicatorRatingPageModule)
+				loadChildren: () => import('../../indicator-rating/indicator-rating.module')
+					.then( m => m.IndicatorRatingPageModule)
 			},
 			{
 				path: 'influence',
-				loadChildren: () => import('../../indicator-influence/indicator-influence.module').then(m => m.IndicatorInfluencePageModule)
+				loadChildren: () => import('../../indicator-influence/indicator-influence.module')
+					.then(m => m.IndicatorInfluencePageModule)
 			},
 			{
 				path: 'dynamics',
-				loadChildren: () => import('../../indicator-dynamics/indicator-dynamics.module').then(m => m.IndicatorDynamicsPageModule)
+				loadChildren: () => import('../../indicator-dynamics/indicator-dynamics.module')
+					.then(m => m.IndicatorDynamicsPageModule)
+			},
+			{
+				path: 'calculation',
+				loadChildren: () => import('../../indicator-calculation/indicator-calculation.module')
+					.then(m => m.IndicatorCalculationPageModule)
 			},
 			{
 			  path: '',
