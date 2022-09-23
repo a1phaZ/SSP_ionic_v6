@@ -26,7 +26,6 @@ export class OrgsListComponent extends ListComponent {
 	}
 
 	itemToggle(event) {
-		console.log(event);
 		if (event?.childs?.length === 0) {
 			return this.onSelectItem(event);
 		}
