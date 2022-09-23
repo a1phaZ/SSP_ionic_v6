@@ -887,6 +887,7 @@ export const dashboardList: TDashboardItem[] = [
 		isChild: true,
 		// isAccess: checkBtnAccess('distributor'), // distributor_rating
 		isDevelopment: false,
+		path: EDashboardPath.distributorRating,
 	},
 	{
 		id: 17,

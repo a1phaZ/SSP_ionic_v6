@@ -1,0 +1,19 @@
+<div class="ind-list__item list__item-wrapper" [ngClass]="item.mode">
+	<div class="item__info">
+		<div class="info__title">{{item.title}}</div>
+		<div class="info__details">
+			<div class="details__info">
+				<span>План:</span>
+				<span class="sum">{{item.plan}}</span>
+				<span class="units">{{item.unit}}</span>
+			</div>
+			<div class="details__percent" [ngClass]="item.state">
+				{{item.pct}}%
+			</div>
+		</div>
+	</div>
+	<div class="item__sum item__value-wrapper" [ngClass]="item.test ? 'test' : null">
+		<span class="value">{{item.fact}} / {{item.fact_all}}</span>
+		<span class="units">{{item.unit}}</span>
+	</div>
+</div>

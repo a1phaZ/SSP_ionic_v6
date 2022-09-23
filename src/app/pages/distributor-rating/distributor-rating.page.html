@@ -1,0 +1,11 @@
+<app-header [buttons]="headerButtons"
+			[primaryTitle]="titles.primary"
+			(leftHandle)="buttonsHandle($event)"
+			(rightHandle)="buttonsHandle($event)"
+></app-header>
+
+<ion-content>
+	<div class="content__wrapper">
+		<app-distributor-rating-list [list]="list$ | async"></app-distributor-rating-list>
+	</div>
+</ion-content>

@@ -14,4 +14,5 @@ export type TDashboardItem = {
 
 export enum EDashboardPath {
 	indicators = 'indicators',
+	distributorRating = 'distributor-rating',
 }

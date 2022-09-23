@@ -10,6 +10,8 @@ import {Router} from '@angular/router';
 import {Icons} from '../../models/icons.model';
 import {THeaderButtons} from '../../models/button.model';
 import {dashboardBack} from '../../../store/dashboard/dashboard.actions';
+import {setOrganizationList} from '../../../store/organizations/organizations.actions';
+import {ORGS_LIST} from '../../components/orgs-list/orgs-list.const';
 
 @Component({
 	selector: 'app-dashboard',
@@ -31,6 +33,7 @@ export class DashboardPage implements OnInit, OnDestroy {
 		private router: Router,
 	) {
 		this.selected$ = this.store.select(selectDashboardSelected);
+		this.store.dispatch(setOrganizationList({list: ORGS_LIST}));
 	}
 
 	ngOnInit() {

@@ -16,6 +16,11 @@ const routes: Routes = [
 		canActivateChild: [DashboardGuard]
 	},
 	{
+		path: ':prevId/:buttonId/distributor-rating',
+		loadChildren: () => import('../distributor-rating/distributor-rating.module')
+			.then(m => m.DistributorRatingPageModule),
+	},
+	{
 		path: '',
 		component: DashboardPage,
 	}
