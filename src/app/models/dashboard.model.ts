@@ -11,3 +11,7 @@ export type TDashboardItem = {
 	path?: string;
 	availableTypes?: any[];
 };
+
+export enum EDashboardPath {
+	indicators = 'indicators',
+}
