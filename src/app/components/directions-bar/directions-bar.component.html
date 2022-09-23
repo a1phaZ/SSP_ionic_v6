@@ -1,5 +1,5 @@
-<div class="bar__wrapper">
-	<ng-container *ngIf="directionsList$ | async as list">
+<div class="bar__wrapper" *ngIf="directionsList$ | async as list">
+	<ng-container *ngIf="list.length > 1">
 		<div class="bar__item"
 			 *ngFor="let item of list"
 			 [ngClass]="{'selected': item.id === (currentDirection$ | async)}"
