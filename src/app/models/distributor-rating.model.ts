@@ -33,5 +33,5 @@ export type TDistributorRating = {
 export type TDistributorRatingRequest = {
 	user: number;
 	getRating: boolean;
-	mode: 'dc' | 'division' | 'brand';
+	mode: string;
 };

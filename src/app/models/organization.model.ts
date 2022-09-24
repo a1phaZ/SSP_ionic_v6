@@ -20,7 +20,7 @@ export enum EAvailableOrgs {
 	'marketplace' = 9,
 	'trade_division' = 998,
 	'trade_marketplace' = 999,
-	'trade_entity' = 3,
+	// 'trade_entity' = 3,
 	'mark' = 100,
 	'group' = 10,
 }
