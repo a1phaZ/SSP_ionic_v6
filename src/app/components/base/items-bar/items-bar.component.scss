@@ -1,4 +1,4 @@
-.bar__wrapper{
+.bar__wrapper {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -6,6 +6,11 @@
 	color: var(--color-dark);
 	background-color: var(--bg-item-dark);
 	box-shadow: var(--bs-item-dark);
+
+	&.top__bar {
+		position: sticky;
+		top: 0;
+	}
 
 	&.bottom__bar {
 		.bar__item {
@@ -35,6 +40,7 @@
 
 		&.selected {
 			color: var(--ion-color-primary);
+
 			&:after {
 				content: '';
 				position: absolute;

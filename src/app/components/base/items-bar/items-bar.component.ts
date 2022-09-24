@@ -11,6 +11,8 @@ export class ItemsBarComponent implements OnInit {
 	items: any[];
 	@Input()
 	selectedId: number;
+	@Input()
+	position: 'bottom' | 'top' = 'bottom';
 
 	@Output()
 	changeSelected: EventEmitter<number> = new EventEmitter<number>();

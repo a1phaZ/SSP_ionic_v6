@@ -1,4 +1,4 @@
-<div class="bar__wrapper bottom__bar">
+<div class="bar__wrapper" [ngClass]="position+'__bar'">
 	<ng-container *ngIf="items as list">
 		<div class="bar__item"
 			 *ngFor="let item of list"
