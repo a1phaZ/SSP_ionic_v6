@@ -5,6 +5,10 @@
 ></app-header>
 
 <ion-content>
+	<app-items-bar *ngIf="barItems"
+				   [items]="barItems"
+				   [selectedId]="selected | async"
+				   position="top" (changeSelected)="onBarChange($event)"></app-items-bar>
 	<div class="content__wrapper">
 		<app-distributor-rating-list [list]="list$ | async"></app-distributor-rating-list>
 	</div>

@@ -3,7 +3,7 @@ import {BasePage} from '../base/base.page';
 import {THeaderButtons} from '../../models/button.model';
 import {ActivatedRoute, Router} from '@angular/router';
 import {IAppState} from '../../../store/app.state';
-import {Store} from '@ngrx/store';
+import {select, Store} from '@ngrx/store';
 import {ModalController} from '@ionic/angular';
 import {NavigationService} from '../../services/navigation.service';
 import {WebApiService} from '../../services/web-api.service';
@@ -12,9 +12,11 @@ import {dashboardBack} from '../../../store/dashboard/dashboard.actions';
 import {initializeOrgs} from '../../../store/organizations/organizations.actions';
 import {TDistributorRating, TDistributorRatingRequest} from '../../models/distributor-rating.model';
 import {ApiModel} from '../../models/api.model';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {getPrimaryTitle} from '../../shared/utils/header.utils';
-import {takeUntil} from 'rxjs/operators';
+import {switchMap, takeUntil} from 'rxjs/operators';
+import {selectAvailableTypes} from '../../../store/dashboard/dashboard.selectors';
+import {EAvailableOrgs} from '../../models/organization.model';
 
 @Component({
 	selector: 'app-distributor-rating',
@@ -23,9 +25,11 @@ import {takeUntil} from 'rxjs/operators';
 })
 export class DistributorRatingPage extends BasePage implements OnInit {
 	headerButtons: any;
-	titles: { primary: string; secondary?: string; tertiary?: string; } = {primary: ''};
+	titles: { primary: string; secondary?: string; tertiary?: string } = {primary: ''};
 
 	list$: Observable<TDistributorRating[]>;
+	barItems: Array<{ id: number; title: string }>;
+	selected: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
 	constructor(
 		public route: ActivatedRoute,
@@ -33,28 +37,42 @@ export class DistributorRatingPage extends BasePage implements OnInit {
 		public webApi: WebApiService,
 		public store: Store<IAppState>,
 		public modalCtrl: ModalController,
-		public navigation: NavigationService
+		public navigation: NavigationService,
 	) {
 		super(route, router, webApi, store, modalCtrl, navigation);
+
+		this.store.pipe(
+			select(selectAvailableTypes),
+			takeUntil(this.ngUnsubscribe),
+		).subscribe((data: Array<{ id: number; title: string; order?: number }>) => {
+			this.barItems = data;
+			const selected = data.find((item) => item.order === 1)?.id || data[0]?.id;
+			this.onBarChange(selected);
+		});
+
+		this.list$ = this.selected.pipe(
+			takeUntil(this.ngUnsubscribe),
+			switchMap((selected) => this.makeRequest({
+				user: 1362,
+				getRating: true,
+				mode: EAvailableOrgs[selected]
+			}))
+		);
 	}
 
 	ngOnInit() {
 		this.store.dispatch(initializeOrgs({buttonId: this.buttonId}));
 		this.headerButtons = this.initializeHeaderButtons();
 
-		this.list$ = this.makeRequest({
-			user: 1362,
-			getRating: true,
-			mode: 'dc'
-		}).pipe(
-			takeUntil(this.ngUnsubscribe)
-		);
+		// this.store.select(selectDashboardSelected).subscribe(console.log);
+
+		// this.list$.subscribe();
 
 		this.titles = {
 			primary: getPrimaryTitle(this.buttonId),
 		};
 
-		this.list$.subscribe(console.log);
+		// this.list$.subscribe(console.log);
 	}
 
 	buttonsHandle(button: string) {
@@ -86,4 +104,7 @@ export class DistributorRatingPage extends BasePage implements OnInit {
 			.get$(ApiModel.distributorRating, data) as Observable<TDistributorRating[]>;
 	}
 
+	onBarChange($event: number) {
+		this.selected.next($event);
+	}
 }

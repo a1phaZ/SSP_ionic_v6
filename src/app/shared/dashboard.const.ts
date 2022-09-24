@@ -888,6 +888,11 @@ export const dashboardList: TDashboardItem[] = [
 		// isAccess: checkBtnAccess('distributor'), // distributor_rating
 		isDevelopment: false,
 		path: EDashboardPath.distributorRating,
+		availableTypes: [
+			{ id: EAvailableOrgs.dc, title: CAvailableOrgsTranslate[EAvailableOrgs.dc], order: 1 },
+			{ id: EAvailableOrgs.division, title: CAvailableOrgsTranslate[EAvailableOrgs.division], order: 2 },
+			{ id: EAvailableOrgs.brand, title: CAvailableOrgsTranslate[EAvailableOrgs.brand], order: 3 },
+		]
 	},
 	{
 		id: 17,
