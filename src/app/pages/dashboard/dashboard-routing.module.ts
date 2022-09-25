@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {DashboardPage} from './dashboard.page';
 import {DashboardGuard} from '../../guards/dashboard.guard';
+import {DistributorRatingResolver} from '../../resolvers/distributor-rating.resolver';
 
 const routes: Routes = [
 	{
@@ -17,8 +18,10 @@ const routes: Routes = [
 	},
 	{
 		path: ':prevId/:buttonId/distributor-rating',
-		loadChildren: () => import('../distributor-rating/distributor-rating.module')
-			.then(m => m.DistributorRatingPageModule),
+		loadChildren: () => import('../base/tabs/tabs.module')
+			.then(m => m.TabsPageModule),
+		resolve: {tabs: DistributorRatingResolver},
+		canActivateChild: [DashboardGuard]
 	},
 	{
 		path: '',

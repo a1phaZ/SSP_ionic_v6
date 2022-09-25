@@ -1,9 +1,3 @@
-<app-header [buttons]="headerButtons"
-			[primaryTitle]="titles.primary"
-			(leftHandle)="buttonsHandle($event)"
-			(rightHandle)="buttonsHandle($event)"
-></app-header>
-
 <ion-content>
 	<app-items-bar *ngIf="barItems"
 				   [items]="barItems"

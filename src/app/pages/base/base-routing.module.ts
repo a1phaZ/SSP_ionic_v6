@@ -5,7 +5,8 @@ const routes: Routes = [
 	{
 		path: '',
 		loadChildren: () => (import('./base.module')).then(m => m.BasePageModule)
-	}
+	},
+
 ];
 
 @NgModule({

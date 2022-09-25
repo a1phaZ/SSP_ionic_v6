@@ -7,13 +7,10 @@ import {select, Store} from '@ngrx/store';
 import {ModalController} from '@ionic/angular';
 import {NavigationService} from '../../services/navigation.service';
 import {WebApiService} from '../../services/web-api.service';
-import {Icons} from '../../models/icons.model';
-import {dashboardBack} from '../../../store/dashboard/dashboard.actions';
 import {initializeOrgs} from '../../../store/organizations/organizations.actions';
 import {TDistributorRating, TDistributorRatingRequest} from '../../models/distributor-rating.model';
 import {ApiModel} from '../../models/api.model';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {getPrimaryTitle} from '../../shared/utils/header.utils';
 import {switchMap, takeUntil} from 'rxjs/operators';
 import {selectAvailableTypes} from '../../../store/dashboard/dashboard.selectors';
 import {EAvailableOrgs} from '../../models/organization.model';
@@ -24,8 +21,6 @@ import {EAvailableOrgs} from '../../models/organization.model';
 	styleUrls: ['./distributor-rating.page.scss'],
 })
 export class DistributorRatingPage extends BasePage implements OnInit {
-	headerButtons: any;
-	titles: { primary: string; secondary?: string; tertiary?: string } = {primary: ''};
 
 	list$: Observable<TDistributorRating[]>;
 	barItems: Array<{ id: number; title: string }>;
@@ -62,41 +57,21 @@ export class DistributorRatingPage extends BasePage implements OnInit {
 
 	ngOnInit() {
 		this.store.dispatch(initializeOrgs({buttonId: this.buttonId}));
-		this.headerButtons = this.initializeHeaderButtons();
 
 		// this.store.select(selectDashboardSelected).subscribe(console.log);
 
 		// this.list$.subscribe();
 
-		this.titles = {
-			primary: getPrimaryTitle(this.buttonId),
-		};
 
 		// this.list$.subscribe(console.log);
 	}
 
 	buttonsHandle(button: string) {
-		switch (button) {
-			case Icons.filter: {
-				return this.selectModalOpen();
-			}
-			case Icons.back: {
-				this.navigation.back();
-				this.ngOnDestroy();
-				this.store.dispatch(dashboardBack());
-				return;
-			}
-			default:
-				return;
-		}
+		throw new Error('Method not implemented.');
 	}
 
 	initializeHeaderButtons(): THeaderButtons {
-		return {
-			left: [
-				{name: Icons.back}
-			]
-		};
+		throw new Error('Method not implemented.');
 	}
 
 	makeRequest(data: TDistributorRatingRequest): Observable<TDistributorRating[]> {
