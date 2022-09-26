@@ -14,6 +14,11 @@ const routes: Routes = [
 					.then(m => m.DistributorRatingPageModule)
 			},
 			{
+				path: 'dynamic',
+				loadChildren: () => import('../../in-develop/in-develop.module')
+					.then(m => m.InDevelopPageModule)
+			},
+			{
 				path: '',
 				redirectTo: 'rating',
 				pathMatch: 'full',
