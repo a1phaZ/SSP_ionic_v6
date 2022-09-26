@@ -17,5 +17,5 @@ export const selectDashboardPrevSelected = createSelector(
 
 export const selectAvailableTypes = createSelector(
 	selectAppDashboard,
-	(state: IDashboardState) => state.selected.availableTypes
+	(state: IDashboardState) => state.selected.availableTypes || []
 );
