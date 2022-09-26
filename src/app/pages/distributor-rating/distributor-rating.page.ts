@@ -7,7 +7,6 @@ import {select, Store} from '@ngrx/store';
 import {ModalController} from '@ionic/angular';
 import {NavigationService} from '../../services/navigation.service';
 import {WebApiService} from '../../services/web-api.service';
-import {initializeOrgs} from '../../../store/organizations/organizations.actions';
 import {TDistributorRating, TDistributorRatingRequest} from '../../models/distributor-rating.model';
 import {ApiModel} from '../../models/api.model';
 import {BehaviorSubject, Observable} from 'rxjs';
@@ -56,14 +55,6 @@ export class DistributorRatingPage extends BasePage implements OnInit {
 	}
 
 	ngOnInit() {
-		this.store.dispatch(initializeOrgs({buttonId: this.buttonId}));
-
-		// this.store.select(selectDashboardSelected).subscribe(console.log);
-
-		// this.list$.subscribe();
-
-
-		// this.list$.subscribe(console.log);
 	}
 
 	buttonsHandle(button: string) {
