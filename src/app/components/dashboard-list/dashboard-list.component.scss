@@ -8,6 +8,7 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 		height: 100%;
+		align-content: flex-start;
 
 		.dashboard__item {
 			width: 50%;
