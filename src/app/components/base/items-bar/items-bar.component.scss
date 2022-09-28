@@ -6,6 +6,7 @@
 	color: var(--color-dark);
 	background-color: var(--bg-item-dark);
 	box-shadow: var(--bs-item-dark);
+	z-index: 100;
 
 	&.top__bar {
 		position: sticky;
