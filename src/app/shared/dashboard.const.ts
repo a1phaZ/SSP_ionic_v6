@@ -1152,6 +1152,11 @@ export const dashboardList: TDashboardItem[] = [
 		isChild: false,
 		// isAccess: checkBtnAccess('aku'),
 		isDevelopment: false,
+		path: 'aku',
+		availableTypes: [
+			{ id: EAvailableOrgs.dc, title: CAvailableOrgsTranslate[EAvailableOrgs.dc], order: 1 },
+			{ id: EAvailableOrgs.division, title: CAvailableOrgsTranslate[EAvailableOrgs.division], order: 2 },
+		]
 	},
 	{
 		id: 7,
