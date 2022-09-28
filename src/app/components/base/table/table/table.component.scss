@@ -1,0 +1,136 @@
+table {
+	font-size: 1.1rem;
+	font-weight: 300;
+	margin-bottom: 10px;
+
+	&.table__header {
+		position: sticky;
+		top: 40px;
+		z-index: 100;
+	}
+
+	thead {
+		tr {
+			display: table-row;
+			border: none;
+			color: var(--color-light);
+		}
+	}
+
+	.table__row {
+		//display: flex;
+		//flex-direction: row;
+		//justify-content: space-between;
+		width: 100%;
+	}
+
+	tr {
+
+		display: flex;
+		flex-direction: row;
+		//justify-content: space-between;
+		td {
+			border: none !important;
+			margin: 0;
+			width: 25%;
+			white-space: nowrap;
+			padding: 3px 0 3px 5px;
+			height: auto;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			letter-spacing: -0.15px;
+			//border: none !important;
+			//margin: 0;
+			//width: 25%;
+			//white-space: nowrap;
+			//padding: 3px 0 3px 5px;
+			//height: auto;
+			//display: flex;
+			//justify-content: flex-start;
+			////justify-content: flex-start;
+			//align-items: center;
+			//text-overflow: ellipsis;
+			//overflow: hidden;
+			//letter-spacing: -0.15px;
+		}
+	}
+
+	th {
+		border: none;
+		height: 32px;
+		line-height: 32px;
+		padding: 0 5px;
+		text-align: left;
+		font-weight: 400;
+		background: var(--bg-table-header);
+		cursor: pointer;
+
+		&:first-child {
+			border-radius: 8px 0 0 8px;
+		}
+
+		&:last-child {
+			border-radius: 0 8px 8px 0;
+		}
+	}
+
+	&.tblIndResult, thead  {
+		td, th {
+			&:nth-child(n) {
+				width: 16%;
+			}
+			&:first-child {
+				width: 6%;
+			}
+
+			&:nth-child(2) {
+				width: 44%;
+				justify-content: start;
+			}
+
+			//&:last-child {
+			//	width: 14%;
+			//	justify-content: end;
+			//	padding-right: 5px;
+			//};
+		}
+	}
+
+}
+
+
+.table__wrapper {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	height: 100%;
+	top: 0;
+	bottom: 0;
+	//padding-top: 8px;
+	//padding-bottom: 8px;
+
+	.fieldSortDesc, .fieldSortAsc{
+		position: relative;
+	}
+	.fieldSortDesc:after{
+		content: "";
+		position: absolute;
+		right: 5px;
+		top: 0;
+		height: 100%; width: 8px;
+		background: url('../../../../../assets/icon/custom-arrow-down-fill.svg') center no-repeat;
+		background-size: contain;
+	}
+	.fieldSortAsc:after{
+		content: "";
+		position: absolute;
+		right: 5px;
+		top: 0;
+		height: 100%; width: 8px;
+		background: url('../../../../../assets/icon/custom-arrow-up-fill.svg') center no-repeat;
+		background-size: contain;
+	}
+}

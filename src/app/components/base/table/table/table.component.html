@@ -1,0 +1,20 @@
+<div class="table__wrapper">
+	<table class="table__header">
+		<thead>
+			<tr>
+				<th></th>
+				<th *ngFor="let column of columns; let idx = index"
+					[ngClass]="(ratingSortField !== column.name) ? 'indiTDOrg' : 'indiTDOrg fieldSort'+(ratingSortOrder | titlecase)"
+					(click)="changeSortDirection(idx)" >
+					{{column.title}}
+				</th>
+			</tr>
+		</thead>
+	</table>
+	<table class="tblIndResult">
+		<tr class="indiTR6"
+			*ngFor="let item of rows; let idx = index">
+			<app-base-table-row class="table__row" [item]="item" [index]="idx"></app-base-table-row>
+		</tr>
+	</table>
+</div>
