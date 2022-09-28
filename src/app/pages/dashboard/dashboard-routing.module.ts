@@ -4,6 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {DashboardPage} from './dashboard.page';
 import {DashboardGuard} from '../../guards/dashboard.guard';
 import {DistributorRatingResolver} from '../../resolvers/distributor-rating.resolver';
+import {AkuTabsResolver} from '../../resolvers/aku-tabs.resolver';
 
 const routes: Routes = [
 	{
@@ -21,6 +22,13 @@ const routes: Routes = [
 		loadChildren: () => import('../base/tabs/tabs.module')
 			.then(m => m.TabsPageModule),
 		resolve: {tabs: DistributorRatingResolver},
+		canActivateChild: [DashboardGuard]
+	},
+	{
+		path: ':buttonId/aku',
+		loadChildren: () => import('../tabs/aku-tabs/aku-tabs.module')
+			.then(m => m.AkuTabsPageModule),
+		resolve: {tabs: AkuTabsResolver},
 		canActivateChild: [DashboardGuard]
 	},
 	{
