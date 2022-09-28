@@ -1,0 +1,21 @@
+<ion-content>
+	<div class="content__wrapper">
+		<div class="aku-state">
+			<div class="aku-in">
+				<span class="aku-description">Вошли в кризис</span>
+				<b class="aku-count">{{in}}</b>
+			</div>
+			<div class="aku-out">
+				<span class="aku-description">Вышли из кризиса</span>
+				<b class="aku-count">{{out}}</b>
+			</div>
+			<div class="aku-in-ico"></div>
+			<div class="aku-out-ico"></div>
+			<div class="aku-now">
+				<span class="aku-description">Всего в кризисе на текущий период<br>({{period}})</span>
+				<b class="aku-count">{{now}}</b>
+			</div>
+		</div>
+		<ion-button class="aku-button" expand="block" (click)="onDynamicClick(directionId)">Динамика</ion-button>
+	</div>
+</ion-content>

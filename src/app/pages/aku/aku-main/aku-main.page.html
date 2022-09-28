@@ -1,0 +1,9 @@
+<ion-content>
+	<app-items-bar *ngIf="barItems"
+				   [items]="barItems"
+				   [selectedId]="selected | async"
+				   position="top" (changeSelected)="onBarChange($event)"></app-items-bar>
+	<div class="content__wrapper">
+		<app-base-table [columns]="tableColumns" [rows]="tableRows$ | async"></app-base-table>
+	</div>
+</ion-content>

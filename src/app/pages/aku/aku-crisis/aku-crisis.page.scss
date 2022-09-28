@@ -1,0 +1,92 @@
+.content__wrapper {
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+
+	.aku-state {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+		height: 100%;
+		flex-wrap: wrap;
+
+		div:nth-child(n) {
+			height: 45%;
+			flex: 0 0 50%;
+		}
+
+		div:last-child {
+			flex: 0 0 100%
+		}
+
+		.aku-in-ico {
+			height: 10%!important;
+			background: url(../../../../assets/imgs/aku_in.svg) center no-repeat;
+		}
+
+		.aku-out-ico {
+			height: 10%!important;
+			background: url(../../../../assets/imgs/aku_out.svg) center no-repeat;
+		}
+
+		.aku-in, .aku-out, .aku-now {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-around;
+		}
+
+		.aku-in {
+			.aku-count {
+				background: var(--status-danger);
+				color: var(--color-dark);
+			}
+		}
+
+		.aku-out {
+			.aku-count {
+				background: var(--status-success);
+				color: var(--color-dark);
+			}
+		}
+
+		.aku-now {
+			.aku-count {
+				background: var(--bg-light) ;
+				color: var(--color-light);
+
+				font-size: 84px;
+				border: 1px solid #B0C5D5;
+				width: 140px;
+				height: 140px;
+				line-height: 140px;
+			}
+		}
+	}
+
+	.aku-description {
+		font-size: 1.4rem;
+		text-align: center;
+	}
+
+	.aku-count {
+		display: block;
+		font-size: 68px;
+		font-weight: 300;
+		width: 120px;
+		height: 120px;
+		line-height: 120px;
+		border-radius: 50%;
+		padding: 0;
+		text-align: center;
+	}
+
+	.aku-button {
+		--border-radius: 5px;
+		color: #fff;
+		--background: #0091EA;
+		text-align: center;
+		height: 50px;
+		line-height: 50px;
+	}
+}
