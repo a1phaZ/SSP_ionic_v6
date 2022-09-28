@@ -72,7 +72,7 @@ export class ChartComponent implements OnChanges {
 				},
 				lineColor: '#CFD8DC',
 				tickColor: '#FFFFFF',
-				categories: data.categories,
+				categories: data.categories || data.axis,
 			},
 			yAxis: {
 				gridLineColor: '#CFD8DC',
@@ -139,6 +139,7 @@ export class ChartComponent implements OnChanges {
 			},
 			series: this.getChartSeries(data.series || []),
 		};
+		// this.linechart = {...this.linechart, axis: data.axis};
 	}
 
 }
