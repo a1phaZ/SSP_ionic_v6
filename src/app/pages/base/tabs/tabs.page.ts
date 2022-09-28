@@ -33,6 +33,10 @@ export class TabsPage extends BasePage implements OnInit {
 	}
 
 	ngOnInit() {
+		this.init();
+	}
+
+	init() {
 		this.tabsList = this.route.snapshot.data.tabs;
 		this.headerButtons = this.initializeHeaderButtons();
 		this.store.dispatch(initializeOrgs({buttonId: this.buttonId}));
@@ -40,8 +44,6 @@ export class TabsPage extends BasePage implements OnInit {
 		this.titles = {
 			primary: getPrimaryTitle(this.buttonId),
 		};
-
-		console.log(this.route.snapshot.data);
 	}
 
 	buttonsHandle(button: string) {
