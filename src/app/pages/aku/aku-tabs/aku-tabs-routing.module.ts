@@ -12,12 +12,12 @@ const routes: Routes = [
 	  children: [
 		  {
 			  path: EAkuTabsModel.main,
-			  loadChildren: () => import('../../aku/aku-main/aku-main.module')
+			  loadChildren: () => import('../aku-main/aku-main.module')
 				  .then(m => m.AkuMainPageModule)
 		  },
 		  {
 			  path: EAkuTabsModel.finance,
-			  loadChildren: () => import('../../aku/aku-crisis/aku-crisis.module')
+			  loadChildren: () => import('../aku-crisis/aku-crisis.module')
 				  .then(m => m.AkuCrisisPageModule),
 			  resolve: {
 				  directionId: AluCrisisResolver,
@@ -25,17 +25,17 @@ const routes: Routes = [
 		  },
 		  {
 			  path: EAkuTabsModel.finance+'/:directionId',
-			  loadChildren: () => import('../../aku/aku-rating/aku-rating.module')
+			  loadChildren: () => import('../aku-rating/aku-rating.module')
 				  .then(m => m.AkuRatingPageModule)
 		  },
 		  {
 			  path: EAkuTabsModel.opa,
-			  loadChildren: () => import('../../aku/aku-crisis/aku-crisis.module')
+			  loadChildren: () => import('../aku-crisis/aku-crisis.module')
 				  .then(m => m.AkuCrisisPageModule),
 		  },
 		  {
 			  path: EAkuTabsModel.service,
-			  loadChildren: () => import('../../aku/aku-crisis/aku-crisis.module')
+			  loadChildren: () => import('../aku-crisis/aku-crisis.module')
 				  .then(m => m.AkuCrisisPageModule),
 		  },
 		  {

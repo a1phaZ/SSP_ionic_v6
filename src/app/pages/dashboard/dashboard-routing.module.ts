@@ -26,7 +26,7 @@ const routes: Routes = [
 	},
 	{
 		path: ':buttonId/aku',
-		loadChildren: () => import('../tabs/aku-tabs/aku-tabs.module')
+		loadChildren: () => import('../aku/aku-tabs/aku-tabs.module')
 			.then(m => m.AkuTabsPageModule),
 		resolve: {tabs: AkuTabsResolver},
 		canActivateChild: [DashboardGuard]

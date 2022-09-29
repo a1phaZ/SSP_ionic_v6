@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
 import {Observable, of} from 'rxjs';
 import {TTabs} from '../models/tabs.model';
-import {EAkuTabsModel, EAkuTabsNames} from '../pages/tabs/aku-tabs/aku-tabs.model';
+import {EAkuTabsModel, EAkuTabsNames} from '../pages/aku/aku-tabs/aku-tabs.model';
 
 @Injectable({
 	providedIn: 'root'

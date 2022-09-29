@@ -7,7 +7,7 @@ import {IAppState} from '../../../../store/app.state';
 import {selectAvailableTypes} from '../../../../store/dashboard/dashboard.selectors';
 import {map, switchMap, takeUntil} from 'rxjs/operators';
 import {TTableColumn, TTableRowAKU} from '../../../models/table.model';
-import {EAkuTabsModel, EAkuTabsNames} from '../../tabs/aku-tabs/aku-tabs.model';
+import {EAkuTabsModel, EAkuTabsNames} from '../aku-tabs/aku-tabs.model';
 import {EAvailableOrgs} from '../../../models/organization.model';
 
 @Component({
