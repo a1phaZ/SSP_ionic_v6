@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import {TAccordionItem, TAccordionItemFolder, TAccordionItemTypeData} from '../../../../models/accordion.model';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {TAccordionDataItem, TAccordionItemFolder, TAccordionItemTypeData} from '../../../../models/accordion.model';
 
 @Component({
 	selector: 'app-accordion-item',
@@ -9,7 +9,10 @@ import {TAccordionItem, TAccordionItemFolder, TAccordionItemTypeData} from '../.
 export class AccordionItemComponent {
 
 	@Input()
-	item: TAccordionItem | TAccordionItemFolder | TAccordionItemTypeData;
+	item: TAccordionDataItem | TAccordionItemFolder | TAccordionItemTypeData;
+
+	@Output()
+	openItem: EventEmitter<any> = new EventEmitter<any>();
 
 	isOpen = false;
 

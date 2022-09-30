@@ -1,5 +1,5 @@
 <div class="accordion__wrapper">
 	<ng-container *ngFor="let item of list">
-		<app-accordion-item [item]="item"></app-accordion-item>
+		<app-accordion-item [item]="item" (openItem)="openItem.emit($event)"></app-accordion-item>
 	</ng-container>
 </div>

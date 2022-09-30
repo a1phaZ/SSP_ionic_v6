@@ -1,8 +1,8 @@
-<div class="accordion__item-wrapper" [ngClass]="{'active': isOpen}">
-	<div class="item__header" (click)="toggleItem()" *ngIf="item.name">
+<div class="accordion__item-wrapper" [ngClass]="{'active': isOpen || item.name === ' '}">
+	<div class="item__header" (click)="toggleItem()" *ngIf="item.name && item.name !== ' '">
 		<div class="header__title">{{item.name}}</div>
 	</div>
-	<ng-container *ngIf="isOpen || !item.name">
+	<ng-container *ngIf="isOpen || item.name === ' '">
 		<div class="accordion__item-content" [ngClass]="'content__type-'+item.type">
 			<div class="content__wrapper">
 				<div class="item__content">

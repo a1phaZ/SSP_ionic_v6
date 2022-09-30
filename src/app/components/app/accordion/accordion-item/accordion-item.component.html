@@ -6,43 +6,50 @@
 		></app-icon>
 	</div>
 	<ng-container *ngIf="isOpen">
-		<div class="accordion__item-content">
-			<div class="content__wrapper">
-				<div class="item__content">
-					<div class="content__element">
-						<span class="element__title">Город: </span>
-						<span class="element__value">{{item.city}}</span>
+		<section class="item__content-wrapper" *ngFor="let item of item.data" (click)="openItem.emit(item)">
+			<div class="accordion__item-content" >
+				<div class="content__wrapper">
+					<div class="item__content">
+						<div class="content__element">
+							<span class="element__title">Город: </span>
+							<span class="element__value">{{item.city}}</span>
+						</div>
+						<div class="content__element">
+							<span class="element__title">Объект: </span>
+							<span class="element__value">{{item.objectName}}</span>
+						</div>
+						<div class="content__element">
+							<span class="element__title">Тип объекта: </span>
+							<span class="element__value">{{item.objectType}}</span>
+						</div>
+						<div class="content__element">
+							<span class="element__title">Год постройки: </span>
+							<span class="element__value">{{item.year}} г.</span>
+						</div>
+						<div class="content__element">
+							<span class="element__title">Площадь: </span>
+							<span class="element__value">{{item.square}}</span>
+						</div>
+						<div class="content__element">
+							<span class="element__value element__status">{{item.status}}</span>
+						</div>
 					</div>
-					<div class="content__element">
-						<span class="element__title">Объект: </span>
-						<span class="element__value">{{item.objectName}}</span>
-					</div>
-					<div class="content__element">
-						<span class="element__title">Тип объекта: </span>
-						<span class="element__value">{{item.objectType}}</span>
-					</div>
-					<div class="content__element">
-						<span class="element__title">Год постройки: </span>
-						<span class="element__value">{{item.year}} г.</span>
-					</div>
-					<div class="content__element">
-						<span class="element__title">Площадь: </span>
-						<span class="element__value">{{item.square}}</span>
-					</div>
-					<div class="content__element">
-						<span class="element__value element__status">{{item.status}}</span>
+					<div class="item__thumb">
+						<img src="https://ssp.keyauto.ru{{item.thumb}}" alt="{{item.name}}">
 					</div>
 				</div>
-				<div class="item__thumb">
-					<img src="https://ssp.keyauto.ru{{item.thumb}}" alt="{{item.name}}">
+				<div class="element__profile-status">
+					<span class="element__value" *ngIf="item.pct === 0; else pct">Профиль не заполнен</span>
+					<ng-template #pct>
+						<span class="element__value">{{item.pct}}% профиля заполнено</span>
+					</ng-template>
+
 				</div>
 			</div>
-			<div class="element__profile-status">
-				<span class="element__value ">Профиль не заполнен</span>
+			<div class="accordion__addition">
+				<app-logo *ngFor="let logo of item.logo" [logo]="logo"></app-logo>
 			</div>
-		</div>
-		<div class="accordion__addition">
-			<app-logo *ngFor="let logo of item.logo" [logo]="logo"></app-logo>
-		</div>
+		</section>
+
 	</ng-container>
 </div>
