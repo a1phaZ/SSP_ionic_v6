@@ -906,6 +906,12 @@ export const dashboardList: TDashboardItem[] = [
 		isChild: true,
 		// isAccess: checkBtnAccess('employes-productivity'), // staffing_table
 		isDevelopment: false,
+		path: EDashboardPath.indicators,
+		availableTypes: [
+			{id: EAvailableOrgs.division, title: CAvailableOrgsTranslate[EAvailableOrgs.division], order: 2},
+			{id: EAvailableOrgs.dc, title: CAvailableOrgsTranslate[EAvailableOrgs.dc], order: 1},
+			{id: EAvailableOrgs.brand, title: CAvailableOrgsTranslate[EAvailableOrgs.brand], order: 3},
+		]
 	},
 	{
 		id: 35, //id - need update
