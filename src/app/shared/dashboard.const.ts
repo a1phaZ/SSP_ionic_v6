@@ -758,7 +758,7 @@ const ICON_LIST: TIconList[] = [
 ];
 
 const getIcon = (id: number) => {
-	const item =ICON_LIST.find((item) => item.id === id);
+	const item = ICON_LIST.find((item) => item.id === id);
 	if (item) {
 		return item.icon;
 	}
@@ -773,7 +773,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Автохолдинг',
 		keyWord: 'holding',
 		background: 'linear-gradient(35deg, #65e2b7 0%, #0098aa 100%)',
-		icon:  getIcon(8),
+		icon: getIcon(8),
 		isChild: false,
 		// isAccess: checkBtnAccess('holding'),
 		isDevelopment: false,
@@ -785,16 +785,16 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Официальные дилеры',
 		keyWord: 'official',
 		background: 'linear-gradient(135deg, #ac6ecf 0%, #5b0c9f 100%)',
-		icon:  getIcon(9),
+		icon: getIcon(9),
 		isChild: true,
 		// isAccess: checkBtnAccess('official'),
 		isDevelopment: false,
 		path: EDashboardPath.indicators, // For Routing
 		availableTypes: [
-			{ id: EAvailableOrgs.division, title: CAvailableOrgsTranslate[EAvailableOrgs.division], order: 3 },
-			{ id: EAvailableOrgs.group,	title: CAvailableOrgsTranslate[EAvailableOrgs.group], order: 1 },
-			{ id: EAvailableOrgs.mark, title: CAvailableOrgsTranslate[EAvailableOrgs.mark], order: 0 },
-			{ id: EAvailableOrgs.brand, title: CAvailableOrgsTranslate[EAvailableOrgs.brand], order: -1 },
+			{id: EAvailableOrgs.division, title: CAvailableOrgsTranslate[EAvailableOrgs.division], order: 3},
+			{id: EAvailableOrgs.group, title: CAvailableOrgsTranslate[EAvailableOrgs.group], order: 1},
+			{id: EAvailableOrgs.mark, title: CAvailableOrgsTranslate[EAvailableOrgs.mark], order: 0},
+			{id: EAvailableOrgs.brand, title: CAvailableOrgsTranslate[EAvailableOrgs.brand], order: -1},
 		],
 	},
 	{
@@ -804,7 +804,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Автомобили с пробегом',
 		keyWord: 'asp',
 		background: 'linear-gradient(135deg, #8bc9ff 0%, #0d79a2 100%)',
-		icon:  getIcon(10),
+		icon: getIcon(10),
 		isChild: true,
 		// isAccess: checkBtnAccess('asp'),
 		isDevelopment: false,
@@ -829,7 +829,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Новая логистика',
 		keyWord: 'nl',
 		background: 'linear-gradient(135deg, #ffa67e 0%, #ff5734 100%)',
-		icon:  getIcon(28),
+		icon: getIcon(28),
 		isChild: true,
 		// isAccess: checkBtnAccess('nl'),
 		isDevelopment: false,
@@ -841,7 +841,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Рейтинги',
 		keyWord: 'benchmark',
 		background: 'linear-gradient(135deg,#65e2b7 0%,#0098aa 100%)',
-		icon:  getIcon(21),
+		icon: getIcon(21),
 		isChild: true,
 		// isAccess: checkBtnAccess('benchmark'),
 		isDevelopment: false,
@@ -853,7 +853,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Клиентская база',
 		keyWord: 'cbase',
 		background: 'linear-gradient(135deg, #8bc9ff 0%, #0d79a2 100%)',
-		icon:  getIcon(32),
+		icon: getIcon(32),
 		isChild: true,
 		// isAccess: checkBtnAccess('cbase'),
 		isDevelopment: false,
@@ -865,15 +865,15 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Дистрибьютор',
 		keyWord: 'distributor',
 		background: 'linear-gradient( 135deg, #ff7bb9 0%, #b80000 100%)',
-		icon:  getIcon(29),
+		icon: getIcon(29),
 		isChild: true,
 		// isAccess: checkBtnAccess('distributor'),
 		isDevelopment: false,
 		path: EDashboardPath.indicators,
 		availableTypes: [
-			{ id: EAvailableOrgs.brand, title: CAvailableOrgsTranslate[EAvailableOrgs.brand], order: 0 },
-			{ id: EAvailableOrgs.group,	title: CAvailableOrgsTranslate[EAvailableOrgs.group], order: 1 },
-			{ id: EAvailableOrgs.division, title: CAvailableOrgsTranslate[EAvailableOrgs.division], order: 2 },
+			{id: EAvailableOrgs.brand, title: CAvailableOrgsTranslate[EAvailableOrgs.brand], order: 0},
+			{id: EAvailableOrgs.group, title: CAvailableOrgsTranslate[EAvailableOrgs.group], order: 1},
+			{id: EAvailableOrgs.division, title: CAvailableOrgsTranslate[EAvailableOrgs.division], order: 2},
 		],
 	},
 	{
@@ -883,15 +883,15 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Рейтинг дистрибьюторов',
 		keyWord: 'distributor',
 		background: 'linear-gradient(135deg, #b5bbcf 0%, #454d67 100%)',
-		icon:  getIcon(34),
+		icon: getIcon(34),
 		isChild: true,
 		// isAccess: checkBtnAccess('distributor'), // distributor_rating
 		isDevelopment: false,
 		path: EDashboardPath.distributorRating,
 		availableTypes: [
-			{ id: EAvailableOrgs.dc, title: CAvailableOrgsTranslate[EAvailableOrgs.dc], order: 1 },
-			{ id: EAvailableOrgs.division, title: CAvailableOrgsTranslate[EAvailableOrgs.division], order: 2 },
-			{ id: EAvailableOrgs.brand, title: CAvailableOrgsTranslate[EAvailableOrgs.brand], order: 3 },
+			{id: EAvailableOrgs.dc, title: CAvailableOrgsTranslate[EAvailableOrgs.dc], order: 1},
+			{id: EAvailableOrgs.division, title: CAvailableOrgsTranslate[EAvailableOrgs.division], order: 2},
+			{id: EAvailableOrgs.brand, title: CAvailableOrgsTranslate[EAvailableOrgs.brand], order: 3},
 		]
 	},
 	{
@@ -902,7 +902,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Продуктивность персонала',
 		keyWord: 'employes-productivity',
 		background: 'linear-gradient(133.86deg, #65e2b7 1.91%, #0098aa 100%)',
-		icon:  getIcon(17),
+		icon: getIcon(17),
 		isChild: true,
 		// isAccess: checkBtnAccess('employes-productivity'), // staffing_table
 		isDevelopment: false,
@@ -913,7 +913,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Персонал',
 		keyWord: 'personal',
 		background: 'linear-gradient(135deg, #8bc9ff 0%, #0d79a2 100%)',
-		icon:  getIcon(35),
+		icon: getIcon(35),
 		isChild: false,
 		// isAccess: checkBtnAccess('personal'), //staff_management
 		isDevelopment: false,
@@ -925,7 +925,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Персонал',
 		keyWord: 'rezerv',
 		background: 'linear-gradient(135deg, #a1c243 0%, #559b0f 100%)',
-		icon:  getIcon(23),
+		icon: getIcon(23),
 		isChild: true,
 		// isAccess: checkBtnAccess('rezerv'), // staff_reserve
 		isDevelopment: false,
@@ -937,7 +937,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Персонал',
 		keyWord: 'motivation',
 		background: 'linear-gradient(135deg, #ffa67e 0%, #ff5734 100%)',
-		icon:  getIcon(40),
+		icon: getIcon(40),
 		isChild: true,
 		// isAccess: checkBtnAccess('motivation'), // qualification
 		isDevelopment: false,
@@ -949,7 +949,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Персонал',
 		keyWord: 'staff_efficiency',
 		background: 'linear-gradient(135deg, #65e2b7 0%,#0098aa 100%)',
-		icon:  getIcon(21),
+		icon: getIcon(21),
 		isChild: true,
 		// isAccess: checkBtnAccess('staff_efficiency'), // qualification
 		isDevelopment: false,
@@ -961,7 +961,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Персонал',
 		keyWord: 'sotrRating',
 		background: 'linear-gradient(135deg, #9191d5 0%, #184594 100%)',
-		icon:  getIcon(41),
+		icon: getIcon(41),
 		isChild: true,
 		// isAccess: checkBtnAccess('sotrRating'), // staff_rating
 		isDevelopment: false,
@@ -973,7 +973,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Кадровые перемещения',
 		keyWord: 'peremesh',
 		background: 'linear-gradient(135deg, #ac6ecf 0%, #5b0c9f 100%)',
-		icon:  getIcon(42),
+		icon: getIcon(42),
 		isChild: true,
 		// isAccess: checkBtnAccess('peremesh'), // staff_movements
 		isDevelopment: true,
@@ -985,7 +985,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Штатное расписание',
 		keyWord: 'staffing_table',
 		background: 'linear-gradient(135deg, #65e2b7 1.91%, #0098aa 100%)',
-		icon:  getIcon(43),
+		icon: getIcon(43),
 		isChild: true,
 		// isAccess: checkBtnAccess('staffing_table'), //staff_productivity
 		isDevelopment: false,
@@ -996,7 +996,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Бюджет',
 		keyWord: 'budget',
 		background: 'linear-gradient(135deg, #9191d5 0%, #184594 100%)',
-		icon:  getIcon(1),
+		icon: getIcon(1),
 		isChild: false,
 		// isAccess: checkBtnAccess('budget'),
 		isDevelopment: false,
@@ -1008,7 +1008,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Бюджетное послание',
 		keyWord: 'poslanie',
 		background: 'linear-gradient(135deg, #65e2b7 0%, #0098aa 100%)',
-		icon:  getIcon(2),
+		icon: getIcon(2),
 		isChild: true,
 		// isAccess: checkBtnAccess('poslanie'), // budget_message
 		isDevelopment: false,
@@ -1020,7 +1020,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Бюджетный анализ',
 		keyWord: 'budgetanaliz',
 		background: 'linear-gradient(135deg, #8bc9ff 0%, #0d79a2 100%)',
-		icon:  getIcon(3),
+		icon: getIcon(3),
 		isChild: true,
 		// isAccess: checkBtnAccess('budgetanaliz'), //budget_analysis
 		isDevelopment: true,
@@ -1032,7 +1032,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Бюджет',
 		keyWord: 'dohodi',
 		background: 'linear-gradient(135deg, #65e2b7 0%, #0098aa 100%)',
-		icon:  getIcon(4),
+		icon: getIcon(4),
 		isChild: true,
 		// isAccess: checkBtnAccess('dohodi'), //budget_finance
 		isDevelopment: false,
@@ -1044,7 +1044,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Деньги',
 		keyWord: 'dds',
 		background: 'linear-gradient(135deg, #ffa67e 0%, #ff5734 100%)',
-		icon:  getIcon(5),
+		icon: getIcon(5),
 		isChild: true,
 		// isAccess: checkBtnAccess('dds'), // budget_money
 		isDevelopment: false,
@@ -1055,7 +1055,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Эффективность',
 		keyWord: 'effect',
 		background: 'linear-gradient(135deg, #ffa67e 0%, #ff5734 100%)',
-		icon:  getIcon(21),
+		icon: getIcon(21),
 		isChild: false,
 		// isAccess: checkBtnAccess('effect'), // efficiency
 		isDevelopment: true,
@@ -1067,7 +1067,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Операционная эффективность',
 		keyWord: 'opereffect',
 		background: 'linear-gradient(135deg, #65e2b7 0%,#0098aa 100%)',
-		icon:  getIcon(44),
+		icon: getIcon(44),
 		isChild: true,
 		// isAccess: checkBtnAccess('opereffect'), //operational_efficiency
 		isDevelopment: true,
@@ -1079,7 +1079,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Управление потерями',
 		keyWord: 'loss',
 		background: 'linear-gradient(135deg, #ffa67e 0%, #ff5734 100%)',
-		icon:  getIcon(45),
+		icon: getIcon(45),
 		isChild: true,
 		// isAccess: checkBtnAccess('loss'), //loss_management
 		isDevelopment: true,
@@ -1091,7 +1091,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Стандартизация и аудит',
 		keyWord: 'audit',
 		background: 'linear-gradient(135deg, #9191d5 0%, #184594 100%)',
-		icon:  getIcon(46),
+		icon: getIcon(46),
 		isChild: true,
 		// isAccess: checkBtnAccess('audit'),
 		isDevelopment: true,
@@ -1102,7 +1102,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Инвестиции',
 		keyWord: 'invest',
 		background: 'linear-gradient(135deg, #ac6ecf 0%, #5b0c9f 100%)',
-		icon:  getIcon(6),
+		icon: getIcon(6),
 		isChild: false,
 		// isAccess: checkBtnAccess('invest'),
 		isDevelopment: true,
@@ -1114,7 +1114,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Окупаемость инвестиций',
 		keyWord: 'okupaemost',
 		background: 'linear-gradient(135deg, #65e2b7 0%, #0098aa 100%)',
-		icon:  getIcon(47),
+		icon: getIcon(47),
 		isChild: true,
 		// isAccess: checkBtnAccess('okupaemost'), //roi
 		isDevelopment: true,
@@ -1126,7 +1126,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Стартапы',
 		keyWord: 'startup',
 		background: 'linear-gradient(135deg, #8bc9ff 0%, #0d79a2 100%)',
-		icon:  getIcon(48),
+		icon: getIcon(48),
 		isChild: true,
 		// isAccess: checkBtnAccess('startup'),
 		isDevelopment: true,
@@ -1137,7 +1137,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Стратегия',
 		keyWord: 'strategy',
 		background: 'linear-gradient(135deg, #a1c243 0%, #559b0f 100%)',
-		icon:  getIcon(36),
+		icon: getIcon(36),
 		isChild: false,
 		// isAccess: checkBtnAccess('strategy'),
 		isDevelopment: true,
@@ -1148,14 +1148,14 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'АКУ',
 		keyWord: 'aku',
 		background: 'linear-gradient(135deg,#ff7bb9 0%,#b80000 100%)',
-		icon:  getIcon(37),
+		icon: getIcon(37),
 		isChild: false,
 		// isAccess: checkBtnAccess('aku'),
 		isDevelopment: false,
 		path: EDashboardPath.aku,
 		availableTypes: [
-			{ id: EAvailableOrgs.dc, title: CAvailableOrgsTranslate[EAvailableOrgs.dc], order: 1 },
-			{ id: EAvailableOrgs.division, title: CAvailableOrgsTranslate[EAvailableOrgs.division], order: 2 },
+			{id: EAvailableOrgs.dc, title: CAvailableOrgsTranslate[EAvailableOrgs.dc], order: 1},
+			{id: EAvailableOrgs.division, title: CAvailableOrgsTranslate[EAvailableOrgs.division], order: 2},
 		]
 	},
 	{
@@ -1164,7 +1164,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Управление имуществом',
 		keyWord: 'imushestvo',
 		background: 'linear-gradient(135deg, #3fbeba 0%, #007582 100%)',
-		icon:  getIcon(7),
+		icon: getIcon(7),
 		isChild: false,
 		// isAccess: checkBtnAccess('imushestvo'), //assets_management
 		isDevelopment: false,
@@ -1176,7 +1176,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Статистика',
 		keyWord: 'stat',
 		background: 'linear-gradient(135deg, #ac6ecf 0%, #5b0c9f  100%)',
-		icon:  getIcon(50),
+		icon: getIcon(50),
 		isChild: false,
 		// isAccess: checkBtnAccess('stat'), //statistic
 		isDevelopment: false,
@@ -1187,7 +1187,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Служба безопасности',
 		keyWord: 'security',
 		background: 'linear-gradient(135deg, #8bc9ff 0%, #0d79a2 100%)',
-		icon:  getIcon(16),
+		icon: getIcon(16),
 		isChild: false,
 		// isAccess: checkBtnAccess('security'),
 		isDevelopment: false,
@@ -1199,10 +1199,16 @@ export const dashboardList: TDashboardItem[] = [
 		title: '«Паук»',
 		keyWord: 'pauk',
 		background: 'linear-gradient(135deg, #65e2b7 0%, #0098aa 100%)',
-		icon:  getIcon(18),
+		icon: getIcon(18),
 		isChild: true,
 		// isAccess: checkBtnAccess('pauk'), //security_spider
 		isDevelopment: false,
+		path: EDashboardPath.indicators,
+		availableTypes: [
+			{id: EAvailableOrgs.division, title: CAvailableOrgsTranslate[EAvailableOrgs.division], order: 2},
+			{id: EAvailableOrgs.dc, title: CAvailableOrgsTranslate[EAvailableOrgs.dc], order: 1},
+			{id: EAvailableOrgs.brand, title: CAvailableOrgsTranslate[EAvailableOrgs.brand], order: 3},
+		]
 	},
 	{
 		id: 19,
@@ -1211,7 +1217,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Проект «Барьер»',
 		keyWord: 'barrier',
 		background: 'linear-gradient(135deg, #ffa67e 0%, #ff5734 100%)',
-		icon:  getIcon(19),
+		icon: getIcon(19),
 		isChild: true,
 		// isAccess: checkBtnAccess('barrier'), //security_barrier
 		isDevelopment: false,
@@ -1223,7 +1229,7 @@ export const dashboardList: TDashboardItem[] = [
 		title: 'Полиграф',
 		keyWord: 'polygraph',
 		background: 'linear-gradient(135deg, #8bc9ff 0%, #0d79a2 100%)',
-		icon:  getIcon(20),
+		icon: getIcon(20),
 		isChild: true,
 		// isAccess: checkBtnAccess('polygraph'), //security_polygraph
 		isDevelopment: false,
@@ -1236,7 +1242,7 @@ export const dashboardList: TDashboardItem[] = [
 		keyWord: 'safetyOfGoodsAndMaterials',
 		background:
 			'linear-gradient(135deg, rgb(255, 123, 185) 0%, rgb(184, 0, 0) 100%)',
-		icon:  getIcon(51),
+		icon: getIcon(51),
 		isChild: true,
 		// isAccess: checkBtnAccess('safetyOfGoodsAndMaterials'),
 		isDevelopment: false,
