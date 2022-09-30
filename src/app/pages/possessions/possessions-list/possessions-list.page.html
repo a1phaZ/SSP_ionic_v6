@@ -1,0 +1,6 @@
+<ion-content>
+	<section class="content__wrapper">
+		<app-accordion [list]="list$ | async"
+					   (openItem)="openItem($event)"></app-accordion>
+	</section>
+</ion-content>

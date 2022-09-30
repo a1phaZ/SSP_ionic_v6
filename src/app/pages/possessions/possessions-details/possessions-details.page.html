@@ -1,0 +1,13 @@
+<ion-content>
+	<app-gallery *ngIf="gallery" [slides]="gallery"></app-gallery>
+	<div class="tab__title">{{title}}</div>
+	<section class="content__wrapper">
+		<ng-container *ngFor="let data of tabData$ | async">
+			<app-accordion-item-folder *ngIf="data.type === 'folder'; else detailsData"
+									   [item]="data"></app-accordion-item-folder>
+			<ng-template #detailsData>
+				<app-accordion-item-type-data *ngIf="data.type === 'data'" [item]="data"></app-accordion-item-type-data>
+			</ng-template>
+		</ng-container>
+	</section>
+</ion-content>

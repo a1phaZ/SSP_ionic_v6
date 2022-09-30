@@ -726,11 +726,11 @@ const ICON_LIST: TIconList[] = [
 		icon: `
           <svg viewBox="0 0 48 48">
             <style type="text/css">
-              .st0{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;}
+              .st01{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-linecap:round;stroke-miterlimit:10;}
               .st1{fill:#FFFFFF;}
             </style>
             <g>
-              <polyline class="st0" points="1,15 7.22,22.16 15,19.6 23.22,29.82 30,28 40,37.6 43.22,35.71 47,41.66 	"/>
+              <polyline class="st01" points="1,15 7.22,22.16 15,19.6 23.22,29.82 30,28 40,37.6 43.22,35.71 47,41.66 	"/>
               <path class="st1" d="M10,45c0,0.55-0.45,1-1,1H7c-0.55,0-1-0.45-1-1V25.08l-2-2.44V46c0,1.1,0.9,2,2,2h4c1.1,0,2-0.9,2-2V23.49
                 l-2,0.67V45z"/>
               <path class="st1" d="M6,3c0-0.55,0.45-1,1-1h2c0.55,0,1,0.45,1,1v15.38l2-0.63V2c0-1.1-0.9-2-2-2H6C4.9,0,4,0.9,4,2v12.16l2,2.37V3
@@ -1152,7 +1152,7 @@ export const dashboardList: TDashboardItem[] = [
 		isChild: false,
 		// isAccess: checkBtnAccess('aku'),
 		isDevelopment: false,
-		path: 'aku',
+		path: EDashboardPath.aku,
 		availableTypes: [
 			{ id: EAvailableOrgs.dc, title: CAvailableOrgsTranslate[EAvailableOrgs.dc], order: 1 },
 			{ id: EAvailableOrgs.division, title: CAvailableOrgsTranslate[EAvailableOrgs.division], order: 2 },
@@ -1168,6 +1168,7 @@ export const dashboardList: TDashboardItem[] = [
 		isChild: false,
 		// isAccess: checkBtnAccess('imushestvo'), //assets_management
 		isDevelopment: false,
+		path: EDashboardPath.possessions,
 	},
 	{
 		id: 50, //id - need update

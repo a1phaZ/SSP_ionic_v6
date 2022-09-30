@@ -5,6 +5,8 @@ import {DashboardPage} from './dashboard.page';
 import {DashboardGuard} from '../../guards/dashboard.guard';
 import {DistributorRatingResolver} from '../../resolvers/distributor-rating.resolver';
 import {AkuTabsResolver} from '../../resolvers/aku-tabs.resolver';
+import {EDashboardPath} from '../../models/dashboard.model';
+import {PossessionsTabsResolver} from '../../resolvers/possessions-tabs.resolver';
 
 const routes: Routes = [
 	{
@@ -13,22 +15,29 @@ const routes: Routes = [
 		// loadChildren: () => import('./dashboard.module').then(m => m.DashboardPageModule),
 	},
 	{
-		path: ':prevId/:buttonId/indicators',
+		path: ':prevId/:buttonId/'+EDashboardPath.indicators,
 		loadChildren: () => import('../indicators/indicators.module').then(m => m.IndicatorsPageModule),
 		canActivateChild: [DashboardGuard]
 	},
 	{
-		path: ':prevId/:buttonId/distributor-rating',
+		path: ':prevId/:buttonId/'+EDashboardPath.distributorRating,
 		loadChildren: () => import('../base/tabs/tabs.module')
 			.then(m => m.TabsPageModule),
 		resolve: {tabs: DistributorRatingResolver},
 		canActivateChild: [DashboardGuard]
 	},
 	{
-		path: ':buttonId/aku',
+		path: ':buttonId/'+EDashboardPath.aku,
 		loadChildren: () => import('../aku/aku-tabs/aku-tabs.module')
 			.then(m => m.AkuTabsPageModule),
 		resolve: {tabs: AkuTabsResolver},
+		canActivateChild: [DashboardGuard]
+	},
+	{
+		path: ':buttonId/'+EDashboardPath.possessions,
+		loadChildren: () => import('../possessions/possessions-tabs/possessions-tabs.module')
+			.then(m => m.PossessionsTabsPageModule),
+		resolve: {tabs: PossessionsTabsResolver},
 		canActivateChild: [DashboardGuard]
 	},
 	{

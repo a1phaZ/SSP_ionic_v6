@@ -16,5 +16,8 @@ export enum ApiModel {
 	distributorRating = '/backbone/distributor/ajax.php',
 
 	//AKU
-	aku = '/backbone/mobileApp/aku.php'
+	aku = '/backbone/mobileApp/aku.php',
+
+	//possessions
+	possessions = '/backbone/possesions/ajax.php',
 }

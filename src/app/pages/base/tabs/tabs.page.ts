@@ -17,7 +17,7 @@ import {initializeOrgs} from '../../../../store/organizations/organizations.acti
 	styleUrls: ['./tabs.page.scss'],
 })
 export class TabsPage extends BasePage implements OnInit {
-	tabsList: { path: string; title: string }[];
+	tabsList: { path: string; title?: string; icon?: string }[];
 	headerButtons: any;
 	titles: { primary: string; secondary?: string; tertiary?: string } = {primary: ''};
 
@@ -38,6 +38,7 @@ export class TabsPage extends BasePage implements OnInit {
 
 	init() {
 		this.tabsList = this.route.snapshot.data.tabs;
+		console.log(this.tabsList);
 		this.headerButtons = this.initializeHeaderButtons();
 		this.store.dispatch(initializeOrgs({buttonId: this.buttonId}));
 
