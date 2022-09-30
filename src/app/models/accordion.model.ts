@@ -9,6 +9,13 @@ export type TAccordionItem = {
 	thumb: string;
 	status: string;
 	logo: string[];
+	pct: number;
+};
+
+export type TAccordionDataItem = {
+	id: number;
+	name: string;
+	data: TAccordionItem[];
 };
 
 export type TAccordionItemCommon = {
