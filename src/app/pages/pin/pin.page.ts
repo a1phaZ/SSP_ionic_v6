@@ -4,6 +4,9 @@ import {switchMap, tap} from 'rxjs/operators';
 import {AuthService} from '../../services/auth.service';
 import {TResponse} from '../../models/response.model';
 import {Router} from '@angular/router';
+import {IAppState} from '../../../store/app.state';
+import {Store} from '@ngrx/store';
+import {resetDashboard} from '../../../store/dashboard/dashboard.actions';
 
 @Component({
 	selector: 'app-pin',
@@ -19,6 +22,7 @@ export class PinPage implements OnInit {
 		// public loadingService: LoadingService
 		private authService: AuthService,
 		private router: Router,
+		private store: Store<IAppState>,
 	) {
 	}
 
@@ -27,6 +31,7 @@ export class PinPage implements OnInit {
 			switchMap(() => this.authService.login()),
 			tap((data: TResponse) => console.log(data))
 		).subscribe(() => {
+			this.store.dispatch(resetDashboard());
 			this.router.navigate(['dashboard'], {replaceUrl: true});
 		});
 	}
