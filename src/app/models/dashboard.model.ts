@@ -13,6 +13,7 @@ export type TDashboardItem = {
 };
 
 export enum EDashboardPath {
+	inDev = 'in-dev',
 	indicators = 'indicators',
 	distributorRating = 'distributor-rating',
 	possessions = 'possessions',

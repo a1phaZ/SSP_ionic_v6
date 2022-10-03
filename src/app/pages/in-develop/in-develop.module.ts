@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { InDevelopPageRoutingModule } from './in-develop-routing.module';
 
 import { InDevelopPage } from './in-develop.page';
+import {HeaderModule} from '../../components/app/header/header.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    InDevelopPageRoutingModule
-  ],
+	imports: [
+		CommonModule,
+		FormsModule,
+		IonicModule,
+		InDevelopPageRoutingModule,
+		HeaderModule
+	],
   declarations: [InDevelopPage]
 })
 export class InDevelopPageModule {}

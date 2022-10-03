@@ -15,35 +15,46 @@ const routes: Routes = [
 		// loadChildren: () => import('./dashboard.module').then(m => m.DashboardPageModule),
 	},
 	{
-		path: ':prevId/:buttonId/'+EDashboardPath.indicators,
+		path: ':prevId/:buttonId/' + EDashboardPath.indicators,
 		loadChildren: () => import('../indicators/indicators.module').then(m => m.IndicatorsPageModule),
 		canActivateChild: [DashboardGuard]
 	},
 	{
-		path: ':prevId/:buttonId/'+EDashboardPath.distributorRating,
+		path: ':prevId/:buttonId/' + EDashboardPath.distributorRating,
 		loadChildren: () => import('../base/tabs/tabs.module')
 			.then(m => m.TabsPageModule),
 		resolve: {tabs: DistributorRatingResolver},
 		canActivateChild: [DashboardGuard]
 	},
 	{
-		path: ':buttonId/'+EDashboardPath.aku,
+		path: ':buttonId/' + EDashboardPath.aku,
 		loadChildren: () => import('../aku/aku-tabs/aku-tabs.module')
 			.then(m => m.AkuTabsPageModule),
 		resolve: {tabs: AkuTabsResolver},
 		canActivateChild: [DashboardGuard]
 	},
 	{
-		path: ':buttonId/'+EDashboardPath.possessions,
+		path: ':buttonId/' + EDashboardPath.possessions,
 		loadChildren: () => import('../possessions/possessions-tabs/possessions-tabs.module')
 			.then(m => m.PossessionsTabsPageModule),
 		resolve: {tabs: PossessionsTabsResolver},
 		canActivateChild: [DashboardGuard]
 	},
 	{
+		path: ':buttonId/' + EDashboardPath.inDev,
+		loadChildren: () => import('../in-develop/in-develop.module')
+			.then(m => m.InDevelopPageModule)
+	},
+	{
+		path: ':prevId/:buttonId/' + EDashboardPath.inDev,
+		loadChildren: () => import('../in-develop/in-develop.module')
+			.then(m => m.InDevelopPageModule)
+	},
+	{
 		path: '',
 		component: DashboardPage,
-	}
+	},
+
 ];
 
 @NgModule({
