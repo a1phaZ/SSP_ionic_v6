@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {ApiModel} from '../../../models/api.model';
 import {WebApiService} from '../../../services/web-api.service';
@@ -15,7 +15,7 @@ import {EAvailableOrgs} from '../../../models/organization.model';
 	templateUrl: './aku-main.page.html',
 	styleUrls: ['./aku-main.page.scss'],
 })
-export class AkuMainPage implements OnInit {
+export class AkuMainPage implements OnInit, OnDestroy {
 
 	barItems: Array<{ id: number; title: string }>;
 	selected: BehaviorSubject<number> = new BehaviorSubject<number>(0);
@@ -99,5 +99,10 @@ export class AkuMainPage implements OnInit {
 				},
 			]
 		};
+	}
+
+	ngOnDestroy(): void {
+		this.ngUnsubscribe.next();
+		this.ngUnsubscribe.complete();
 	}
 }
