@@ -9,3 +9,7 @@ export const selectButton = createAction(
 export const dashboardBack = createAction(
 	'[Dashboard] Back'
 );
+
+export const resetDashboard = createAction(
+	'[Dashboard] Reset Dashboard'
+);

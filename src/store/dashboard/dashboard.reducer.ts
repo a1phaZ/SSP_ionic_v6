@@ -33,5 +33,12 @@ export const dashboardReducer = createReducer(
 			selected: state.prevSelected ? state.prevSelected : null,
 			prevSelected: null
 		};
+	}),
+	on(DashboardActions.resetDashboard, (state, {type}) => {
+		console.log(type);
+		return {
+			selected: null,
+			prevSelected: null,
+		};
 	})
 );
