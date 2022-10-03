@@ -1,4 +1,4 @@
-<div class="accordion__item-wrapper" [ngClass]="{'active': isOpen || item.name === ' '}">
+<div class="accordion__item-wrapper" [ngClass]="{'active': isOpen || item.name === ' '}" *ngIf="item.data.length > 0">
 	<div class="item__header" (click)="toggleItem()" *ngIf="item.name && item.name !== ' '">
 		<div class="header__title">{{item.name}}</div>
 	</div>
@@ -7,10 +7,23 @@
 			<div class="content__wrapper">
 				<div class="item__content">
 					<div class="content__element" *ngFor="let field of item.data">
-						<span class="element__title">{{field.field_name}}</span>
-						<span class="element__value" *ngIf="field.field_value; else noData">{{field.field_value}}</span>
-						<ng-template #noData>
-							<span class="element__value element__empty">Нет данных</span>
+						<ng-container *ngIf="field.field_type === 'text'; else link">
+							<span class="element__title">{{field.field_name}}</span>
+							<span class="element__value" *ngIf="field.field_value; else noData">{{field.field_value}}</span>
+							<ng-template #noData>
+								<span class="element__value element__empty">Нет данных</span>
+							</ng-template>
+						</ng-container>
+						<ng-template #link>
+							<div class="file__icon" [ngClass]="getFileExtension(field)">
+								<ion-icon name="custom-file"></ion-icon>
+							</div>
+							<div class="file__details">
+								<span class="file__title">{{field.field_value.name}}</span>
+								<span class="file__user">{{field.field_user_name}}</span>
+								<span class="file__date">{{field.field_date}} | {{field.field_time}}</span>
+							</div>
+							<app-custom-icon-button name="download" size="2.5rem"></app-custom-icon-button>
 						</ng-template>
 					</div>
 				</div>

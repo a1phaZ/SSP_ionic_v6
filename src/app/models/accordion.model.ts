@@ -62,11 +62,23 @@ export type TAccordionItemFolder = {
 export type TAccordionItemTypeData = {
 	name: string;
 	type: 'data';
-	data: Array<TAccordionItemFieldTypeText>;
+	data: Array<TAccordionItemFieldTypeText | TAccordionItemFieldTypeLink>;
 };
 
 export type TAccordionItemFieldTypeText = {
 	field_name: string;
 	field_type: 'text';
 	field_value: string | false;
+};
+
+export type TAccordionItemFieldTypeLink = {
+	field_name: string;
+	field_type: 'link';
+	field_time: string;
+	field_date: string;
+	field_user_name: string;
+	field_value: {
+		name: string;
+		path: string;
+	};
 };

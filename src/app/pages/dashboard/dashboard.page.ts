@@ -49,7 +49,11 @@ export class DashboardPage implements OnInit, OnDestroy {
 				}
 
 				if (item?.path) {
-					this.router.navigate(['dashboard', item.parentId, item.id, item.path]);
+					if (item?.parentId) {
+						this.router.navigate(['dashboard', item.parentId, item.id, item.path]);
+					} else {
+						this.router.navigate(['dashboard', item.id, item.path]);
+					}
 				} else {
 					this.router.navigate(['dashboard', item.id]);
 				}

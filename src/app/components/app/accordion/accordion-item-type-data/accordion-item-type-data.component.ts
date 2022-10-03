@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {AccordionItemComponent} from '../accordion-item/accordion-item.component';
-import {TAccordionItemTypeData} from '../../../../models/accordion.model';
+import {TAccordionItemFieldTypeLink, TAccordionItemTypeData} from '../../../../models/accordion.model';
 
 @Component({
 	selector: 'app-accordion-item-type-data',
@@ -16,4 +16,8 @@ export class AccordionItemTypeDataComponent extends AccordionItemComponent {
 		super();
 	}
 
+	getFileExtension(field: TAccordionItemFieldTypeLink) {
+		const _split = field.field_value.path.split('.');
+		return _split ? _split[_split.length - 1] : '';
+	}
 }

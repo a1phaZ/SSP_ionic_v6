@@ -6,6 +6,8 @@ import {IconModule} from '../icon/icon.module';
 import {AccordionComponent} from './accordion.component';
 import {AccordionItemFolderComponent} from './accordion-item-folder/accordion-item-folder.component';
 import {AccordionItemTypeDataComponent} from './accordion-item-type-data/accordion-item-type-data.component';
+import {CustomIconButtonModule} from '../../custom-icon-button/custom-icon.button.module';
+import {IonicModule} from '@ionic/angular';
 
 @NgModule({
 	declarations: [
@@ -18,6 +20,8 @@ import {AccordionItemTypeDataComponent} from './accordion-item-type-data/accordi
 		CommonModule,
 		LogoModule,
 		IconModule,
+		CustomIconButtonModule,
+		IonicModule,
 	],
 	exports: [
 		AccordionComponent,
