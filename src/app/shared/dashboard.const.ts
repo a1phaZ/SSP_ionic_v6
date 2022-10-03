@@ -1147,6 +1147,7 @@ export const dashboardList: TDashboardItem[] = [
 		isChild: false,
 		// isAccess: checkBtnAccess('strategy'),
 		isDevelopment: true,
+		path: EDashboardPath.inDev
 	},
 	{
 		id: 37, //id - need update
