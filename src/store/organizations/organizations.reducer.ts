@@ -56,6 +56,25 @@ export const organizationsReducer = createReducer(
 			}
 		};
 	}),
+
+	on(OrgsActions.chooseOrgById, (state, {type, buttonId, id}) => {
+		console.log(type);
+		const {list} = state;
+		const orgs = [...restoreOrgs([...list[buttonId]])] as TOrgSelectItem[];
+		const _org = !!id ? orgs.find(({id: orgId}) => orgId === id) : orgs[0];
+
+		return {
+			...state,
+			list: {
+				...state.list,
+				[buttonId]: selectOrg(_org, orgs)
+			},
+			currentOrg: {
+				...state.currentOrg,
+				[buttonId]: _org
+			}
+		};
+	})
 );
 
 const selectOrg = (org: TOrgSelectItem, list: TOrgSelectItem[]): TOrgSelectItem[] => {

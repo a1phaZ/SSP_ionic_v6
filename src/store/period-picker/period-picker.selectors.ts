@@ -9,5 +9,8 @@ export const selectPeriodByButtonId = createSelector(
 	// getState,
 	selectAppPeriods,
 	selectButtonId,
-	(state: IPeriodState[], b) => state.find(({buttonId}) => b === buttonId) as IPeriodState
+	(state: IPeriodState[], b) => {
+		console.log(state, b);
+		return state.find(({buttonId}) => b === buttonId) as IPeriodState
+	}
 );

@@ -8,7 +8,7 @@
 </ion-content>
 <ion-footer>
 	<ion-toolbar class="modal__footer">
-		<app-items-bar
+		<app-items-bar *ngIf="button.availableTypes.length > 1"
 			[items]="button.availableTypes"
 			[selectedId]="selectedId"
 			(changeSelected)="changeBar($event)"></app-items-bar>

@@ -3,11 +3,12 @@ import {TDirection} from '../../models/direction.model';
 import {ActivatedRoute} from '@angular/router';
 import {Store} from '@ngrx/store';
 import {filterDirectionsList, setCurrentDirection} from '../../../store/directions/directions.actions';
-import {switchMap} from 'rxjs/operators';
+import {switchMap, tap, withLatestFrom} from 'rxjs/operators';
 import {Observable, of} from 'rxjs';
 import {selectCurrentDirection, selectDirections} from '../../../store/directions/directions.selectors';
 import {IAppState} from '../../../store/app.state';
 import {DirectionService} from '../../services/direction.service';
+import {selectButtonId} from '../../../store/app.selectors';
 
 @Component({
 	selector: 'app-directions-bar',
@@ -25,12 +26,15 @@ export class DirectionsBarComponent implements OnInit {
 		private directionService: DirectionService,
 	) {
 		this.route.params.pipe(
-			switchMap((data: { buttonId: number }) => {
-				this.store.dispatch(filterDirectionsList({buttonId: Number(data.buttonId)}));
+			withLatestFrom(this.store.select(selectButtonId)),
+			switchMap(([,data]) => {
+				this.store.dispatch(filterDirectionsList({buttonId: Number(data)}));
 				return of(true);
 			})
 		).subscribe((data) => {
-			this.directionsList$ = this.store.select(selectDirections);
+			this.directionsList$ = this.store.select(selectDirections).pipe(
+				tap(console.log)
+			);
 			this.currentDirection$ = this.store.select(selectCurrentDirection);
 		});
 	}

@@ -32,7 +32,7 @@ export class SelectComponent implements OnInit {
 	ngOnInit() {
 		this.button = dashboardList.find(({id}) => id === this.buttonId);
 
-		this.list$ = this.store.select(selectOrganizationsByButton(this.buttonId))
+		this.list$ = this.store.select(selectOrganizationsByButton)
 			.pipe(
 				tap(console.log),
 				mergeMap((list) => {

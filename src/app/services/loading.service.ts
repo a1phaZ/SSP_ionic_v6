@@ -12,10 +12,14 @@ export class LoadingService {
 	}
 
 	get loading() {
-		return this.isLoading.asObservable();
+		return this.isLoading;
 	}
 
 	set loading(l: any) {
 		this.isLoading.next(l);
+	}
+
+	get loadingSync() {
+		return this.isLoading.value;
 	}
 }

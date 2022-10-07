@@ -9,13 +9,23 @@ export const selectOrgsCommonList = createSelector(
 	(state) => state.commonList
 );
 
-export const selectOrganizationsByButton = (buttonId: number) => createSelector(
+export const selectOrganizationsByButton = createSelector(
 	getState,
-	(state) => state.list[buttonId],
+	selectButtonId,
+	(state, buttonId) => state.list[buttonId],
 );
 
 export const selectCurrentOrg = createSelector(
 	selectButtonId,
 	selectAppOrgs,
 	(b, orgs) => orgs.currentOrg[b]
+);
+
+export const selectOrgById = (id: number) => createSelector(
+	selectButtonId,
+	selectAppOrgs,
+	(b, orgs) => {
+		console.log(b, orgs, orgs.list[b].find((_org) => _org.id === id), id);
+		return orgs.list[b].find((_org) => _org.id === id);
+	}
 );

@@ -35,7 +35,11 @@ const routes: Routes = [
 		path: '',
 		redirectTo: 'auth',
 		pathMatch: 'full'
-	},
+	},  {
+    path: 'security-detail',
+    loadChildren: () => import('./pages/security/security-detail/security-detail.module').then( m => m.SecurityDetailPageModule)
+  },
+
 
 ];
 

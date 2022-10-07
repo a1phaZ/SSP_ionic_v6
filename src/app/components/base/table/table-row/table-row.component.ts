@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TTableRowAKU} from '../../../../models/table.model';
+import {TTableRow} from '../../../../models/table.model';
 
 @Component({
   selector: 'app-base-table-row',
@@ -9,7 +9,7 @@ import {TTableRowAKU} from '../../../../models/table.model';
 export class TableRowComponent implements OnInit {
 
 	@Input()
-	item: TTableRowAKU;
+	item: TTableRow;
 
 	@Input()
 	index = 0;

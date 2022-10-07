@@ -7,6 +7,7 @@ import {DistributorRatingResolver} from '../../resolvers/distributor-rating.reso
 import {AkuTabsResolver} from '../../resolvers/aku-tabs.resolver';
 import {EDashboardPath} from '../../models/dashboard.model';
 import {PossessionsTabsResolver} from '../../resolvers/possessions-tabs.resolver';
+import {SecurityTabsResolver} from '../../resolvers/security-tabs.resolver';
 
 const routes: Routes = [
 	{
@@ -24,6 +25,13 @@ const routes: Routes = [
 		loadChildren: () => import('../base/tabs/tabs.module')
 			.then(m => m.TabsPageModule),
 		resolve: {tabs: DistributorRatingResolver},
+		canActivateChild: [DashboardGuard]
+	},
+	{
+		path: ':prevId/:buttonId/:security',
+		loadChildren: () => import('../security/security-rating-tabs/security-rating-tabs.module')
+			.then(m => m.SecurityRatingTabsPageModule),
+		resolve: {tabs: SecurityTabsResolver},
 		canActivateChild: [DashboardGuard]
 	},
 	{

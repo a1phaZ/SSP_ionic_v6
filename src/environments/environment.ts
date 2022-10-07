@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serverUrl: 'https://nssp.keyauto.ru'
+  serverUrl: 'https://ssp.keyauto.ru'
 };
 
 /*

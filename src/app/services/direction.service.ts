@@ -222,13 +222,13 @@ const directionsList = [
 	{
 		id: 30,
 		title: 'Общие',
-		buttonId: 0,
+		buttonId: 20,
 		period: null
 	},
 	{
 		id: 31,
 		title: 'Служебные СКБ',
-		buttonId: 0,
+		buttonId: 20,
 		period: null
 	},
 	{
@@ -282,7 +282,7 @@ const directionsList = [
 	{
 		id: 40,
 		title: 'Служебные ДД',
-		buttonId: 0,
+		buttonId: 20,
 		period: null
 	},
 	{

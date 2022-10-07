@@ -2,7 +2,7 @@ import {createReducer, on} from '@ngrx/store';
 import * as PeriodPickerActions from './period-picker.actions';
 import {TButton} from '../../app/models/button.model';
 import {Icons} from '../../app/models/icons.model';
-import {getValues} from 'src/app/shared/utils/period.utils';
+import {getPeriod, getValues} from 'src/app/shared/utils/period.utils';
 
 export interface IPeriodState {
 	buttonId: number;
@@ -58,10 +58,11 @@ const initializePeriod = (state, {
 				buttonId,
 				minYear,
 				maxYear: maxYear ? maxYear : new Date().getFullYear(),
-				periodValue: getDefaultPeriodValue(periodValue),
-				periodYear: periodYear ? periodYear : new Date().getFullYear(),
+				// periodValue: getDefaultPeriodValue(periodValue),
+				// periodYear: periodYear ? periodYear : new Date().getFullYear(),
 				periodId: periodId ? periodId : 3,
 				buttons,
+				...getPeriod(new Date().toISOString(), periodId ? periodId : 3)
 			}
 		];
 	}

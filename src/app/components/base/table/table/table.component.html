@@ -1,5 +1,5 @@
 <div class="table__wrapper">
-	<table class="table__header">
+	<table class="table__header" [ngClass]="headerClassName">
 		<thead>
 			<tr>
 				<th></th>
@@ -13,7 +13,9 @@
 	</table>
 	<table class="tblIndResult">
 		<tr class="indiTR6"
-			*ngFor="let item of rows; let idx = index">
+			*ngFor="let item of rows; let idx = index"
+			(click)="rowClick.emit(item)"
+		>
 			<app-base-table-row class="table__row" [item]="item" [index]="idx"></app-base-table-row>
 		</tr>
 	</table>

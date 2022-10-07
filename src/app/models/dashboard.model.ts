@@ -17,5 +17,6 @@ export enum EDashboardPath {
 	indicators = 'indicators',
 	distributorRating = 'distributor-rating',
 	possessions = 'possessions',
-	aku = 'aku'
+	aku = 'aku',
+	security = 'security'
 }

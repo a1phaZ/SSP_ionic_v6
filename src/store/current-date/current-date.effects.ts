@@ -4,6 +4,7 @@ import {ECurrentDateActions} from './current-date.actions';
 import {exhaustMap} from 'rxjs/operators';
 import {changePeriodValueByDate} from '../period-picker/period-picker.actions';
 import {of} from 'rxjs';
+import {getPeriod} from '../../app/shared/utils/period.utils';
 
 @Injectable()
 export class CurrentDateEffects {
@@ -21,36 +22,3 @@ export class CurrentDateEffects {
 	) {
 	}
 }
-
-export const getPeriod = (date: string, periodId: number) => {
-	const _d = new Date(date);
-	const value = _d.getMonth();
-	const year = _d.getFullYear();
-
-	switch (periodId) {
-		case 4: {
-			return {
-				periodValue: Math.floor((value + 3) / 3),
-				periodYear: year,
-			};
-		}
-		case 5: {
-			return {
-				periodValue: Math.floor((value + 6) / 6),
-				periodYear: year,
-			};
-		}
-		case 6: {
-			return {
-				periodValue: Math.floor((value + 12) / 12),
-				periodYear: year,
-			};
-		}
-		default: {
-			return {
-				periodValue: value + 1,
-				periodYear: year,
-			};
-		}
-	}
-};

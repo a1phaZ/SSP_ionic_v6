@@ -1,0 +1,11 @@
+<app-directions-bar></app-directions-bar>
+<app-picker [periodId]="4"></app-picker>
+<ion-content >
+	<section class="content__wrapper">
+		<app-base-table *ngIf="tableRows && tableColumns && tableRows?.length > 0 && tableColumns?.length > 0"
+						headerClassName="security"
+						[columns]="tableColumns"
+						[rows]="tableRows" (rowClick)="onRowClick($event)"></app-base-table>
+	</section>
+
+</ion-content>

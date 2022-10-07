@@ -20,4 +20,7 @@ export enum ApiModel {
 
 	//possessions
 	possessions = '/backbone/possesions/ajax.php',
+
+	//security
+	security = '/backbone/security-service/ajax.php',
 }

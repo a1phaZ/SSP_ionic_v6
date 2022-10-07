@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Icons} from '../../../models/icons.model';
 import {THeaderButtons} from '../../../models/button.model';
@@ -7,9 +7,10 @@ import {BasePage} from '../base.page';
 import {WebApiService} from '../../../services/web-api.service';
 import {Store} from '@ngrx/store';
 import {IAppState} from '../../../../store/app.state';
-import {ModalController} from '@ionic/angular';
+import {IonTabs, ModalController} from '@ionic/angular';
 import {NavigationService} from '../../../services/navigation.service';
 import {initializeOrgs} from '../../../../store/organizations/organizations.actions';
+import {TTabs} from '../../../models/tabs.model';
 
 @Component({
 	selector: 'app-tabs',
@@ -17,9 +18,12 @@ import {initializeOrgs} from '../../../../store/organizations/organizations.acti
 	styleUrls: ['./tabs.page.scss'],
 })
 export class TabsPage extends BasePage implements OnInit {
-	tabsList: { path: string; title?: string; icon?: string }[];
+	@ViewChild('tabs') tabs: IonTabs;
+
+	tabsList: TTabs;
 	headerButtons: any;
 	titles: { primary: string; secondary?: string; tertiary?: string } = {primary: ''};
+
 
 	constructor(
 		public route: ActivatedRoute,
@@ -38,7 +42,6 @@ export class TabsPage extends BasePage implements OnInit {
 
 	init() {
 		this.tabsList = this.route.snapshot.data.tabs;
-		console.log(this.tabsList);
 		this.headerButtons = this.initializeHeaderButtons();
 		this.store.dispatch(initializeOrgs({buttonId: this.buttonId}));
 

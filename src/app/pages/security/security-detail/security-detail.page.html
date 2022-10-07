@@ -1,0 +1,34 @@
+<app-header [buttons]="headerButtons"
+			[primaryTitle]="titles.primary"
+			[secondaryTitle]="titles.secondary"
+			[tertiaryTitle]="titles.tertiary"
+			(leftHandle)="buttonsHandle($event)"
+			(rightHandle)="buttonsHandle($event)"
+></app-header>
+<app-directions-bar></app-directions-bar>
+<app-picker [periodId]="4"></app-picker>
+
+<ion-content>
+	<main class="main">
+
+		<section class="content">
+			<p class="section__title">
+				{{title}}
+			</p>
+
+			<ul class="content__list">
+				<li class="content__item content__item_{{item.colorIndicator ? getColorIndicator(item?.colorIndicator) : ''}}" *ngFor="let item of content">
+					{{item.title}} <span>{{item.value}}</span>
+				</li>
+			</ul>
+		</section>
+
+		<section class="legend" *ngFor="let description of descriptionList">
+			<p class="section__title" *ngIf="description.title">
+				{{description.title}}
+			</p>
+			<app-legend-table [tableData]="description.data"></app-legend-table>
+		</section>
+
+	</main>
+</ion-content>

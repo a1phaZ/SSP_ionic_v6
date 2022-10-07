@@ -4,11 +4,13 @@ import {THeaderButtons} from '../../models/button.model';
 import {Observable, Subject} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
 import {WebApiService} from '../../services/web-api.service';
-import {Store} from '@ngrx/store';
+import {select, Store} from '@ngrx/store';
 import {IAppState} from '../../../store/app.state';
 import {ModalController} from '@ionic/angular';
 import {NavigationService} from '../../services/navigation.service';
 import {selectCurrentDirection} from '../../../store/directions/directions.selectors';
+import {takeUntil} from 'rxjs/operators';
+import {selectButtonId} from '../../../store/app.selectors';
 
 @Component({
 	selector: 'app-base',
@@ -30,9 +32,15 @@ export abstract class BasePage implements OnInit, OnDestroy {
 		public modalCtrl: ModalController,
 		public navigation: NavigationService,
 	) {
-		this.route.params.subscribe((params) => {
-			this.buttonId = Number(params.buttonId);
-		});
+		// this.route.params.subscribe((params) => {
+		// 	this.buttonId = Number(params.buttonId);
+		// });
+
+		this.store.pipe(
+			takeUntil(this.ngUnsubscribe),
+			select(selectButtonId),
+		)
+			.subscribe(buttonId => this.buttonId = buttonId);
 
 		this.currentDirection$ = this.store.select(selectCurrentDirection);
 

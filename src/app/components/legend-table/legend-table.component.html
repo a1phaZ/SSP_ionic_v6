@@ -1,0 +1,21 @@
+<div class="table" *ngIf="isView">
+	<ul class="table__header">
+		<li class="table__cell"
+			[ngStyle]="{ 'text-align': !isEmpty(tableData.settingsHeader) && tableData.settingsHeader.align[index] || 'left',
+      'white-space': !isEmpty(tableData.settingsColumn) && tableData.settingsColumn.whiteSpace[index] || 'wrap',
+      'flex': !isEmpty(tableData.settingsColumn) && tableData.settingsColumn.ratio[index] || 1}"
+			*ngFor="let item of tableData?.header; let index = index">{{item}}</li>
+	</ul>
+	<div class="table__rows">
+		<ul class="table__row table__row_{{contentItem?.colorIndicator ? getColorIndicator(contentItem?.colorIndicator) : ''}}"
+			*ngFor="let contentItem of tableData?.content">
+			<li class="table__cell"
+				*ngFor="let item of contentItem?.values; let index = index"
+				[ngStyle]="{ 'text-align': !isEmpty(tableData.settingsColumn) && tableData.settingsColumn.align[index] || 'left',
+        'white-space': !isEmpty(tableData.settingsColumn) && tableData.settingsColumn.whiteSpace[index] || 'wrap',
+        'flex': !isEmpty(tableData.settingsColumn) && tableData.settingsColumn.ratio[index] || 1}">
+				{{!isEmpty(contentItem.views) ? contentItem.views[index] || item : item}}
+			</li>
+		</ul>
+	</div>
+</div>

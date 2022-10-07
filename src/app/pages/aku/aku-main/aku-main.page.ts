@@ -6,7 +6,7 @@ import {select, Store} from '@ngrx/store';
 import {IAppState} from '../../../../store/app.state';
 import {selectAvailableTypes} from '../../../../store/dashboard/dashboard.selectors';
 import {map, switchMap, takeUntil} from 'rxjs/operators';
-import {TTableColumn, TTableRowAKU} from '../../../models/table.model';
+import {TTableColumn, TTableRow} from '../../../models/table.model';
 import {EAkuTabsModel, EAkuTabsNames} from '../aku-tabs/aku-tabs.model';
 import {EAvailableOrgs} from '../../../models/organization.model';
 
@@ -40,7 +40,7 @@ export class AkuMainPage implements OnInit, OnDestroy {
 			title: EAkuTabsNames.service,
 		},
 	];
-	tableRows$: Observable<TTableRowAKU[]>;
+	tableRows$: Observable<TTableRow[]>;
 
 	constructor(
 		private webApi: WebApiService,
@@ -80,7 +80,7 @@ export class AkuMainPage implements OnInit, OnDestroy {
 		this.selected.next($event);
 	}
 
-	serializeAKUOrgs(item: any): TTableRowAKU {
+	serializeAKUOrgs(item: any): TTableRow {
 		return {
 			id: item.id,
 			name: item.name,

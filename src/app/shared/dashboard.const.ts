@@ -758,7 +758,7 @@ const ICON_LIST: TIconList[] = [
 ];
 
 const getIcon = (id: number) => {
-	const item = ICON_LIST.find((item) => item.id === id);
+	const item = ICON_LIST.find((_item) => _item.id === id);
 	if (item) {
 		return item.icon;
 	}
@@ -1228,6 +1228,7 @@ export const dashboardList: TDashboardItem[] = [
 		isChild: true,
 		// isAccess: checkBtnAccess('barrier'), //security_barrier
 		isDevelopment: false,
+		path: 'barrier',
 	},
 	{
 		id: 20,
@@ -1240,6 +1241,10 @@ export const dashboardList: TDashboardItem[] = [
 		isChild: true,
 		// isAccess: checkBtnAccess('polygraph'), //security_polygraph
 		isDevelopment: false,
+		path: 'polygraph',
+		availableTypes: [
+			{id: EAvailableOrgs.division, title: CAvailableOrgsTranslate[EAvailableOrgs.division], order: 1},
+		]
 	},
 	{
 		id: 51, //id - need update
@@ -1253,5 +1258,6 @@ export const dashboardList: TDashboardItem[] = [
 		isChild: true,
 		// isAccess: checkBtnAccess('safetyOfGoodsAndMaterials'),
 		isDevelopment: false,
+		path: 'safety',
 	},
 ];

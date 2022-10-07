@@ -1,0 +1,30 @@
+<ion-content>
+	<section class="content__wrapper height100">
+		<div class="reference reference-termin" *ngIf="method.isHeaderContent">
+			<p class="reference__title">{{method.sectionHorizontalTitle}}</p>
+			<ul class="reference__list">
+				<li class="reference__item {{reference?.color}}" *ngFor="let reference of method.data">
+					<div class="reference__termin">{{reference.termin}}:</div>
+					<div class="reference__descr">{{reference.condition}}</div>
+				</li>
+			</ul>
+		</div>
+
+		<div class="reference-termin reference-descr" *ngIf="method.sectionDescription">
+			<div class="reference-legend">
+				{{method.sectionDescription}}
+			</div>
+		</div>
+
+		<div class="reference reference-descr" *ngIf="method.isDescr">
+			<p class="reference__title">{{method.sectionVerticalTitle}}</p>
+			<ul class="reference__list" [ngClass]="{'reference__list_color': !method.isHeaderContent}">
+				<li class="reference__item {{reference?.color}}" *ngFor="let reference of method.data">
+					<div class="reference__termin">{{reference.termin}}</div>
+					<div class="reference__descr">{{reference.descr}}</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+</ion-content>

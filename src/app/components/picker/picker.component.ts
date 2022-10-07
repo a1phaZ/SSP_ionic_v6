@@ -93,7 +93,7 @@ export class PickerComponent implements OnInit {
 			});
 
 		if (!this.period) {
-			this.store.dispatch(initializePicker({buttonId: Number(this.buttonId)}));
+			this.store.dispatch(initializePicker({buttonId: Number(this.buttonId), periodId: this.periodId}));
 		} else {
 			this.store.dispatch(initializePicker({
 				buttonId: Number(this.buttonId),

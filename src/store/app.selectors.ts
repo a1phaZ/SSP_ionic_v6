@@ -38,28 +38,57 @@ export const selectIndicatorsPageState = createSelector(
 );
 
 export const selectIndicatorDetailsState = createSelector(
-		selectAppDirections,
-		selectAppPeriods,
-		selectAppOrgs,
-		selectAppCurrentDate,
-		selectAppDashboard,
-		(directions, periods, organizations, currentDate, dashboard) => {
-			console.table({directions, dashboard, organizations, currentDate});
+	selectAppDirections,
+	selectAppPeriods,
+	selectAppOrgs,
+	selectAppCurrentDate,
+	selectAppDashboard,
+	(directions, periods, organizations, currentDate, dashboard) => {
+		console.table({directions, dashboard, organizations, currentDate});
 
-			return {
-				buttonId: dashboard.selected?.id,
-				directions: {
-					currentDirection: directions.currentDirection,
-					directionsList: directions.directionsList,
-				},
-				period: periods.find(
-					({buttonId: id}) => Number(id) === Number(dashboard.selected?.id)
-				),
-				organization: organizations.currentOrg[dashboard.selected?.id],
-				currentDate: currentDate[dashboard.selected?.id]
-			};
+		return {
+			buttonId: dashboard.selected?.id,
+			directions: {
+				currentDirection: directions.currentDirection,
+				directionsList: directions.directionsList,
+			},
+			period: periods.find(
+				({buttonId: id}) => Number(id) === Number(dashboard.selected?.id)
+			),
+			organization: organizations.currentOrg[dashboard.selected?.id],
+			currentDate: currentDate[dashboard.selected?.id]
+		};
+	}
+);
+
+export const selectSecurityRatingState = createSelector(
+	selectAppDirections,
+	selectAppPeriods,
+	selectAppOrgs,
+	selectAppDashboard,
+	(directions, periods, organizations, dashboard) => {
+		const buttonId = dashboard.selected?.id;
+		const direction = directions.currentDirection;
+		const period = periods.find(
+			({buttonId: id}) => Number(id) === Number(buttonId)
+		);
+		const org = organizations.currentOrg[buttonId];
+
+		if (!period) {
+			return null;
 		}
-	);
+
+		return {
+			periodYear: period.periodYear,
+			periodValue: period.periodValue,
+			periodId: period.periodId,
+			periodName: period.periodId,
+			orgId: org.id,
+			brand: 0,
+			depId: direction
+		};
+	}
+);
 
 export const selectButtonId = createSelector(
 	selectAppDashboard,
