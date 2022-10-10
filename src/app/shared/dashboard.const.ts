@@ -1229,6 +1229,9 @@ export const dashboardList: TDashboardItem[] = [
 		// isAccess: checkBtnAccess('barrier'), //security_barrier
 		isDevelopment: false,
 		path: 'barrier',
+		availableTypes: [
+			{id: EAvailableOrgs.division, title: CAvailableOrgsTranslate[EAvailableOrgs.division], order: 1},
+		]
 	},
 	{
 		id: 20,
@@ -1259,5 +1262,8 @@ export const dashboardList: TDashboardItem[] = [
 		// isAccess: checkBtnAccess('safetyOfGoodsAndMaterials'),
 		isDevelopment: false,
 		path: 'safety',
+		availableTypes: [
+			{id: EAvailableOrgs.division, title: CAvailableOrgsTranslate[EAvailableOrgs.division], order: 1},
+		]
 	},
 ];

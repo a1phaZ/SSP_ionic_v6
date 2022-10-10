@@ -12,7 +12,6 @@ import {THeaderButtons} from '../../../models/button.model';
 import {ApiModel} from '../../../models/api.model';
 import {mergeMap, takeUntil} from 'rxjs/operators';
 import {of} from 'rxjs';
-import {selectCurrentOrg, selectOrgById} from '../../../../store/organizations/organizations.selectors';
 import {TTableColumn, TTableRow} from '../../../models/table.model';
 import {selectSecurityRatingState} from '../../../../store/app.selectors';
 import {chooseOrgById} from '../../../../store/organizations/organizations.actions';
@@ -28,6 +27,9 @@ export class SecurityRatingPage extends BasePage implements OnInit, OnDestroy {
 	tableColumns: TTableColumn[];
 	tableRows: TTableRow[];
 
+	apiMethod: { [key: string]: boolean };
+	showDetails: boolean;
+
 	constructor(
 		public route: ActivatedRoute,
 		public router: Router,
@@ -41,6 +43,9 @@ export class SecurityRatingPage extends BasePage implements OnInit, OnDestroy {
 	) {
 		super(route, router, webApi, store, modalCtrl, navigation);
 		// this.currentDirection$.subscribe(direction => this.direction = direction);
+
+		this.apiMethod = this.route.snapshot.data?.api?.rating;
+		this.showDetails = this.route.snapshot.data?.view?.showDetail;
 	}
 
 	ngOnInit() {
@@ -53,8 +58,8 @@ export class SecurityRatingPage extends BasePage implements OnInit, OnDestroy {
 					}
 					return this.makeRequest({
 						user: 1362,
-						getPoly: true,
-						...data
+						...data,
+						...this.apiMethod
 					});
 				}
 			),
@@ -81,8 +86,10 @@ export class SecurityRatingPage extends BasePage implements OnInit, OnDestroy {
 	}
 
 	onRowClick($event: any) {
-		this.store.dispatch(chooseOrgById({buttonId: this.buttonId, id: $event.id}));
-		this.router.navigate([this.navigation.lastUrl, 'detail', $event.id]);
+		if (this.showDetails) {
+			this.store.dispatch(chooseOrgById({buttonId: this.buttonId, id: $event.id}));
+			this.router.navigate([this.navigation.lastUrl, 'detail', $event.id]);
+		}
 	}
 
 	protected getTableColumns(header: any): TTableColumn[] {

@@ -85,7 +85,7 @@ export const selectSecurityRatingState = createSelector(
 			periodName: period.periodId,
 			orgId: org.id,
 			brand: 0,
-			depId: direction
+			depId: direction !== 0 ? direction : undefined
 		};
 	}
 );

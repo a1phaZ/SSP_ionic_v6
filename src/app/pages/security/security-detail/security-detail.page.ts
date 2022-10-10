@@ -27,6 +27,7 @@ export class SecurityDetailPage extends BasePage implements OnInit, OnDestroy {
 	title: string;
 	descriptionList: any[];
 	content: { title: string; value: number; colorIndicator: number }[];
+	apiMethod: {[key: string]: boolean};
 
 	constructor(
 		public route: ActivatedRoute,
@@ -38,7 +39,8 @@ export class SecurityDetailPage extends BasePage implements OnInit, OnDestroy {
 	) {
 		super(route, router, webApi, store, modalCtrl, navigation);
 		this.orgId = Number(this.route.snapshot.params?.id);
-		this.titles.primary = this.route.snapshot.data?.title;
+		this.titles.primary = this.route.snapshot.data?.view?.title;
+		this.apiMethod = this.route.snapshot.data?.api?.detail;
 	}
 
 	ngOnInit() {
@@ -54,13 +56,11 @@ export class SecurityDetailPage extends BasePage implements OnInit, OnDestroy {
 			.pipe(
 				select(selectSecurityRatingState),
 				takeUntil(this.ngUnsubscribe),
-				mergeMap(data => {
-					return this.makeRequest({
+				mergeMap(data => this.makeRequest({
 						user: 1362,
-						getPolyIndicatorDetail: true,
-						...data
-					});
-				})
+						...data,
+						...this.apiMethod
+					}))
 			)
 			.subscribe((r: ISecurityDetailResponse) => {
 				this.title = r.title;
