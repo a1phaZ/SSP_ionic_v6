@@ -1,4 +1,4 @@
-<div class="list__item-wrapper array--description__item-wrapper">
+<div class="list__item-wrapper array--description__item-wrapper" (click)="onSelectItem(item.id)">
 	<div class="item__info">
 		<div class="info__title">{{item.userName}}</div>
 		<div class="info__details array__description-wrapper" *ngIf="item.values as values">

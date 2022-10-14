@@ -1,0 +1,22 @@
+<app-header [buttons]="headerButtons"
+			[primaryTitle]="titles.primary"
+			[secondaryTitle]="titles.secondary"
+			[tertiaryTitle]="titles.tertiary"
+			(leftHandle)="buttonsHandle($event)"
+			(rightHandle)="buttonsHandle($event)"
+></app-header>
+
+<app-items-bar *ngIf="barItems"
+			   [items]="barItems"
+			   [selectedId]="selected | async"
+			   position="top" (changeSelected)="onBarChange($event)"></app-items-bar>
+
+<ion-content>
+	<section class="content__wrapper height100">
+		<app-array-description-list *ngIf="(selected | async) === 0; else rating" [list]="list$ | async" (selectItem)="selectItem($event)"></app-array-description-list>
+		<ng-template #rating>
+			<span class="rating__description">{{description$ | async}}</span>
+			<app-simple-rating-list [list]="ratingList$ | async"></app-simple-rating-list>
+		</ng-template>
+	</section>
+</ion-content>

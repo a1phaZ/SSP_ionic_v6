@@ -1,0 +1,12 @@
+<app-header [buttons]="headerButtons"
+			[primaryTitle]="titles.primary"
+			[secondaryTitle]="titles.secondary"
+			[tertiaryTitle]="titles.tertiary"
+			(leftHandle)="buttonsHandle($event)"
+			(rightHandle)="buttonsHandle($event)"
+></app-header>
+<ion-content>
+	<section class="content__wrapper height100">
+		<app-simple-list [list]="list$ | async" (selectItem)="selectItem($event)"></app-simple-list>
+	</section>
+</ion-content>

@@ -1,0 +1,11 @@
+<section class="year__picker">
+	<div class="period__title" (click)="pickerToggle()">
+		<span>{{value | titlecase}}</span>
+		<app-custom-icon-button [name]="isOpen ? 'arrow-up' : 'arrow-down'"></app-custom-icon-button>
+	</div>
+	<div class="picker" [ngClass]="{isOpen: isOpen}">
+		<app-custom-icon-button name="arrow-left" (click)="calculatePeriod(-1)"></app-custom-icon-button>
+		<span class="value">{{period.periodYear}}</span>
+		<app-custom-icon-button name="arrow-right" (click)="calculatePeriod(1)"></app-custom-icon-button>
+	</div>
+</section>

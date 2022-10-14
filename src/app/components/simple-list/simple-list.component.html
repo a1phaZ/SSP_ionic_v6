@@ -2,6 +2,7 @@
 	<ng-container *ngFor="let item of list">
 		<app-simple-list-item
 			[item]="item"
+			(selectItem)="onSelectItem($event)"
 			(itemToggle)="itemToggle($event)"></app-simple-list-item>
 	</ng-container>
 </div>

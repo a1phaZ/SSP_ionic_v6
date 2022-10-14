@@ -16,8 +16,28 @@ const routes: Routes = [
 		// loadChildren: () => import('./dashboard.module').then(m => m.DashboardPageModule),
 	},
 	{
+		path: ':buttonId/' + EDashboardPath.aku,
+		loadChildren: () => import('../aku/aku-tabs/aku-tabs.module')
+			.then(m => m.AkuTabsPageModule),
+		resolve: {tabs: AkuTabsResolver},
+		canActivateChild: [DashboardGuard]
+	},
+	{
+		path: ':buttonId/' + EDashboardPath.possessions,
+		loadChildren: () => import('../possessions/possessions-tabs/possessions-tabs.module')
+			.then(m => m.PossessionsTabsPageModule),
+		resolve: {tabs: PossessionsTabsResolver},
+		canActivateChild: [DashboardGuard]
+	},
+	{
 		path: ':prevId/:buttonId/' + EDashboardPath.indicators,
 		loadChildren: () => import('../indicators/indicators.module').then(m => m.IndicatorsPageModule),
+		canActivateChild: [DashboardGuard]
+	},
+	{
+		path: ':prevId/:buttonId/' + EDashboardPath.qualification,
+		loadChildren: () => import('../qualification/qualification-list/qualification-list.module')
+			.then(m => m.QualificationListPageModule),
 		canActivateChild: [DashboardGuard]
 	},
 	{
@@ -32,20 +52,6 @@ const routes: Routes = [
 		loadChildren: () => import('../security/security-rating-tabs/security-rating-tabs.module')
 			.then(m => m.SecurityRatingTabsPageModule),
 		resolve: {tabs: SecurityTabsResolver},
-		canActivateChild: [DashboardGuard]
-	},
-	{
-		path: ':buttonId/' + EDashboardPath.aku,
-		loadChildren: () => import('../aku/aku-tabs/aku-tabs.module')
-			.then(m => m.AkuTabsPageModule),
-		resolve: {tabs: AkuTabsResolver},
-		canActivateChild: [DashboardGuard]
-	},
-	{
-		path: ':buttonId/' + EDashboardPath.possessions,
-		loadChildren: () => import('../possessions/possessions-tabs/possessions-tabs.module')
-			.then(m => m.PossessionsTabsPageModule),
-		resolve: {tabs: PossessionsTabsResolver},
 		canActivateChild: [DashboardGuard]
 	},
 	{

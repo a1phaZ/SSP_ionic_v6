@@ -15,15 +15,18 @@ export class NavigationService {
   ) {
 	  this.router.events.subscribe((event) => {
 		  if (event instanceof NavigationEnd) {
-			  // console.log(event);
-			  this.lastUrl = event.urlAfterRedirects;
-			  this.history.push(event.urlAfterRedirects);
+			  const cleanUrl = event.urlAfterRedirects.split('?')[0].split('/(')[0];
+			  if (this.lastUrl !== cleanUrl) {
+				  this.lastUrl = cleanUrl;
+				  this.history.push(cleanUrl);
+			  }
 		  }
 	  });
   }
 
   back(): void {
 	  // this.history.pop();
+	  // TODO Придумать нормальную навигацию по разделам;
 	  if (this.history.length > 0) {
 		  this.location.back();
 		  this.lastUrl = this.history[this.history.length];

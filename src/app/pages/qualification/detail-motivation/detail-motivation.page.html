@@ -1,0 +1,7 @@
+<app-year-picker></app-year-picker>
+<app-items-bar *ngIf="barItems"
+			   [items]="barItems"
+			   [selectedId]="selected | async"
+			   classList="padding0 bg-none"
+			   position="top" (changeSelected)="onBarChange($event)"></app-items-bar>
+<app-block-with-header [block]="block" *ngFor="let block of data$ | async"></app-block-with-header>

@@ -947,6 +947,7 @@ export const dashboardList: TDashboardItem[] = [
 		isChild: true,
 		// isAccess: checkBtnAccess('motivation'), // qualification
 		isDevelopment: false,
+		path: EDashboardPath.qualification
 	},
 	{
 		id: 49, //id - need update

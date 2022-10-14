@@ -1,0 +1,36 @@
+.year__picker {
+	.period__title {
+		span {
+			font-size: 1.4rem;
+			font-weight: 500;
+			color: var(--ion-color-primary);
+		}
+
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		align-items: center;
+		text-align: end;
+	}
+
+	.picker {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		display: none;
+		font-weight: 500;
+
+		background: var(--status-excellent);
+		margin: 8px 0;
+		padding: 8px 0;
+
+		.value {
+			font-size: 1.4rem;
+		}
+
+		&.isOpen {
+			display: flex;
+		}
+	}
+
+}

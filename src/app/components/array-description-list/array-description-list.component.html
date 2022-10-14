@@ -2,6 +2,6 @@
 	<ng-container *ngFor="let item of list">
 		<app-array-description-list-item
 			[item]="item"
-			(itemToggle)="itemToggle($event)"></app-array-description-list-item>
+			(itemToggle)="itemToggle($event)" (selectItem)="onSelectItem($event)"></app-array-description-list-item>
 	</ng-container>
 </div>

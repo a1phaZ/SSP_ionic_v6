@@ -30,6 +30,8 @@ import {InfluenceEffects} from '../store/influence/influence.effects';
 import {influenceReducer} from '../store/influence/influence.reducer';
 import {PossessionsEffects} from '../store/possessions/possessions.effects';
 import {possessionsReducer} from '../store/possessions/possessions.reducer';
+import {qualificationReducer} from '../store/qualification/qualification.reducer';
+import {QualificationEffects} from '../store/qualification/qualification.effects';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -50,6 +52,7 @@ import {possessionsReducer} from '../store/possessions/possessions.reducer';
 			rating: ratingReducer,
 			influence: influenceReducer,
 			possessions: possessionsReducer,
+			qualification: qualificationReducer,
 		}),
 		EffectsModule.forRoot([
 			OrganizationsEffects,
@@ -59,6 +62,7 @@ import {possessionsReducer} from '../store/possessions/possessions.reducer';
 			RatingEffects,
 			InfluenceEffects,
 			PossessionsEffects,
+			QualificationEffects,
 		]),
 	],
 	providers: [

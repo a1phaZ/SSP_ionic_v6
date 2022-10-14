@@ -21,7 +21,6 @@ export class DashboardGuard implements CanActivateChild {
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-		console.log(this.selected);
 		if (!this.selected) {
 			this.router.navigate(['dashboard']);
 		}

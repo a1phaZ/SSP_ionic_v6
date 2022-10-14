@@ -16,9 +16,10 @@ export class LoadingService {
 	}
 
 	set loading(l: any) {
-		this.isLoading.next(l);
+		setTimeout(() => this.isLoading.next(l), 0);
 	}
 
+	// eslint-disable-next-line @typescript-eslint/member-ordering
 	get loadingSync() {
 		return this.isLoading.value;
 	}

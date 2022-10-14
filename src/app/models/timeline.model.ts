@@ -1,6 +1,7 @@
 export type TTimeLine = {
-	title: string;
-	subtitle: string;
+	dc: string;
+	dolj: string;
+	division: string;
 	status: 'end' | 'current';
 	monthFrom: string;
 	monthTo: string;

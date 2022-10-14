@@ -18,5 +18,6 @@ export enum EDashboardPath {
 	distributorRating = 'distributor-rating',
 	possessions = 'possessions',
 	aku = 'aku',
-	security = 'security'
+	security = 'security',
+	qualification = 'qualification'
 }

@@ -11,7 +11,7 @@ export type TBlockWithHeaderValues = {
 };
 
 export type TBlockColumn = {
-	name: string;
+	type_name: string;
 	info: TBlockColumnInfo[];
 };
 

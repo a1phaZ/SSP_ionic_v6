@@ -1,0 +1,33 @@
+<app-header [buttons]="headerButtons"
+			[primaryTitle]="titles.primary"
+			[secondaryTitle]="titles.secondary"
+			[tertiaryTitle]="titles.tertiary"
+			(leftHandle)="buttonsHandle($event)"
+			(rightHandle)="buttonsHandle($event)"
+></app-header>
+
+<app-items-bar *ngIf="barItems"
+			   [items]="barItems"
+			   [selectedId]="selected | async"
+			   position="top" (changeSelected)="onBarChange($event)"></app-items-bar>
+
+<ion-content>
+	<section class="content__wrapper height100">
+		<router-outlet name="detail"></router-outlet>
+<!--		<ng-container [ngSwitch]="method" *ngIf="(response$ | async) as data">-->
+<!--			<ng-container *ngSwitchCase="'loadQualificationUserFullInfo'"></ng-container>-->
+<!--			<ng-container *ngSwitchCase="'getCareer'">-->
+<!--				<app-timeline [list]="data"></app-timeline>-->
+<!--			</ng-container>-->
+<!--			<ng-container *ngSwitchCase="'getMotivation'">-->
+<!--				<app-array-description-list [list]="list$ | async"></app-array-description-list>-->
+<!--			</ng-container>-->
+<!--			<ng-container *ngSwitchCase="'getMemo'">-->
+<!--				<ng-container *ngFor="let block of data">-->
+<!--					<app-block-columns [block]="block"></app-block-columns>-->
+<!--				</ng-container>-->
+<!--			</ng-container>-->
+<!--		</ng-container>-->
+	</section>
+
+</ion-content>

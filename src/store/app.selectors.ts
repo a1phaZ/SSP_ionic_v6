@@ -8,6 +8,7 @@ import {IDetailsState} from './details/details.reducer';
 import {IRatingState} from './rating/rating.reducer';
 import {IInfluenceState} from './influence/influence.reducer';
 import {IPossessionState} from './possessions/possessions.reducer';
+import {IQualificationState} from './qualification/qualification.reducer';
 
 export const selectAppDashboard = createFeatureSelector<IDashboardState>('dashboard');
 export const selectAppDirections = createFeatureSelector<IDirectionState>('directions');
@@ -18,6 +19,7 @@ export const selectAppDetails = createFeatureSelector<IDetailsState>('details');
 export const selectAppRating = createFeatureSelector<IRatingState>('rating');
 export const selectAppInfluence = createFeatureSelector<IInfluenceState>('influence');
 export const selectAppPossessions = createFeatureSelector<IPossessionState>('possessions');
+export const selectAppQualification = createFeatureSelector<IQualificationState>('qualification');
 
 export const selectIndicatorsPageState = createSelector(
 	// selectState,

@@ -23,4 +23,7 @@ export enum ApiModel {
 
 	//security
 	security = '/backbone/security-service/ajax.php',
+
+	//qualification
+	qualification = '/backbone/mobileApp/qualification.php'
 }

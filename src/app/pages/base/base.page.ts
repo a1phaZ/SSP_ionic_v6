@@ -21,6 +21,8 @@ export abstract class BasePage implements OnInit, OnDestroy {
 
 	buttonId: number;
 	currentDirection$: Observable<number>;
+	headerButtons: THeaderButtons;
+	titles: { primary: string; secondary?: string; tertiary?: string } = {primary: ''};
 
 	protected ngUnsubscribe: Subject<any> = new Subject<any>();
 
@@ -60,7 +62,6 @@ export abstract class BasePage implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		console.warn('Indicators page destroy');
 		this.ngUnsubscribe.next();
 		this.ngUnsubscribe.complete();
 	}

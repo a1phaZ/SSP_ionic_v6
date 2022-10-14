@@ -1,5 +1,5 @@
 <div class="block__wrapper block__columns-wrapper">
-	<div class="block__header">{{block.name}}</div>
+	<div class="block__header">{{block.type_name}}</div>
 	<ng-container *ngIf="block.info as values">
 		<ng-container *ngFor="let item of values">
 			<app-item-column [item]="item"></app-item-column>
